@@ -15,6 +15,8 @@
 		3F4C32711CC9CEF400E015CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F4C326F1CC9CEF400E015CF /* LaunchScreen.storyboard */; };
 		3F4C329A1CC9D90300E015CF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C32991CC9D90300E015CF /* Constants.swift */; };
 		3F4C329C1CC9D96200E015CF /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C329B1CC9D96200E015CF /* DataService.swift */; };
+		3F4C329F1CC9DBA300E015CF /* FeedViews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F4C329E1CC9DBA300E015CF /* FeedViews.storyboard */; };
+		3F4C32A11CC9DD0100E015CF /* AllPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C32A01CC9DD0100E015CF /* AllPhotosViewController.swift */; };
 		D40FF84F8D6DCDBD3F3DA4AE /* Pods_fake_instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1A83AF90C2D30F606292CB /* Pods_fake_instagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +32,8 @@
 		3F4C32721CC9CEF400E015CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F4C32991CC9D90300E015CF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3F4C329B1CC9D96200E015CF /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		3F4C329E1CC9DBA300E015CF /* FeedViews.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FeedViews.storyboard; sourceTree = "<group>"; };
+		3F4C32A01CC9DD0100E015CF /* AllPhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllPhotosViewController.swift; sourceTree = "<group>"; };
 		8D1A83AF90C2D30F606292CB /* Pods_fake_instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fake_instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABD1FDE3ED6194A8494911E3 /* Pods-fake-instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fake-instagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fake-instagram/Pods-fake-instagram.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,7 +73,9 @@
 			children = (
 				3F4C32631CC9CEF400E015CF /* AppDelegate.swift */,
 				3F4C32651CC9CEF400E015CF /* ViewController.swift */,
+				3F4C32A01CC9DD0100E015CF /* AllPhotosViewController.swift */,
 				3F4C32671CC9CEF400E015CF /* Main.storyboard */,
+				3F4C329E1CC9DBA300E015CF /* FeedViews.storyboard */,
 				3F4C329D1CC9D96700E015CF /* Utilities */,
 				3F4C326D1CC9CEF400E015CF /* Assets.xcassets */,
 				3F4C326F1CC9CEF400E015CF /* LaunchScreen.storyboard */,
@@ -167,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F4C32711CC9CEF400E015CF /* LaunchScreen.storyboard in Resources */,
+				3F4C329F1CC9DBA300E015CF /* FeedViews.storyboard in Resources */,
 				3F4C326E1CC9CEF400E015CF /* Assets.xcassets in Resources */,
 				3F4C32691CC9CEF400E015CF /* Main.storyboard in Resources */,
 			);
@@ -230,6 +237,7 @@
 				3F4C32661CC9CEF400E015CF /* ViewController.swift in Sources */,
 				3F4C326C1CC9CEF400E015CF /* fake_instagram.xcdatamodeld in Sources */,
 				3F4C32641CC9CEF400E015CF /* AppDelegate.swift in Sources */,
+				3F4C32A11CC9DD0100E015CF /* AllPhotosViewController.swift in Sources */,
 				3F4C329A1CC9D90300E015CF /* Constants.swift in Sources */,
 				3F4C329C1CC9D96200E015CF /* DataService.swift in Sources */,
 			);

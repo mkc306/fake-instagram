@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--All Photos View Controller-->
+        <scene sceneID="a7d-bO-iKd">
+            <objects>
+                <viewController id="ibg-ye-nZB" customClass="AllPhotosViewController" customModule="fake_instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nAd-BM-f3F"/>
+                        <viewControllerLayoutGuide type="bottom" id="o7E-RN-veF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PUx-UT-fIv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bew-zN-BAY">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="400" id="R7Y-ek-mWd">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="400"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="R7Y-ek-mWd" id="twT-ue-fjU">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="399.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J7z-ki-lU5">
+                                                    <rect key="frame" x="150" y="31" width="300" height="300"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="300" id="p15-Se-peE"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="J7z-ki-lU5" firstAttribute="top" secondItem="twT-ue-fjU" secondAttribute="topMargin" constant="23" id="36l-ec-Twc"/>
+                                                <constraint firstItem="J7z-ki-lU5" firstAttribute="centerX" secondItem="twT-ue-fjU" secondAttribute="centerX" id="mdU-8f-plr"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="J7z-ki-lU5" secondAttribute="bottom" constant="60.5" id="vxK-DT-VhE"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="o7E-RN-veF" firstAttribute="top" secondItem="bew-zN-BAY" secondAttribute="bottom" id="FZw-Xl-tw2"/>
+                            <constraint firstItem="bew-zN-BAY" firstAttribute="top" secondItem="nAd-BM-f3F" secondAttribute="bottom" id="HJ7-kJ-9Ic"/>
+                            <constraint firstItem="bew-zN-BAY" firstAttribute="leading" secondItem="PUx-UT-fIv" secondAttribute="leading" id="XDc-Vh-LPf"/>
+                            <constraint firstAttribute="trailing" secondItem="bew-zN-BAY" secondAttribute="trailing" id="z9T-Jb-tqP"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XzU-SZ-rkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="891" y="679"/>
+        </scene>
+    </scenes>
+</document>
