@@ -60,11 +60,15 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SUg-6t-VSM">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
                                         <state key="normal" title="Login"/>
+                                        <connections>
+                                            <action selector="OnLoginButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iTK-wS-oQI"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFv-ek-qXX">
                                         <rect key="frame" x="150" y="0.0" width="150" height="30"/>
                                         <state key="normal" title="Signup"/>
                                         <connections>
+                                            <action selector="onSignupButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3fW-an-zBW"/>
                                             <segue destination="Y63-bD-S8F" kind="show" identifier="SignUpSegue" id="Af5-Xm-duR"/>
                                         </connections>
                                     </button>
@@ -103,8 +107,6 @@
                     <navigationItem key="navigationItem" id="fbN-jT-XfD"/>
                     <connections>
                         <outlet property="emailTextField" destination="q9U-7W-je3" id="tTT-Kc-ZSA"/>
-                        <outlet property="onLoginButtonPress" destination="SUg-6t-VSM" id="DfE-Zo-aFL"/>
-                        <outlet property="onSignupButtonPress" destination="yFv-ek-qXX" id="ody-Pu-8Q0"/>
                         <outlet property="passwordTextField" destination="4ov-8Y-gTt" id="iC2-rW-RSz"/>
                     </connections>
                 </viewController>
@@ -190,6 +192,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wxq-fe-JAO">
                                 <rect key="frame" x="271.5" y="464" width="57" height="30"/>
                                 <state key="normal" title="Register"/>
+                                <connections>
+                                    <action selector="onRegisterButtonPress:" destination="Y63-bD-S8F" eventType="touchUpInside" id="oNR-Jy-HZd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -225,7 +230,6 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="50f-Sy-91U" id="MTf-RH-Cte"/>
-                        <outlet property="onRegisterButtonPress" destination="Wxq-fe-JAO" id="y3S-sm-L9i"/>
                         <outlet property="passwordTextField" destination="HYX-e8-IjQ" id="7dM-1H-IGS"/>
                         <outlet property="usernameTextField" destination="8aM-KL-ciz" id="Vxc-bf-hGL"/>
                     </connections>

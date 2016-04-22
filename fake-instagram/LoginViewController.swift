@@ -16,14 +16,16 @@ class LoginViewController: UIViewController {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 	}
+    @IBAction func OnLoginButtonPress(sender: UIButton) {
+    }
+    @IBAction func onSignupButtonPress(sender: UIButton) {
+    }
+
 
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
 
-    @IBOutlet weak var onSignupButtonPress: UIButton!
-
-    @IBOutlet weak var onLoginButtonPress: UIButton!
 }
 
