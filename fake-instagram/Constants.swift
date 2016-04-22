@@ -14,4 +14,4 @@ let BASE_URL = "https://fake-instagram.firebaseio.com"
 let CognitoRegionType = AWSRegionType.USEast1  // e.g. AWSRegionType.USEast1
 let DefaultServiceRegionType = AWSRegionType.USEast1 // e.g. AWSRegionType.USEast1
 let CognitoIdentityPoolId = "us-east-1_Effbu9bEr"
-let S3BucketName = "fake-instagram"
+let S3BucketName = "instagram-fake"
