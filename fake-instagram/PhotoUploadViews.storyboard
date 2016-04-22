@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Photo Upload View Controller-->
@@ -16,12 +17,76 @@
                     <view key="view" contentMode="scaleToFill" id="Xe2-Zc-loz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CVF-ad-49u">
+                                <rect key="frame" x="0.0" y="60" width="600" height="377"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CVF-ad-49u" firstAttribute="leading" secondItem="Xe2-Zc-loz" secondAttribute="leadingMargin" constant="-20" id="Hfh-7X-kDR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CVF-ad-49u" secondAttribute="trailing" constant="-20" id="LaW-yx-FIF"/>
+                            <constraint firstItem="CVF-ad-49u" firstAttribute="top" secondItem="MLO-LT-bvC" secondAttribute="bottom" constant="40" id="fqo-sl-YbK"/>
+                            <constraint firstItem="cOx-0Q-1Q8" firstAttribute="top" secondItem="CVF-ad-49u" secondAttribute="bottom" constant="119" id="sA8-Hg-73j"/>
+                        </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem width="259" style="plain" systemItem="fixedSpace" id="KOO-d9-82v"/>
+                        <barButtonItem title="Take Pic" id="cmG-aU-YCd">
+                            <connections>
+                                <action selector="onTakePicButtonPressed:" destination="y4A-pt-u9e" id="SBs-1v-cfm"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem width="271" style="plain" systemItem="fixedSpace" id="FFQ-dA-hJi"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="cameraView" destination="CVF-ad-49u" id="2wG-uS-Yns"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EBv-Rj-AtB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1071" y="52"/>
+            <point key="canvasLocation" x="-1061" y="52"/>
+        </scene>
+        <!--Photo Upload View Controller-->
+        <scene sceneID="gBS-T8-PUa">
+            <objects>
+                <viewController id="Bqu-3k-TRR" customClass="PhotoUploadViewController" customModule="fake_instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oOo-fP-YvG"/>
+                        <viewControllerLayoutGuide type="bottom" id="kCM-Fy-L3k"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PNK-pc-m1R">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KfI-kx-lL7">
+                                <rect key="frame" x="0.0" y="60" width="600" height="377"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KfI-kx-lL7" firstAttribute="leading" secondItem="PNK-pc-m1R" secondAttribute="leadingMargin" constant="-20" id="QAA-q4-mj6"/>
+                            <constraint firstItem="KfI-kx-lL7" firstAttribute="top" secondItem="oOo-fP-YvG" secondAttribute="bottom" constant="40" id="cqn-6I-Rjm"/>
+                            <constraint firstItem="kCM-Fy-L3k" firstAttribute="top" secondItem="KfI-kx-lL7" secondAttribute="bottom" constant="119" id="lzK-kO-mmh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KfI-kx-lL7" secondAttribute="trailing" constant="-20" id="pAp-cr-ZBv"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem width="259" style="plain" systemItem="fixedSpace" id="Trt-5s-LZ6"/>
+                        <barButtonItem title="Take Pic" id="L8o-YS-aZv">
+                            <connections>
+                                <action selector="onTakePicButtonPressed:" destination="Bqu-3k-TRR" id="091-uF-nNR"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem width="271" style="plain" systemItem="fixedSpace" id="g3Y-jz-075"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b0M-aU-HJd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1061" y="52"/>
         </scene>
     </scenes>
 </document>
