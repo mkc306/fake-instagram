@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '7BEC577FE27F88C1DC050872'
-               BlueprintName = 'AWSCore'
+               BlueprintIdentifier = '39D51B5CBEF31DB9CDF88B2E'
+               BlueprintName = 'FastttCamera'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'AWSCore.framework'>
+               BuildableName = 'FastttCamera.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

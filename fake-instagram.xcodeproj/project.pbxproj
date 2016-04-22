@@ -21,6 +21,7 @@
 		3F4C32A81CC9E07900E015CF /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C32A71CC9E07900E015CF /* Comment.swift */; };
 		3F4C32AA1CCA00F300E015CF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C32A91CCA00F300E015CF /* LoginViewController.swift */; };
 		3F4C32AC1CCA05CC00E015CF /* PhotoUploadViews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F4C32AB1CCA05CC00E015CF /* PhotoUploadViews.storyboard */; };
+		3F4C32B91CCA1AFA00E015CF /* PhotoUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C32B81CCA1AFA00E015CF /* PhotoUploadViewController.swift */; };
 		45442C231CC9F4F500EDAC32 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45442C221CC9F4F500EDAC32 /* SignupViewController.swift */; };
 		45442C251CCA0AC100EDAC32 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45442C241CCA0AC100EDAC32 /* UserProfileViewController.swift */; };
 		45442C271CCA0C2800EDAC32 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45442C261CCA0C2800EDAC32 /* UserListViewController.swift */; };
@@ -48,6 +49,7 @@
 		3F4C32A71CC9E07900E015CF /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		3F4C32A91CCA00F300E015CF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3F4C32AB1CCA05CC00E015CF /* PhotoUploadViews.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoUploadViews.storyboard; sourceTree = "<group>"; };
+		3F4C32B81CCA1AFA00E015CF /* PhotoUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoUploadViewController.swift; sourceTree = "<group>"; };
 		45442C221CC9F4F500EDAC32 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		45442C241CCA0AC100EDAC32 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		45442C261CCA0C2800EDAC32 /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				3F4C32A01CC9DD0100E015CF /* AllPhotosViewController.swift */,
 				3F4C32A91CCA00F300E015CF /* LoginViewController.swift */,
 				45442C221CC9F4F500EDAC32 /* SignupViewController.swift */,
+				3F4C32B81CCA1AFA00E015CF /* PhotoUploadViewController.swift */,
 				45442C241CCA0AC100EDAC32 /* UserProfileViewController.swift */,
 				45442C261CCA0C2800EDAC32 /* UserListViewController.swift */,
 			);
@@ -306,6 +309,7 @@
 				3F4C32A81CC9E07900E015CF /* Comment.swift in Sources */,
 				3F4C32AA1CCA00F300E015CF /* LoginViewController.swift in Sources */,
 				45442C2D1CCA24B000EDAC32 /* OtherProfileViewController.swift in Sources */,
+				3F4C32B91CCA1AFA00E015CF /* PhotoUploadViewController.swift in Sources */,
 				45442C291CCA0F6800EDAC32 /* PhotoTableViewCell.swift in Sources */,
 				45442C2B1CCA19C500EDAC32 /* PhotoViewController.swift in Sources */,
 				45442C251CCA0AC100EDAC32 /* UserProfileViewController.swift in Sources */,
