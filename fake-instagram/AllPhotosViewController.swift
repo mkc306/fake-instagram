@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 	
 	var photos = [Photo]()
 	@IBOutlet weak var tableView: UITableView!
@@ -33,8 +33,8 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
 	}
 	
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier("")!
-		return cell
+		let cell = tableView.dequeueReusableCellWithIdentifier("") as? PhotoTableViewCell
+		return cell!
 	}
 
     /*
