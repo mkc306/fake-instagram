@@ -38,13 +38,10 @@
 		3F4C329B1CC9D96200E015CF /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		3F4C329E1CC9DBA300E015CF /* FeedViews.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FeedViews.storyboard; sourceTree = "<group>"; };
 		3F4C32A01CC9DD0100E015CF /* AllPhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllPhotosViewController.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		3F4C32A31CC9E06600E015CF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3F4C32A51CC9E07100E015CF /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		3F4C32A71CC9E07900E015CF /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
-=======
 		45442C221CC9F4F500EDAC32 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
->>>>>>> ca65d732d4894fdbfb5f341b3d1c6bd457382466
 		8D1A83AF90C2D30F606292CB /* Pods_fake_instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fake_instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABD1FDE3ED6194A8494911E3 /* Pods-fake-instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fake-instagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fake-instagram/Pods-fake-instagram.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
