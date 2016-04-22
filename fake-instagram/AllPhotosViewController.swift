@@ -8,10 +8,16 @@
 
 import UIKit
 
-class AllPhotosViewController: UIViewController {
+class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+	
+	var photos = [Photo]()
+	@IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
+			
         super.viewDidLoad()
+			self.tableView.delegate = self
+			self.tableView.dataSource = self
 
         // Do any additional setup after loading the view.
     }
@@ -20,6 +26,10 @@ class AllPhotosViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+	
+	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return self.photos.
+	}
     
 
     /*

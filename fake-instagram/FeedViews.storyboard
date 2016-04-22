@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="400" id="R7Y-ek-mWd">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="400" id="R7Y-ek-mWd">
                                         <rect key="frame" x="0.0" y="28" width="600" height="400"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="R7Y-ek-mWd" id="twT-ue-fjU">
@@ -54,6 +54,9 @@
                             <constraint firstAttribute="trailing" secondItem="bew-zN-BAY" secondAttribute="trailing" id="z9T-Jb-tqP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="bew-zN-BAY" id="7P4-yo-kte"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XzU-SZ-rkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
