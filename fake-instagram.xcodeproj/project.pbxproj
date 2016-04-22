@@ -20,6 +20,7 @@
 		3F4C32A61CC9E07100E015CF /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C32A51CC9E07100E015CF /* Photo.swift */; };
 		3F4C32A81CC9E07900E015CF /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C32A71CC9E07900E015CF /* Comment.swift */; };
 		3F4C32AA1CCA00F300E015CF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C32A91CCA00F300E015CF /* LoginViewController.swift */; };
+		3F4C32AC1CCA05CC00E015CF /* PhotoUploadViews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F4C32AB1CCA05CC00E015CF /* PhotoUploadViews.storyboard */; };
 		45442C231CC9F4F500EDAC32 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45442C221CC9F4F500EDAC32 /* SignupViewController.swift */; };
 		45442C251CCA0AC100EDAC32 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45442C241CCA0AC100EDAC32 /* UserProfileViewController.swift */; };
 		45442C271CCA0C2800EDAC32 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45442C261CCA0C2800EDAC32 /* UserListViewController.swift */; };
@@ -44,6 +45,7 @@
 		3F4C32A51CC9E07100E015CF /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		3F4C32A71CC9E07900E015CF /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		3F4C32A91CCA00F300E015CF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3F4C32AB1CCA05CC00E015CF /* PhotoUploadViews.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoUploadViews.storyboard; sourceTree = "<group>"; };
 		45442C221CC9F4F500EDAC32 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		45442C241CCA0AC100EDAC32 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		45442C261CCA0C2800EDAC32 /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				3F4C32631CC9CEF400E015CF /* AppDelegate.swift */,
+				3F4C32AD1CCA060C00E015CF /* Storyboards */,
 				3F4C32A21CC9E05700E015CF /* Models */,
 				3F4C32A01CC9DD0100E015CF /* AllPhotosViewController.swift */,
 				3F4C32671CC9CEF400E015CF /* Main.storyboard */,
@@ -97,7 +100,6 @@
 				3F4C329E1CC9DBA300E015CF /* FeedViews.storyboard */,
 				3F4C329D1CC9D96700E015CF /* Utilities */,
 				3F4C326D1CC9CEF400E015CF /* Assets.xcassets */,
-				3F4C326F1CC9CEF400E015CF /* LaunchScreen.storyboard */,
 				3F4C32721CC9CEF400E015CF /* Info.plist */,
 				3F4C326A1CC9CEF400E015CF /* fake_instagram.xcdatamodeld */,
 			);
@@ -121,6 +123,27 @@
 				3F4C32A71CC9E07900E015CF /* Comment.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		3F4C32AD1CCA060C00E015CF /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				3F4C329E1CC9DBA300E015CF /* FeedViews.storyboard */,
+				3F4C32671CC9CEF400E015CF /* Main.storyboard */,
+				3F4C32AB1CCA05CC00E015CF /* PhotoUploadViews.storyboard */,
+				3F4C326F1CC9CEF400E015CF /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		3F4C32AE1CCA064300E015CF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3F4C32A01CC9DD0100E015CF /* AllPhotosViewController.swift */,
+				3F4C32A91CCA00F300E015CF /* LoginViewController.swift */,
+				45442C221CC9F4F500EDAC32 /* SignupViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		83528D0AF05FE98938721016 /* Pods */ = {
@@ -203,6 +226,7 @@
 			files = (
 				3F4C32711CC9CEF400E015CF /* LaunchScreen.storyboard in Resources */,
 				3F4C329F1CC9DBA300E015CF /* FeedViews.storyboard in Resources */,
+				3F4C32AC1CCA05CC00E015CF /* PhotoUploadViews.storyboard in Resources */,
 				3F4C326E1CC9CEF400E015CF /* Assets.xcassets in Resources */,
 				3F4C32691CC9CEF400E015CF /* Main.storyboard in Resources */,
 			);
@@ -342,6 +366,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Utilities/AWS-S3Bridge.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -381,6 +406,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Utilities/AWS-S3Bridge.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -396,6 +422,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jeremy-ong.fake-instagram";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AWS-S3Bridge.h";
 			};
 			name = Debug;
 		};
@@ -409,6 +436,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jeremy-ong.fake-instagram";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AWS-S3Bridge.h";
 			};
 			name = Release;
 		};

@@ -7,5 +7,12 @@ target 'fake-instagram' do
 
 pod 'Firebase', '>= 2.5.1'
 
+# Camera pod
+pod 'LLSimpleCamera', '~> 4.1'
+
+# S3 AWS pod
+pod 'AWSS3'
+
+
 end
 
