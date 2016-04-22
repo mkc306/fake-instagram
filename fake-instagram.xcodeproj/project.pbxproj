@@ -90,14 +90,8 @@
 				3F4C32631CC9CEF400E015CF /* AppDelegate.swift */,
 				3F4C32AD1CCA060C00E015CF /* Storyboards */,
 				3F4C32A21CC9E05700E015CF /* Models */,
-				3F4C32A01CC9DD0100E015CF /* AllPhotosViewController.swift */,
-				3F4C32671CC9CEF400E015CF /* Main.storyboard */,
-				3F4C32A91CCA00F300E015CF /* LoginViewController.swift */,
-				45442C221CC9F4F500EDAC32 /* SignupViewController.swift */,
-				45442C241CCA0AC100EDAC32 /* UserProfileViewController.swift */,
-				45442C261CCA0C2800EDAC32 /* UserListViewController.swift */,
-				45442C281CCA0F6800EDAC32 /* PhotoTableViewCell.swift */,
-				3F4C329E1CC9DBA300E015CF /* FeedViews.storyboard */,
+				3F4C32B61CCA1A8200E015CF /* Controllers */,
+				3F4C32B71CCA1A9700E015CF /* Views */,
 				3F4C329D1CC9D96700E015CF /* Utilities */,
 				3F4C326D1CC9CEF400E015CF /* Assets.xcassets */,
 				3F4C32721CC9CEF400E015CF /* Info.plist */,
@@ -136,14 +130,24 @@
 			name = Storyboards;
 			sourceTree = "<group>";
 		};
-		3F4C32AE1CCA064300E015CF /* Controllers */ = {
+		3F4C32B61CCA1A8200E015CF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				3F4C32A01CC9DD0100E015CF /* AllPhotosViewController.swift */,
 				3F4C32A91CCA00F300E015CF /* LoginViewController.swift */,
 				45442C221CC9F4F500EDAC32 /* SignupViewController.swift */,
+				45442C241CCA0AC100EDAC32 /* UserProfileViewController.swift */,
+				45442C261CCA0C2800EDAC32 /* UserListViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		3F4C32B71CCA1A9700E015CF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				45442C281CCA0F6800EDAC32 /* PhotoTableViewCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		83528D0AF05FE98938721016 /* Pods */ = {
