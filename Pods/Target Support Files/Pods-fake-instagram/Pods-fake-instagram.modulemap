@@ -1,0 +1,6 @@
+framework module Pods_fake_instagram {
+  umbrella header "Pods-fake-instagram-umbrella.h"
+
+  export *
+  module * { export * }
+}
