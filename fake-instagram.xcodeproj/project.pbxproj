@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F4C32641CC9CEF400E015CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C32631CC9CEF400E015CF /* AppDelegate.swift */; };
-		3F4C32661CC9CEF400E015CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C32651CC9CEF400E015CF /* ViewController.swift */; };
+		3F4C32661CC9CEF400E015CF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C32651CC9CEF400E015CF /* LoginViewController.swift */; };
 		3F4C32691CC9CEF400E015CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F4C32671CC9CEF400E015CF /* Main.storyboard */; };
 		3F4C326C1CC9CEF400E015CF /* fake_instagram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C326A1CC9CEF400E015CF /* fake_instagram.xcdatamodeld */; };
 		3F4C326E1CC9CEF400E015CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F4C326D1CC9CEF400E015CF /* Assets.xcassets */; };
@@ -20,6 +20,7 @@
 		3F4C32A41CC9E06600E015CF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C32A31CC9E06600E015CF /* User.swift */; };
 		3F4C32A61CC9E07100E015CF /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C32A51CC9E07100E015CF /* Photo.swift */; };
 		3F4C32A81CC9E07900E015CF /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C32A71CC9E07900E015CF /* Comment.swift */; };
+		45442C231CC9F4F500EDAC32 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45442C221CC9F4F500EDAC32 /* SignupViewController.swift */; };
 		D40FF84F8D6DCDBD3F3DA4AE /* Pods_fake_instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1A83AF90C2D30F606292CB /* Pods_fake_instagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,7 +28,7 @@
 		1EA62EE9BED4E9B544C14E9D /* Pods-fake-instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fake-instagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-fake-instagram/Pods-fake-instagram.release.xcconfig"; sourceTree = "<group>"; };
 		3F4C32601CC9CEF300E015CF /* fake-instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fake-instagram.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F4C32631CC9CEF400E015CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3F4C32651CC9CEF400E015CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3F4C32651CC9CEF400E015CF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3F4C32681CC9CEF400E015CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F4C326B1CC9CEF400E015CF /* fake_instagram.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = fake_instagram.xcdatamodel; sourceTree = "<group>"; };
 		3F4C326D1CC9CEF400E015CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -37,9 +38,13 @@
 		3F4C329B1CC9D96200E015CF /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		3F4C329E1CC9DBA300E015CF /* FeedViews.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FeedViews.storyboard; sourceTree = "<group>"; };
 		3F4C32A01CC9DD0100E015CF /* AllPhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllPhotosViewController.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		3F4C32A31CC9E06600E015CF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3F4C32A51CC9E07100E015CF /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		3F4C32A71CC9E07900E015CF /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+=======
+		45442C221CC9F4F500EDAC32 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+>>>>>>> ca65d732d4894fdbfb5f341b3d1c6bd457382466
 		8D1A83AF90C2D30F606292CB /* Pods_fake_instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fake_instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABD1FDE3ED6194A8494911E3 /* Pods-fake-instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fake-instagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fake-instagram/Pods-fake-instagram.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,10 +83,15 @@
 			isa = PBXGroup;
 			children = (
 				3F4C32631CC9CEF400E015CF /* AppDelegate.swift */,
+<<<<<<< HEAD
 				3F4C32651CC9CEF400E015CF /* ViewController.swift */,
 				3F4C32A21CC9E05700E015CF /* Models */,
+=======
+				3F4C32651CC9CEF400E015CF /* LoginViewController.swift */,
+>>>>>>> ca65d732d4894fdbfb5f341b3d1c6bd457382466
 				3F4C32A01CC9DD0100E015CF /* AllPhotosViewController.swift */,
 				3F4C32671CC9CEF400E015CF /* Main.storyboard */,
+				45442C221CC9F4F500EDAC32 /* SignupViewController.swift */,
 				3F4C329E1CC9DBA300E015CF /* FeedViews.storyboard */,
 				3F4C329D1CC9D96700E015CF /* Utilities */,
 				3F4C326D1CC9CEF400E015CF /* Assets.xcassets */,
@@ -251,8 +261,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				3F4C32A61CC9E07100E015CF /* Photo.swift in Sources */,
 				3F4C32661CC9CEF400E015CF /* ViewController.swift in Sources */,
+=======
+				3F4C32661CC9CEF400E015CF /* LoginViewController.swift in Sources */,
+				45442C231CC9F4F500EDAC32 /* SignupViewController.swift in Sources */,
+>>>>>>> ca65d732d4894fdbfb5f341b3d1c6bd457382466
 				3F4C326C1CC9CEF400E015CF /* fake_instagram.xcdatamodeld in Sources */,
 				3F4C32641CC9CEF400E015CF /* AppDelegate.swift in Sources */,
 				3F4C32A41CC9E06600E015CF /* User.swift in Sources */,
