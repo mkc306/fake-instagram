@@ -28,9 +28,14 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
     }
 	
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return self.photos.
+//		return self.photos.
+		return 0
 	}
-    
+	
+	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCellWithIdentifier("")!
+		return cell
+	}
 
     /*
     // MARK: - Navigation

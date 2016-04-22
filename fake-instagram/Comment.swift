@@ -9,10 +9,10 @@
 import Foundation
 
 class Comment {
-	private let _commentKey = String!
-	var body = String!
-	var user = [String: AnyObject]
-	var photo = [String: AnyObject]
+	private let _commentKey: String!
+	var body: String!
+	var user: [String: AnyObject]!
+	var photo: [String: AnyObject]!
 	
 	init(key: String, dict: [String: AnyObject]){
 		self._commentKey = key
@@ -27,10 +27,9 @@ class Comment {
 		if let photo = dict["photo"] as? [String: AnyObject]{
 			self.photo = photo
 		}
+	}
 	
-		var key: String{
-			return self._commentKey
-		}
-		
+	var key: String{
+		return self._commentKey
 	}
 }
