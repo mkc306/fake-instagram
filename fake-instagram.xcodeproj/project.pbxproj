@@ -80,12 +80,9 @@
 			isa = PBXGroup;
 			children = (
 				3F4C32631CC9CEF400E015CF /* AppDelegate.swift */,
-<<<<<<< HEAD
 				3F4C32651CC9CEF400E015CF /* ViewController.swift */,
 				3F4C32A21CC9E05700E015CF /* Models */,
-=======
 				3F4C32651CC9CEF400E015CF /* LoginViewController.swift */,
->>>>>>> ca65d732d4894fdbfb5f341b3d1c6bd457382466
 				3F4C32A01CC9DD0100E015CF /* AllPhotosViewController.swift */,
 				3F4C32671CC9CEF400E015CF /* Main.storyboard */,
 				45442C221CC9F4F500EDAC32 /* SignupViewController.swift */,
@@ -258,13 +255,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
 				3F4C32A61CC9E07100E015CF /* Photo.swift in Sources */,
 				3F4C32661CC9CEF400E015CF /* ViewController.swift in Sources */,
-=======
 				3F4C32661CC9CEF400E015CF /* LoginViewController.swift in Sources */,
 				45442C231CC9F4F500EDAC32 /* SignupViewController.swift in Sources */,
->>>>>>> ca65d732d4894fdbfb5f341b3d1c6bd457382466
 				3F4C326C1CC9CEF400E015CF /* fake_instagram.xcdatamodeld in Sources */,
 				3F4C32641CC9CEF400E015CF /* AppDelegate.swift in Sources */,
 				3F4C32A41CC9E06600E015CF /* User.swift in Sources */,
