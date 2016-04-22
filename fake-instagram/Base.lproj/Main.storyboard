@@ -61,7 +61,8 @@
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
                                         <state key="normal" title="Login"/>
                                         <connections>
-                                            <action selector="OnLoginButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Jy-Di-VUl"/>
+                                            <action selector="OnLoginButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iTK-wS-oQI"/>
+                                            <segue destination="aWc-wp-dVY" kind="presentation" id="MNA-7E-4cv"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFv-ek-qXX">
@@ -113,6 +114,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1057" y="311"/>
+        </scene>
+        <!--FeedViews-->
+        <scene sceneID="7Qc-ln-F8O">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FeedViews" id="aWc-wp-dVY" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q5L-ZP-JWj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1668.5" y="311"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="aKg-Db-5kG">
