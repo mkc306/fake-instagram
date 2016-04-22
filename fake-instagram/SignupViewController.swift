@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SignupViewController: UIViewController {
 
@@ -20,11 +21,34 @@ class SignupViewController: UIViewController {
     }
 
     @IBAction func onRegisterButtonPress(sender: UIButton) {
+        
+        if let email = emailTextField.text,let password = passwordTextField.text,let username = usernameTextField.text{
+            
+            let rootReference = DataService.dataService.BASE_REF
+            rootReference.createUser(email, password: password, withValueCompletionBlock: {(error,result) -> Void in
+                if error == nil{
+                    let uid = result["uid"] as? String
+                    let userDict = ["email": email, "username":username]
+                    let currentUser = rootReference.childByAppendingPath("insta").childByAppendingPath(uid)
+                    currentUser.setValue(userDict)
+                    NSUserDefaults.standardUserDefaults().setValue(uid, forKey: "uid")
+                    self.performSegueWithIdentifier("LoggedIn", sender: nil)
+                    
+                }else{
+                    print(error)
+                    
+                    
+                    
+                    
+                }
+                
+                
+            })
+           
+            
+        }
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
     
 
     /*
