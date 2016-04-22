@@ -14,18 +14,25 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
+		let currentUserId = NSUserDefaults.standardUserDefaults().valueForKey("uid")as? String
+        if currentUserId != nil{
+         if DataService.dataService.USER_REF.childByAppendingPath(currentUserId).authData != nil {
+                
+                self.performSegueWithIdentifier("LoggedIn", sender: nil)
+            }
+        }
 	}
     @IBAction func OnLoginButtonPress(sender: UIButton) {
+        if let email = emailTextField.text , let password = passwordTextField.text{ DataService.dataService.BASE_REF.authUser(email, password: password, withCompletionBlock: { (error, authData) -> Void in
+            if error == nil {
+                NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
+                self .performSegueWithIdentifier("LoggedIn", sender: nil)
+            }else{
+                print(error.description)
+            }
+            
+        })
+            
+        }
     }
-    @IBAction func onSignupButtonPress(sender: UIButton) {
-    }
-
-
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-	}
-
 }
-
