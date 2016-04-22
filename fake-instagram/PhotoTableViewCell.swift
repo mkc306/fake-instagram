@@ -14,12 +14,27 @@ class PhotoTableViewCell: UITableViewCell{
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        let tap = UITapGestureRecognizer.init(target: self, action: "segueToPhoto" )
+        addGestureRecognizer(tap)
+        
     }
+    
+    
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
     }
+    
+    func segueToPhoto(){
+        let view = self.window?.rootViewController?.presentedViewController
+        let storyboard = UIStoryboard(name: "FeedViews", bundle: nil)
+        let nextViewController = storyboard.instantiateViewControllerWithIdentifier("PhotoViewController")
+        view?.presentViewController(nextViewController, animated: true, completion: nil)
+    }
+        
+        
+        
+    
 }

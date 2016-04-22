@@ -1,5 +1,5 @@
 //
-//  UserProfileViewController.swift
+//  OtherProfileViewController.swift
 //  fake-instagram
 //
 //  Created by Michael Kelvyn Chan on 4/22/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserProfileViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
+class OtherProfileViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,13 +16,15 @@ class UserProfileViewController: UIViewController, UITableViewDataSource,UITable
         // Do any additional setup after loading the view.
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0;
-    }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as? PhotoTableViewCell
+       let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as? PhotoTableViewCell
         return cell!
+        
     }
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+
     /*
     // MARK: - Navigation
 

@@ -4,25 +4,75 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AWSCore.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>AWSS3.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>FastttCamera.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>Firebase.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>LLSimpleCamera.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>Pods-fake-instagram.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>3</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>050F1B63798B8B8B9657250FEA72A464</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3B41A9B1D49827D58E203AF61D34F608</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4A01936428B56F942295391219E3D718</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>B7AC9326D819482593FE118E915409D7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BDE08E699F8584FC766349E66C74182F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CE0CC7E2B5B550BC4172F6FF9CC5D50A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DD4C60D0C1ADF7586B8862EEA147DE00</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E354F4114C3E48A3454CAE6C339637DE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
