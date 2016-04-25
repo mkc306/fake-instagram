@@ -8,20 +8,34 @@
 
 import UIKit
 
-class UserListViewController: UITableViewController {
+class UserListViewController: UITableViewController, UITextFieldDelegate {
 @IBOutlet weak var searchTextField: UITextField!
 var users = [User] ()
+var filteredUsers = [User]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         DataService.dataService.USER_REF.observeEventType(.ChildAdded, withBlock: { (snapshot) -> Void in
             if let value = snapshot.value as? [String:AnyObject] {
                 let user = User(key: snapshot.key, dict: value)
                 self.users.append(user)
+                self.filteredUsers = self.users
                 self.tableView.reloadData()
             }
     })
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    override func tableView(tableView: UITableView, shouldIndentWhileEditingRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    return false
+    
+    }
+    override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        return UITableViewCellEditingStyle.None
     }
     
 
@@ -29,13 +43,13 @@ var users = [User] ()
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return users.count
+        return filteredUsers.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath)
-        let user = self.users[indexPath.row]
+        let user = self.filteredUsers[indexPath.row]
         cell.textLabel?.text = user.username
         cell.layer.borderWidth = 0.8
         cell.layer.borderColor = UIColor.redColor().CGColor
@@ -47,22 +61,30 @@ var users = [User] ()
 
     
     
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath,toIndexPath: NSIndexPath) {
         
-        let itemToMove:User = users[fromIndexPath.row]
-        users.removeAtIndex(fromIndexPath.row)
-        users.insert(itemToMove, atIndex: toIndexPath.row)
+        let itemToMove:User = filteredUsers[fromIndexPath.row]
+        filteredUsers.removeAtIndex(fromIndexPath.row)
+        filteredUsers.insert(itemToMove, atIndex: toIndexPath.row)
 
     }
     
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+            if let text = searchTextField.text{
+                if text == "" {
+                    filteredUsers = users
+                }else {
+                    
+                    filteredUsers = self.users.filter({ $0.username.hasPrefix(text)})
+                }
+            }
+            searchTextField.resignFirstResponder()
+            tableView.reloadData()
         return true
     }
-    */
+
+
+
 
     
      // MARK: - Navigation
