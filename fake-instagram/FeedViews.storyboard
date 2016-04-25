@@ -385,53 +385,6 @@
             <point key="canvasLocation" x="1938" y="-124"/>
         </scene>
         <!--Photo Upload View Controller-->
-        <scene sceneID="5l3-Vf-Mzm">
-            <objects>
-                <viewController id="X9d-YN-B5d" customClass="PhotoUploadViewController" customModule="fake_instagram" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="HKF-p6-MAP"/>
-                        <viewControllerLayoutGuide type="bottom" id="lIu-XO-WaA"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="wLI-gl-dm4">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GDo-II-SRB">
-                                <rect key="frame" x="0.0" y="60" width="600" height="421"/>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vUK-9W-17k">
-                                <rect key="frame" x="271" y="523" width="58" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="58" id="9FP-DK-QSQ"/>
-                                </constraints>
-                                <state key="normal" title="Take Pic"/>
-                                <connections>
-                                    <action selector="onTakePicButtonPressed:" destination="X9d-YN-B5d" eventType="touchUpInside" id="iKd-0r-goA"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="lIu-XO-WaA" firstAttribute="top" secondItem="vUK-9W-17k" secondAttribute="bottom" constant="47" id="6gV-MP-AEC"/>
-                            <constraint firstItem="lIu-XO-WaA" firstAttribute="top" secondItem="GDo-II-SRB" secondAttribute="bottom" constant="119" id="70h-6h-aOj"/>
-                            <constraint firstItem="GDo-II-SRB" firstAttribute="leading" secondItem="wLI-gl-dm4" secondAttribute="leadingMargin" constant="-20" id="9sa-gL-ept"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="GDo-II-SRB" secondAttribute="trailing" constant="-20" id="A8q-pa-3RT"/>
-                            <constraint firstItem="GDo-II-SRB" firstAttribute="top" secondItem="HKF-p6-MAP" secondAttribute="bottom" constant="40" id="Hgy-6M-iPp"/>
-                            <constraint firstItem="vUK-9W-17k" firstAttribute="top" secondItem="GDo-II-SRB" secondAttribute="bottom" constant="42" id="nGm-HF-xAV"/>
-                            <constraint firstItem="vUK-9W-17k" firstAttribute="centerX" secondItem="wLI-gl-dm4" secondAttribute="centerX" id="njE-SN-9hv"/>
-                        </constraints>
-                    </view>
-                    <toolbarItems/>
-                    <connections>
-                        <outlet property="cameraView" destination="GDo-II-SRB" id="LMQ-2W-2dG"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K8c-95-u3y" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3657" y="836"/>
-        </scene>
-        <!--Photo Upload View Controller-->
         <scene sceneID="SoD-vy-Omv">
             <objects>
                 <viewController id="bGS-uP-j1p" customClass="PhotoUploadViewController" customModule="fake_instagram" customModuleProvider="target" sceneMemberID="viewController">
@@ -483,7 +436,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AUz-bO-MxJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="881" y="1556"/>
+            <point key="canvasLocation" x="977" y="1514"/>
         </scene>
     </scenes>
     <resources>
