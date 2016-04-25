@@ -482,7 +482,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMh-Am-7Z2">
-                                <rect key="frame" x="278" y="72" width="54" height="30"/>
+                                <rect key="frame" x="278" y="72" width="115" height="30"/>
                                 <state key="normal" title="Follow+"/>
                                 <connections>
                                     <action selector="OnFollowButtonPress:" destination="CiB-W3-jv4" eventType="touchUpInside" id="ZZp-kf-9cW"/>
@@ -507,6 +507,7 @@
                     <navigationItem key="navigationItem" id="KMO-eo-lPz"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="followButton" destination="hMh-Am-7Z2" id="Nye-X3-OXz"/>
                         <outlet property="tableView" destination="zHw-nk-QQR" id="oH5-8b-Ge2"/>
                     </connections>
                 </viewController>

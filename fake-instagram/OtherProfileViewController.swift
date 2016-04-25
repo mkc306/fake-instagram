@@ -11,6 +11,7 @@ import UIKit
 class OtherProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var user : User!
     
+    @IBOutlet weak var followButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     var isFollowing = false
@@ -54,11 +55,13 @@ class OtherProfileViewController: UIViewController, UITableViewDelegate, UITable
 DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppendingPath("following").updateChildValues([self.user.key:true])
             
             DataService.dataService.USER_REF.childByAppendingPath(self.user.key).childByAppendingPath("followers").updateChildValues([currentUserId!:true])
+            followButton.setTitle("Unfollow", forState: UIControlState.Normal)
             
         } else if (self.isFollowing == true){
             self.isFollowing = false
             DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppendingPath("following").childByAppendingPath(self.user.key).removeValue()
             DataService.dataService.USER_REF.childByAppendingPath(self.user.key).childByAppendingPath("followers").childByAppendingPath(currentUserId).removeValue()
+            followButton.setTitle("Follow+", forState: UIControlState.Normal)
         }
     }
     
