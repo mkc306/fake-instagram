@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6XL-hX-hP3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6XL-hX-hP3">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -264,53 +264,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="US9-wf-7Ja" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="245" y="311"/>
-        </scene>
-        <!--Photo Upload View Controller-->
-        <scene sceneID="tZA-RM-MAw">
-            <objects>
-                <viewController id="FUd-rR-QAE" customClass="PhotoUploadViewController" customModule="fake_instagram" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="oG9-W5-NdI"/>
-                        <viewControllerLayoutGuide type="bottom" id="iGn-Ax-2nN"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="3jd-kI-gjk">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="es0-kC-ecT">
-                                <rect key="frame" x="0.0" y="60" width="600" height="421"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDa-nz-Epg">
-                                <rect key="frame" x="271" y="523" width="58" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="58" id="iAO-iK-S9e"/>
-                                </constraints>
-                                <state key="normal" title="Take Pic"/>
-                                <connections>
-                                    <action selector="onTakePicButtonPressed:" destination="FUd-rR-QAE" eventType="touchUpInside" id="RXN-q5-AXg"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="iGn-Ax-2nN" firstAttribute="top" secondItem="es0-kC-ecT" secondAttribute="bottom" constant="119" id="2We-uC-GsU"/>
-                            <constraint firstItem="EDa-nz-Epg" firstAttribute="top" secondItem="es0-kC-ecT" secondAttribute="bottom" constant="42" id="8qm-UH-8u1"/>
-                            <constraint firstItem="EDa-nz-Epg" firstAttribute="centerX" secondItem="3jd-kI-gjk" secondAttribute="centerX" id="IWz-Ff-4XV"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="es0-kC-ecT" secondAttribute="trailing" constant="-20" id="Kb0-6B-cUV"/>
-                            <constraint firstItem="iGn-Ax-2nN" firstAttribute="top" secondItem="EDa-nz-Epg" secondAttribute="bottom" constant="47" id="dcp-hf-gIp"/>
-                            <constraint firstItem="es0-kC-ecT" firstAttribute="leading" secondItem="3jd-kI-gjk" secondAttribute="leadingMargin" constant="-20" id="met-Dq-iL0"/>
-                            <constraint firstItem="es0-kC-ecT" firstAttribute="top" secondItem="oG9-W5-NdI" secondAttribute="bottom" constant="40" id="nHZ-vM-jbD"/>
-                        </constraints>
-                    </view>
-                    <toolbarItems/>
-                    <connections>
-                        <outlet property="cameraView" destination="es0-kC-ecT" id="jM0-a2-2zj"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3qq-xF-mMI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1909" y="820"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
