@@ -1,15 +1,15 @@
 //
-//  UserListViewController.swift
+//  CommentTableViewController.swift
 //  fake-instagram
 //
-//  Created by Michael Kelvyn Chan on 4/22/16.
+//  Created by Michael Kelvyn Chan on 25/04/2016.
 //  Copyright © 2016 Jeremy Ong. All rights reserved.
 //
 
 import UIKit
 
-class UserListViewController: UITableViewController {
-@IBOutlet weak var searchTextField: UITextField!
+class CommentTableViewController: UITableViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,8 +20,6 @@ class UserListViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-  
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -29,22 +27,25 @@ class UserListViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 0
+    }
+
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return 0
     }
 
-    
+    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text = "testcell"
-        cell.layer.borderWidth = 0.8
-        cell.layer.borderColor = UIColor.redColor().CGColor
+
         return cell
     }
-    
+    */
 
     /*
     // Override to support conditional editing of the table view.

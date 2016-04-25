@@ -17,11 +17,15 @@ class PhotoViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 3
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CommentCell")!
         return cell
+    }
+   
+    @IBAction func OnLikeButtonPress(sender: UIButton) {
+        
     }
     
     /*

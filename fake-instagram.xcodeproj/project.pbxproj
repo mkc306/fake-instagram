@@ -26,9 +26,10 @@
 		45442C251CCA0AC100EDAC32 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45442C241CCA0AC100EDAC32 /* UserProfileViewController.swift */; };
 		45442C271CCA0C2800EDAC32 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45442C261CCA0C2800EDAC32 /* UserListViewController.swift */; };
 		45442C2D1CCA24B000EDAC32 /* (null) in Sources */ = {isa = PBXBuildFile; };
-		45442C2F1CCA2BC600EDAC32 /* OtherProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45442C2E1CCA2BC600EDAC32 /* OtherProfileViewController.swift */; };
 		45442C311CCA2BFE00EDAC32 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45442C301CCA2BFE00EDAC32 /* PhotoViewController.swift */; };
 		45442C331CCA2D6A00EDAC32 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45442C321CCA2D6A00EDAC32 /* PhotoTableViewCell.swift */; };
+		455043E91CCDC6EA00A3F37F /* OtherProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455043E81CCDC6EA00A3F37F /* OtherProfileViewController.swift */; };
+		455043EB1CCDC7B000A3F37F /* CommentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455043EA1CCDC7B000A3F37F /* CommentTableViewController.swift */; };
 		D40FF84F8D6DCDBD3F3DA4AE /* Pods_fake_instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1A83AF90C2D30F606292CB /* Pods_fake_instagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,9 +55,10 @@
 		45442C221CC9F4F500EDAC32 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		45442C241CCA0AC100EDAC32 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		45442C261CCA0C2800EDAC32 /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
-		45442C2E1CCA2BC600EDAC32 /* OtherProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherProfileViewController.swift; sourceTree = "<group>"; };
 		45442C301CCA2BFE00EDAC32 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		45442C321CCA2D6A00EDAC32 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
+		455043E81CCDC6EA00A3F37F /* OtherProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherProfileViewController.swift; sourceTree = "<group>"; };
+		455043EA1CCDC7B000A3F37F /* CommentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewController.swift; sourceTree = "<group>"; };
 		8D1A83AF90C2D30F606292CB /* Pods_fake_instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fake_instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABD1FDE3ED6194A8494911E3 /* Pods-fake-instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fake-instagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fake-instagram/Pods-fake-instagram.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,10 +145,11 @@
 				3F4C32A01CC9DD0100E015CF /* AllPhotosViewController.swift */,
 				3F4C32A91CCA00F300E015CF /* LoginViewController.swift */,
 				45442C301CCA2BFE00EDAC32 /* PhotoViewController.swift */,
-				45442C2E1CCA2BC600EDAC32 /* OtherProfileViewController.swift */,
 				45442C221CC9F4F500EDAC32 /* SignupViewController.swift */,
 				45442C261CCA0C2800EDAC32 /* UserListViewController.swift */,
 				3F4C32B81CCA1AFA00E015CF /* PhotoUploadViewController.swift */,
+				455043EA1CCDC7B000A3F37F /* CommentTableViewController.swift */,
+				455043E81CCDC6EA00A3F37F /* OtherProfileViewController.swift */,
 				45442C241CCA0AC100EDAC32 /* UserProfileViewController.swift */,
 			);
 			name = Controllers;
@@ -302,14 +305,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				455043EB1CCDC7B000A3F37F /* CommentTableViewController.swift in Sources */,
 				3F4C32A61CC9E07100E015CF /* Photo.swift in Sources */,
 				45442C231CC9F4F500EDAC32 /* SignupViewController.swift in Sources */,
 				3F4C326C1CC9CEF400E015CF /* fake_instagram.xcdatamodeld in Sources */,
 				3F4C32641CC9CEF400E015CF /* AppDelegate.swift in Sources */,
 				3F4C32A41CC9E06600E015CF /* User.swift in Sources */,
 				45442C311CCA2BFE00EDAC32 /* PhotoViewController.swift in Sources */,
+				455043E91CCDC6EA00A3F37F /* OtherProfileViewController.swift in Sources */,
 				45442C271CCA0C2800EDAC32 /* UserListViewController.swift in Sources */,
-				45442C2F1CCA2BC600EDAC32 /* OtherProfileViewController.swift in Sources */,
 				3F4C32A11CC9DD0100E015CF /* AllPhotosViewController.swift in Sources */,
 				3F4C329A1CC9D90300E015CF /* Constants.swift in Sources */,
 				45442C331CCA2D6A00EDAC32 /* PhotoTableViewCell.swift in Sources */,

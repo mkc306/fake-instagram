@@ -32,6 +32,9 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
 		return 0
 	}
 	
+    @IBAction func onLikeButtonPress(sender: UIButton) {
+    }
+    
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCellWithIdentifier("") as? PhotoTableViewCell
 		return cell!

@@ -62,7 +62,6 @@
                                         <state key="normal" title="Login"/>
                                         <connections>
                                             <action selector="OnLoginButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iTK-wS-oQI"/>
-                                            <segue destination="aWc-wp-dVY" kind="presentation" identifier="LoggedIn" id="MNA-7E-4cv"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFv-ek-qXX">
@@ -108,6 +107,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="q9U-7W-je3" id="tTT-Kc-ZSA"/>
                         <outlet property="passwordTextField" destination="4ov-8Y-gTt" id="iC2-rW-RSz"/>
+                        <segue destination="aWc-wp-dVY" kind="show" id="jI0-Tm-srv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -267,6 +267,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="14K-ZT-WnL"/>
+        <segue reference="jI0-Tm-srv"/>
     </inferredMetricsTieBreakers>
 </document>

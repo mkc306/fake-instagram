@@ -2,13 +2,13 @@
 //  OtherProfileViewController.swift
 //  fake-instagram
 //
-//  Created by Michael Kelvyn Chan on 4/22/16.
+//  Created by Michael Kelvyn Chan on 25/04/2016.
 //  Copyright © 2016 Jeremy Ong. All rights reserved.
 //
 
 import UIKit
 
-class OtherProfileViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class OtherProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,14 +16,11 @@ class OtherProfileViewController: UIViewController,UITableViewDelegate,UITableVi
         // Do any additional setup after loading the view.
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-       let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as? PhotoTableViewCell
-        return cell!
-        
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
+    
 
     /*
     // MARK: - Navigation
@@ -35,4 +32,6 @@ class OtherProfileViewController: UIViewController,UITableViewDelegate,UITableVi
     }
     */
 
+    @IBAction func OnFollowButtonPress(sender: UIButton) {
+    }
 }
