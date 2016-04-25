@@ -506,6 +506,9 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="KMO-eo-lPz"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="zHw-nk-QQR" id="oH5-8b-Ge2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sLp-ab-QOa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
