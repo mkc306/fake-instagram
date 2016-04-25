@@ -484,6 +484,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMh-Am-7Z2">
+                                <rect key="frame" x="278" y="72" width="54" height="30"/>
+                                <state key="normal" title="Follow+"/>
+                                <connections>
+                                    <action selector="OnFollowButtonPress:" destination="CiB-W3-jv4" eventType="touchUpInside" id="ZZp-kf-9cW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -491,8 +498,6 @@
                             <constraint firstItem="xf3-Xr-zRV" firstAttribute="leading" secondItem="qZ3-mR-JdQ" secondAttribute="trailing" constant="172.5" id="CyF-rd-vYt"/>
                             <constraint firstItem="zHw-nk-QQR" firstAttribute="leading" secondItem="rbZ-N2-cvO" secondAttribute="leading" id="E2H-B9-Dvj"/>
                             <constraint firstAttribute="trailing" secondItem="zHw-nk-QQR" secondAttribute="trailing" id="Gxy-Cv-MVL"/>
-                            <constraint firstItem="hMh-Am-7Z2" firstAttribute="top" secondItem="IZ9-wE-ATI" secondAttribute="bottom" id="IUc-0P-4bI"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="hMh-Am-7Z2" secondAttribute="trailing" constant="70" id="T0F-Fr-J5l"/>
                             <constraint firstItem="yiT-o3-AGO" firstAttribute="top" secondItem="zHw-nk-QQR" secondAttribute="bottom" constant="30" id="Tia-BJ-ai7"/>
                             <constraint firstItem="n5e-nx-7Tp" firstAttribute="centerX" secondItem="rbZ-N2-cvO" secondAttribute="centerX" id="fnf-Gn-4yK"/>
                             <constraint firstItem="zHw-nk-QQR" firstAttribute="top" secondItem="xf3-Xr-zRV" secondAttribute="bottom" constant="25" id="iZt-gO-v9q"/>
