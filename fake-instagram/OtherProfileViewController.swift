@@ -13,20 +13,26 @@ class OtherProfileViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBOutlet weak var followButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var followerCountLabel: UILabel!
+    @IBOutlet weak var followingCountLabel: UILabel!
+    
     
     var isFollowing = false
     override func viewDidLoad() {
+        super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+                 self.usernameLabel.text = self.user.username
+            let followingCount = self.user.following.count
+            let followersCount = self.user.followers.count
+            
+            self.followingCountLabel.text = "Following: \(followingCount)"
+            self.followerCountLabel.text = "Followers: \(followersCount)"
+        
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+  
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 0
@@ -69,21 +75,4 @@ DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppe
 
 
 
-//       DataService.dataService.FOLLOWING_REF.childByAutoId().setValue(dict, andPriority: nil, withCompletionBlock: { (error, ref) -> Void in
-//
-//            // updates the following number of the user in firebase
-//            DataService.dataService.USER_REF.childByAppendingPath(userId).childByAppendingPath("following").updateChildValues([ref.key: true])
-//
-//
-//       })
-//    }
-//}
-
-//
-//    func followingTapped(sender:UITapGestureRecognizer){
-//        if let userId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String{
-//            let dict = ["counts": numberOfFollowingCount, "userId": userId]
-//            // updates the following ref in firebase
-//
-//                
 
