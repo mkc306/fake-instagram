@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Saq-Jb-jaT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="VdG-RS-ymS">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -341,6 +341,60 @@
             </objects>
             <point key="canvasLocation" x="1665" y="1514"/>
         </scene>
+        <!--Welcome View Controller-->
+        <scene sceneID="vzr-bm-AgN">
+            <objects>
+                <viewController id="VdG-RS-ymS" customClass="WelcomeViewController" customModule="fake_instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9Tl-Ge-2lp"/>
+                        <viewControllerLayoutGuide type="bottom" id="USn-OT-rOg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZgH-82-Dcq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Fakestagram." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJH-2T-Lpp">
+                                <rect key="frame" x="70" y="60" width="460" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="Csz-xt-s1u"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="0.0" height="10"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's take a profile picture and get started." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01g-qA-DIK">
+                                <rect key="frame" x="49" y="191" width="502.5" height="32.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASn-Iw-2qF">
+                                <rect key="frame" x="193" y="359" width="214" height="30"/>
+                                <state key="normal" title="Take your first awesome photo!"/>
+                                <connections>
+                                    <segue destination="bGS-uP-j1p" kind="show" identifier="FirstProfilePicture" id="FJ8-Ut-sqQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="01g-qA-DIK" firstAttribute="centerX" secondItem="ZgH-82-Dcq" secondAttribute="centerX" id="LRI-8P-SHt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PJH-2T-Lpp" secondAttribute="trailing" constant="50" id="Ocd-p7-Ggv"/>
+                            <constraint firstItem="PJH-2T-Lpp" firstAttribute="top" secondItem="9Tl-Ge-2lp" secondAttribute="bottom" constant="40" id="lBO-ja-6JN"/>
+                            <constraint firstItem="PJH-2T-Lpp" firstAttribute="leading" secondItem="ZgH-82-Dcq" secondAttribute="leadingMargin" constant="50" id="ob8-oe-vEe"/>
+                            <constraint firstItem="01g-qA-DIK" firstAttribute="centerY" secondItem="ZgH-82-Dcq" secondAttribute="centerY" constant="-92.75" id="oeI-QR-fqK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="Saq-Jb-jaT" kind="show" id="rf1-sI-BRw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gvy-IJ-ug6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="207" y="679"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="V2m-oB-GqM">
             <objects>
@@ -415,7 +469,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AUz-bO-MxJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="899" y="1612"/>
+            <point key="canvasLocation" x="797" y="1437"/>
         </scene>
         <!--Other Profile View Controller-->
         <scene sceneID="xfa-sh-WaQ">
@@ -584,4 +638,7 @@
     <resources>
         <image name="doughnut" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="FJ8-Ut-sqQ"/>
+    </inferredMetricsTieBreakers>
 </document>

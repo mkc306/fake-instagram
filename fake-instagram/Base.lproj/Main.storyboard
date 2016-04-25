@@ -120,7 +120,7 @@
                 <viewControllerPlaceholder storyboardName="FeedViews" id="aWc-wp-dVY" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q5L-ZP-JWj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1669" y="311"/>
+            <point key="canvasLocation" x="1871" y="377"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="aKg-Db-5kG">
@@ -267,6 +267,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="14K-ZT-WnL"/>
+        <segue reference="jI0-Tm-srv"/>
     </inferredMetricsTieBreakers>
 </document>
