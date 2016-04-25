@@ -26,14 +26,11 @@ class Photo{
 		if let likes = dict["likes"] as? [String: AnyObject]{
 			self.likes = likes
 		}
-		if let likes = dict["likes"] as? [String: AnyObject]{
-			self.likes = likes
-		}
 		if let comments = dict["comments"] as? [String: AnyObject]{
 			self.comments = comments
 		}
-		if let userID = dict["userID"] as? String{
-			self._userKey = userID
+		if let userKey = dict["userKey"] as? String{
+			self._userKey = userKey
 		}
 	}
 	
