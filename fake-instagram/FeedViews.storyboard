@@ -39,8 +39,14 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="ZRe-Wp-Rjc" id="V7g-0m-re7"/>
+                            </connections>
                         </textField>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchTextField" destination="w8K-jq-iIj" id="VVA-vn-c8Z"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zHR-Ol-d5n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
