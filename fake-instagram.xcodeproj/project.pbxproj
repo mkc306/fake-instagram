@@ -212,6 +212,7 @@
 				TargetAttributes = {
 					3F4C325F1CC9CEF300E015CF = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 76HNYRHRM5;
 					};
 				};
 			};
@@ -435,11 +436,14 @@
 			baseConfigurationReference = ABD1FDE3ED6194A8494911E3 /* Pods-fake-instagram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "fake-instagram/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jeremy-ong.fake-instagram";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AWS-S3Bridge.h";
 			};
 			name = Debug;
@@ -449,11 +453,14 @@
 			baseConfigurationReference = 1EA62EE9BED4E9B544C14E9D /* Pods-fake-instagram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "fake-instagram/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jeremy-ong.fake-instagram";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AWS-S3Bridge.h";
 			};
 			name = Release;
