@@ -61,7 +61,7 @@ var filteredUsers = [User]()
 
     
     
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath,toIndexPath: NSIndexPath) {
         
         let itemToMove:User = filteredUsers[fromIndexPath.row]
         filteredUsers.removeAtIndex(fromIndexPath.row)
