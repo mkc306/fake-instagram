@@ -28,5 +28,8 @@ class DataService {
 	var COMMENT_REF: Firebase{
 		return _BASE_URL.childByAppendingPath("comments")
 	}
+    var FOLLOWING_REF: Firebase{
+        return _BASE_URL.childByAppendingPath("following")
+    }
 	
 }

@@ -65,15 +65,15 @@ var users = [User] ()
     */
 
     
-//     MARK: - Navigation
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if let destination = segue.destinationViewController as? OtherProfileViewController {
-//            let selected = tableView.indexPathForSelectedRow
-//            let user = users[selected!.row]
-////            destination.user = user
-//        }
-//       
-//    }
-//    
+     // MARK: - Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let destination = segue.destinationViewController as? OtherProfileViewController {
+            let selected = tableView.indexPathForSelectedRow
+            let user = users[selected!.row]
+            destination.user = user
+        }
+       
+    }
+    
 
 }
