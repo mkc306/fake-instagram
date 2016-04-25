@@ -22,6 +22,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="CiB-W3-jv4" kind="show" id="R56-DS-DgG"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -436,7 +439,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Followers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xf3-Xr-zRV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Followers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xf3-Xr-zRV">
                                 <rect key="frame" x="401" y="99" width="72.5" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="k7M-SG-hfg"/>
@@ -445,7 +448,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5e-nx-7Tp">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5e-nx-7Tp">
                                 <rect key="frame" x="260" y="20" width="79" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="WTy-jV-fnG"/>
@@ -454,17 +457,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMh-Am-7Z2">
-                                <rect key="frame" x="456" y="20" width="54" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="mAC-mr-CbQ"/>
-                                </constraints>
-                                <state key="normal" title="Follow+"/>
-                                <connections>
-                                    <action selector="OnFollowButtonPress:" destination="CiB-W3-jv4" eventType="touchUpInside" id="ZZp-kf-9cW"/>
-                                </connections>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="293" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zHw-nk-QQR">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="293" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zHw-nk-QQR">
                                 <rect key="frame" x="0.0" y="154" width="600" height="367"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -497,12 +490,19 @@
                                     <outlet property="delegate" destination="CiB-W3-jv4" id="nEx-dQ-5rI"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Following" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZ3-mR-JdQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Following" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZ3-mR-JdQ">
                                 <rect key="frame" x="156" y="104" width="72.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMh-Am-7Z2">
+                                <rect key="frame" x="278" y="72" width="54" height="30"/>
+                                <state key="normal" title="Follow+"/>
+                                <connections>
+                                    <action selector="OnFollowButtonPress:" destination="CiB-W3-jv4" eventType="touchUpInside" id="ZZp-kf-9cW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -510,8 +510,6 @@
                             <constraint firstItem="xf3-Xr-zRV" firstAttribute="leading" secondItem="qZ3-mR-JdQ" secondAttribute="trailing" constant="172.5" id="CyF-rd-vYt"/>
                             <constraint firstItem="zHw-nk-QQR" firstAttribute="leading" secondItem="rbZ-N2-cvO" secondAttribute="leading" id="E2H-B9-Dvj"/>
                             <constraint firstAttribute="trailing" secondItem="zHw-nk-QQR" secondAttribute="trailing" id="Gxy-Cv-MVL"/>
-                            <constraint firstItem="hMh-Am-7Z2" firstAttribute="top" secondItem="IZ9-wE-ATI" secondAttribute="bottom" id="IUc-0P-4bI"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="hMh-Am-7Z2" secondAttribute="trailing" constant="70" id="T0F-Fr-J5l"/>
                             <constraint firstItem="yiT-o3-AGO" firstAttribute="top" secondItem="zHw-nk-QQR" secondAttribute="bottom" constant="30" id="Tia-BJ-ai7"/>
                             <constraint firstItem="n5e-nx-7Tp" firstAttribute="centerX" secondItem="rbZ-N2-cvO" secondAttribute="centerX" id="fnf-Gn-4yK"/>
                             <constraint firstItem="zHw-nk-QQR" firstAttribute="top" secondItem="xf3-Xr-zRV" secondAttribute="bottom" constant="25" id="iZt-gO-v9q"/>
