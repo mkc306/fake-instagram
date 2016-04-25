@@ -29,10 +29,10 @@ class SignupViewController: UIViewController {
                 if error == nil{
                     let uid = result["uid"] as? String
                     let userDict = ["email": email, "username":username]
-                    let currentUser = rootReference.childByAppendingPath("insta").childByAppendingPath(uid)
+                    let currentUser = DataService.dataService.USER_REF.childByAppendingPath(uid)
                     currentUser.setValue(userDict)
                     NSUserDefaults.standardUserDefaults().setValue(uid, forKey: "uid")
-                    self.performSegueWithIdentifier("LoggedIn", sender: nil)
+                    self.performSegueWithIdentifier("Registered", sender: nil)
                     
                 }else{
                     print(error)
