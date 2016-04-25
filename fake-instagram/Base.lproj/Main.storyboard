@@ -120,7 +120,7 @@
                 <viewControllerPlaceholder storyboardName="FeedViews" id="aWc-wp-dVY" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q5L-ZP-JWj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1668.5" y="311"/>
+            <point key="canvasLocation" x="1669" y="311"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="aKg-Db-5kG">
