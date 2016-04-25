@@ -70,6 +70,10 @@ class PhotoUploadViewController: UIViewController, FastttCameraDelegate {
 		
 	}
 	
+	
+	@IBAction func onChooseFromGalleryPressed(sender: UIButton) {
+	}
+	
 	@IBAction func onTakePicButtonPressed(sender: UIButton) {
 		print("take pic button pressed")
 		self.fastCamera.takePicture()
