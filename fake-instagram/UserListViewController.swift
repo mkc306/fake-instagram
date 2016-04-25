@@ -21,7 +21,9 @@ var users = [User] ()
                 self.tableView.reloadData()
             }
     })
+        self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
 
     // MARK: - Table view data source
 
@@ -43,12 +45,16 @@ var users = [User] ()
   
  
 
-    /*
-    // Override to support rearranging the table view.
+    
+    
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+        
+        let itemToMove:User = users[fromIndexPath.row]
+        users.removeAtIndex(fromIndexPath.row)
+        users.insert(itemToMove, atIndex: toIndexPath.row)
 
     }
-    */
+    
 
     /*
     // Override to support conditional rearranging of the table view.
@@ -59,15 +65,15 @@ var users = [User] ()
     */
 
     
-    // MARK: - Navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let destination = segue.destinationViewController as? OtherProfileViewController {
-            let selected = tableView.indexPathForSelectedRow
-            let user = users[selected!.row]
-            destination.user = user
-        }
-       
-    }
-    
+//     MARK: - Navigation
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if let destination = segue.destinationViewController as? OtherProfileViewController {
+//            let selected = tableView.indexPathForSelectedRow
+//            let user = users[selected!.row]
+////            destination.user = user
+//        }
+//       
+//    }
+//    
 
 }
