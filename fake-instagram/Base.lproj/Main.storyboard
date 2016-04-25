@@ -107,7 +107,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="q9U-7W-je3" id="tTT-Kc-ZSA"/>
                         <outlet property="passwordTextField" destination="4ov-8Y-gTt" id="iC2-rW-RSz"/>
-                        <segue destination="aWc-wp-dVY" kind="show" id="jI0-Tm-srv"/>
+                        <segue destination="aWc-wp-dVY" kind="show" identifier="LoggedIn" id="jI0-Tm-srv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
