@@ -72,6 +72,11 @@ class PhotoUploadViewController: UIViewController, FastttCameraDelegate {
 	
 	
 	@IBAction func onChooseFromGalleryPressed(sender: UIButton) {
+		let gallery = UIImagePickerController()
+		gallery.sourceType = .PhotoLibrary
+		self.fastCamera.dismissViewControllerAnimated(true) { 
+			gallery.view.frame = self.cameraView.frame
+		}
 	}
 	
 	@IBAction func onTakePicButtonPressed(sender: UIButton) {

@@ -107,7 +107,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="q9U-7W-je3" id="tTT-Kc-ZSA"/>
                         <outlet property="passwordTextField" destination="4ov-8Y-gTt" id="iC2-rW-RSz"/>
-                        <segue destination="aWc-wp-dVY" kind="show" id="jI0-Tm-srv"/>
+                        <segue destination="aWc-wp-dVY" kind="presentation" identifier="LoggedIn" id="jI0-Tm-srv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -240,7 +240,7 @@
                         <outlet property="emailTextField" destination="50f-Sy-91U" id="MTf-RH-Cte"/>
                         <outlet property="passwordTextField" destination="HYX-e8-IjQ" id="7dM-1H-IGS"/>
                         <outlet property="usernameTextField" destination="8aM-KL-ciz" id="Vxc-bf-hGL"/>
-                        <segue destination="aWc-wp-dVY" kind="show" identifier="Registered" id="14K-ZT-WnL"/>
+                        <segue destination="aWc-wp-dVY" kind="presentation" identifier="Registered" id="14K-ZT-WnL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Obc-WI-IDZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -267,6 +267,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jI0-Tm-srv"/>
+        <segue reference="14K-ZT-WnL"/>
     </inferredMetricsTieBreakers>
 </document>
