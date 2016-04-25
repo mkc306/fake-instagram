@@ -313,6 +313,9 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B8Y-qv-06O">
+                                <rect key="frame" x="368" y="5" width="105" height="96"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -364,14 +367,18 @@
                                 <color key="shadowColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="0.0" height="10"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's take a profile picture and get started." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01g-qA-DIK">
-                                <rect key="frame" x="49" y="191" width="502.5" height="32.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's take a profile picture and get started." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01g-qA-DIK">
+                                <rect key="frame" x="45" y="190" width="510" height="32.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASn-Iw-2qF">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASn-Iw-2qF">
                                 <rect key="frame" x="193" y="359" width="214" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="214" id="CeS-ZZ-WLz"/>
+                                    <constraint firstAttribute="height" constant="30" id="Rfo-GT-Qkw"/>
+                                </constraints>
                                 <state key="normal" title="Take your first awesome photo!"/>
                                 <connections>
                                     <segue destination="bGS-uP-j1p" kind="show" identifier="FirstProfilePicture" id="FJ8-Ut-sqQ"/>
@@ -380,11 +387,14 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="01g-qA-DIK" firstAttribute="centerX" secondItem="ZgH-82-Dcq" secondAttribute="centerX" id="LRI-8P-SHt"/>
+                            <constraint firstItem="01g-qA-DIK" firstAttribute="leading" secondItem="ZgH-82-Dcq" secondAttribute="leadingMargin" constant="25" id="8Ua-wz-3p3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="01g-qA-DIK" secondAttribute="trailing" constant="25" id="8vE-ww-0RN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PJH-2T-Lpp" secondAttribute="trailing" constant="50" id="Ocd-p7-Ggv"/>
+                            <constraint firstItem="ASn-Iw-2qF" firstAttribute="top" secondItem="01g-qA-DIK" secondAttribute="bottom" constant="136.5" id="b2b-80-lOa"/>
+                            <constraint firstItem="ASn-Iw-2qF" firstAttribute="centerX" secondItem="ZgH-82-Dcq" secondAttribute="centerX" id="iaW-6T-QVz"/>
                             <constraint firstItem="PJH-2T-Lpp" firstAttribute="top" secondItem="9Tl-Ge-2lp" secondAttribute="bottom" constant="40" id="lBO-ja-6JN"/>
                             <constraint firstItem="PJH-2T-Lpp" firstAttribute="leading" secondItem="ZgH-82-Dcq" secondAttribute="leadingMargin" constant="50" id="ob8-oe-vEe"/>
-                            <constraint firstItem="01g-qA-DIK" firstAttribute="centerY" secondItem="ZgH-82-Dcq" secondAttribute="centerY" constant="-92.75" id="oeI-QR-fqK"/>
+                            <constraint firstItem="01g-qA-DIK" firstAttribute="top" secondItem="PJH-2T-Lpp" secondAttribute="bottom" constant="60" id="wtq-Mp-tU8"/>
                         </constraints>
                     </view>
                     <connections>
@@ -431,21 +441,28 @@
                                 <rect key="frame" x="0.0" y="60" width="600" height="421"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2d-9d-Zjp">
-                                <rect key="frame" x="271" y="523" width="58" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2d-9d-Zjp">
+                                <rect key="frame" x="250" y="522" width="100" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="58" id="XYP-tM-j4I"/>
                                 </constraints>
-                                <state key="normal" title="Take Pic"/>
+                                <state key="normal" title="Take Pic" image="take_picture"/>
                                 <connections>
                                     <action selector="onTakePicButtonPressed:" destination="bGS-uP-j1p" eventType="touchUpInside" id="VV2-vh-S99"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VrV-SR-BR1">
-                                <rect key="frame" x="50" y="523" width="144" height="30"/>
-                                <state key="normal" title="Choose From Gallery"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VrV-SR-BR1">
+                                <rect key="frame" x="106" y="522" width="32" height="32"/>
+                                <state key="normal" image="add_image"/>
                                 <connections>
                                     <action selector="onChooseFromGalleryPressed:" destination="bGS-uP-j1p" eventType="touchUpInside" id="tSv-rs-e9A"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f7D-ig-Ubf">
+                                <rect key="frame" x="366" y="489" width="64" height="30"/>
+                                <state key="normal" title="tempskip"/>
+                                <connections>
+                                    <segue destination="Saq-Jb-jaT" kind="show" identifier="TOBEDELETED" id="Hkp-7A-NJj"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -544,6 +561,9 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TUC-wi-pgJ">
+                                <rect key="frame" x="268" y="91" width="105" height="96"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -603,20 +623,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJt-5G-3CP">
-                                <rect key="frame" x="271.5" y="523" width="58" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y1I-jY-ZY0">
+                                <rect key="frame" x="0.0" y="60" width="600" height="421"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJt-5G-3CP">
+                                <rect key="frame" x="268" y="495" width="77" height="77"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="58" id="MMW-om-jHw"/>
                                 </constraints>
-                                <state key="normal" title="Confirm"/>
+                                <state key="normal" title="Confirm" backgroundImage="upload_wink"/>
                                 <connections>
                                     <action selector="onConfirmButtonPressed:" destination="6N3-mf-JZ6" eventType="touchUpInside" id="nQE-du-ZUY"/>
                                     <action selector="onTakePicButtonPressed:" destination="6N3-mf-JZ6" eventType="touchUpInside" id="9Fv-ht-LPB"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y1I-jY-ZY0">
-                                <rect key="frame" x="0.0" y="60" width="600" height="421"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -636,9 +656,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add_image" width="32" height="32"/>
         <image name="doughnut" width="25" height="25"/>
+        <image name="take_picture" width="32" height="32"/>
+        <image name="upload_wink" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FJ8-Ut-sqQ"/>
+        <segue reference="Hkp-7A-NJj"/>
+        <segue reference="Ybe-3x-vTk"/>
     </inferredMetricsTieBreakers>
 </document>
