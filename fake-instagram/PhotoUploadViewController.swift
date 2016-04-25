@@ -8,10 +8,8 @@
 
 import UIKit
 import FastttCamera
-import AWSS3
-import Photos
 
-class PhotoUploadViewController: UIViewController, FastttCameraDelegate {
+class PhotoUploadViewController: UIViewController, FastttCameraDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 	
 	@IBOutlet weak var cameraView: UIView!
 	let fastCamera = FastttCamera()
@@ -38,7 +36,10 @@ class PhotoUploadViewController: UIViewController, FastttCameraDelegate {
 		// Dispose of any resources that can be recreated.
 	}
 	
-	
+	func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+		
+		self.performSegueWithIdentifier("ConfirmImage", sender: image)
+	}
 	//MARK: IFTTTFastttCameraDelegate
 	
 	func cameraController(cameraController: FastttCameraInterface!, didFinishCapturingImage capturedImage: FastttCapturedImage!) {
@@ -47,15 +48,18 @@ class PhotoUploadViewController: UIViewController, FastttCameraDelegate {
 	
 	func cameraController(cameraController: FastttCameraInterface!, didFinishScalingCapturedImage capturedImage: FastttCapturedImage!) {
 		print("a photo was scaled down")
-		self.performSegueWithIdentifier("ConfirmImage", sender: capturedImage.scaledImage)
+		if let image = capturedImage.scaledImage as AnyObject? {
+			self.performSegueWithIdentifier("ConfirmImage", sender: image)
+		}
+		
 	}
-	
 	
 	@IBAction func onChooseFromGalleryPressed(sender: UIButton) {
 		let gallery = UIImagePickerController()
 		gallery.sourceType = .PhotoLibrary
+		gallery.delegate = self
 		self.fastttRemoveChildViewController(self.fastCamera)
-		
+		self.fastttAddChildViewController(gallery)
 	}
 	
 	@IBAction func onTakePicButtonPressed(sender: UIButton) {
@@ -64,7 +68,11 @@ class PhotoUploadViewController: UIViewController, FastttCameraDelegate {
 	}
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		let destination = segue.destinationViewController as? PhotoConfirmationUploadViewController
-		destination?.imageView.image = sender as? UIImage
+		if let destination = segue.destinationViewController as? PhotoConfirmationUploadViewController {
+			if let image = sender as? UIImage {
+				destination.image = image
+			}
+			
+		}
 	}
 }
