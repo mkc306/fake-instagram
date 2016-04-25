@@ -9,11 +9,28 @@
 import UIKit
 
 class UserProfileViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
-
+    @IBOutlet weak var followingCountLabel: UILabel!
+    @IBOutlet weak var followerCountLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var profilePicImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        profilePicImageView.layer.cornerRadius = profilePicImageView.frame.size.width/2
+        profilePicImageView.clipsToBounds = true
+        let currentUserId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String!
+        DataService.dataService.USER_REF.childByAppendingPath(currentUserId).observeEventType(.Value , withBlock: { (snapshot) -> Void in
+            if let value = snapshot.value as? [String:AnyObject] {
+                let user = User(key: snapshot.key , dict: value)
+                self.usernameLabel.text = user.username
+                let followingCount = user.following.count
+                let followersCount = user.followers.count
+            
+              self.followingCountLabel.text = "Following: \(followingCount)"
+              self.followerCountLabel.text = "Followers: \(followersCount)"
+            }
+    
+        })
+        
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -23,14 +40,7 @@ class UserProfileViewController: UIViewController, UITableViewDataSource,UITable
         let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as? PhotoTableViewCell
         return cell!
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+ 
 }
+ 

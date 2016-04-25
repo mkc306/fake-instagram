@@ -26,10 +26,14 @@ class User {
 		}
 		if let following = dict["following"] as? [String: AnyObject]{
 			self.following = following
-		}
+        }else{
+            self.following = [:]
+        }
 		if let followers = dict["followers"] as? [String: AnyObject]{
 			self.followers = followers
-		}
+        }else{
+            self.followers = [:]
+        }
 		if let liked = dict["liked"] as? [String: AnyObject]{
 			self.liked = liked
 		}

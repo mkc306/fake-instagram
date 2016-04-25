@@ -91,7 +91,7 @@ class PhotoConfirmationUploadViewController: UIViewController {
 	}
 	
 	func updateFirebase(url: NSURL){
-			self.userRef.childByAppendingPath(self.uid).childByAppendingPath("photos").updateChildValues([self.s3URL: true])
+			self.userRef.childByAppendingPath(self.uid).childByAppendingPath("photos").updateChildValues([url: true])
 	}
 	
 }
