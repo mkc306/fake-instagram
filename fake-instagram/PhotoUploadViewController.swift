@@ -8,10 +8,8 @@
 
 import UIKit
 import FastttCamera
-import AWSS3
-import Photos
 
-class PhotoUploadViewController: UIViewController, FastttCameraDelegate {
+class PhotoUploadViewController: UIViewController, FastttCameraDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 	
 	@IBOutlet weak var cameraView: UIView!
 	let fastCamera = FastttCamera()
@@ -38,7 +36,10 @@ class PhotoUploadViewController: UIViewController, FastttCameraDelegate {
 		// Dispose of any resources that can be recreated.
 	}
 	
-	
+	func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+		
+		self.performSegueWithIdentifier("ConfirmImage", sender: image)
+	}
 	//MARK: IFTTTFastttCameraDelegate
 	
 	func cameraController(cameraController: FastttCameraInterface!, didFinishCapturingImage capturedImage: FastttCapturedImage!) {
@@ -47,36 +48,18 @@ class PhotoUploadViewController: UIViewController, FastttCameraDelegate {
 	
 	func cameraController(cameraController: FastttCameraInterface!, didFinishScalingCapturedImage capturedImage: FastttCapturedImage!) {
 		print("a photo was scaled down")
-		saveImageLocallyAndS3(capturedImage.scaledImage)
-	}
-	
-	func saveImageLocallyAndS3(image: UIImage){
-		
-		var writePath = NSURL()
-		PHPhotoLibrary.sharedPhotoLibrary().performChanges({
-			PHAssetChangeRequest.creationRequestForAssetFromImage(image)
-			}) { (success, error) in
-				if (success) {
-					writePath = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent("instagram.png")
-					let imageData = UIImagePNGRepresentation(image)
-					imageData?.writeToURL(writePath, atomically: true)
-					self.uploadToS3(writePath)
-				}
-				else {
-					print(error?.description)
-				}
+		if let image = capturedImage.scaledImage as AnyObject? {
+			self.performSegueWithIdentifier("ConfirmImage", sender: image)
 		}
 		
-		
 	}
-	
 	
 	@IBAction func onChooseFromGalleryPressed(sender: UIButton) {
 		let gallery = UIImagePickerController()
 		gallery.sourceType = .PhotoLibrary
-		self.fastCamera.dismissViewControllerAnimated(true) { 
-			gallery.view.frame = self.cameraView.frame
-		}
+		gallery.delegate = self
+		self.fastttRemoveChildViewController(self.fastCamera)
+		self.fastttAddChildViewController(gallery)
 	}
 	
 	@IBAction func onTakePicButtonPressed(sender: UIButton) {
@@ -84,29 +67,12 @@ class PhotoUploadViewController: UIViewController, FastttCameraDelegate {
 		self.fastCamera.takePicture()
 	}
 	
-	func uploadToS3(writePath: NSURL) {
-		let ext = "png"
-		let uploadRequest = AWSS3TransferManagerUploadRequest()
-		uploadRequest.body = writePath
-		uploadRequest.key = NSProcessInfo.processInfo().globallyUniqueString + "." + ext
-		uploadRequest.bucket = S3BucketName
-		uploadRequest.contentType = "image/" + ext
-		let transferManager = AWSS3TransferManager.defaultS3TransferManager()
-		transferManager.upload(uploadRequest).continueWithBlock { (task) -> AnyObject! in
-			if let error = task.error {
-				print("Upload failed ❌ (\(error))")
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		if let destination = segue.destinationViewController as? PhotoConfirmationUploadViewController {
+			if let image = sender as? UIImage {
+				destination.image = image
 			}
-			if let exception = task.exception {
-				print("Upload failed ❌ (\(exception))")
-			}
-			if task.result != nil {
-				let s3URL = NSURL(string: "http://s3.amazonaws.com/\(S3BucketName)/\(uploadRequest.key!)")!
-				print("Uploaded to:\n\(s3URL)")
-			}
-			else {
-				print("Unexpected empty result.")
-			}
-			return nil
+			
 		}
 	}
 }
