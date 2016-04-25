@@ -21,7 +21,7 @@ class PhotoConfirmationUploadViewController: UIViewController {
 	override func viewDidLoad() {
 		self.imageView.image = self.image
 		super.viewDidLoad()
-
+		
 		
 		// Do any additional setup after loading the view.
 	}
@@ -48,17 +48,16 @@ class PhotoConfirmationUploadViewController: UIViewController {
 		var writePath = NSURL()
 		PHPhotoLibrary.sharedPhotoLibrary().performChanges({
 			PHAssetChangeRequest.creationRequestForAssetFromImage(image)
-			}) { (success, error) in
-				if (success) {
-					writePath = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent("instagram.png")
-					let imageData = UIImagePNGRepresentation(image)
-					imageData?.writeToURL(writePath, atomically: true)
-					self.uploadToS3(writePath)
-					self.updateFirebase(self.s3URL)
-				}
-				else {
-					print(error?.description)
-				}
+		}) { (success, error) in
+			if (success) {
+				writePath = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent("instagram.png")
+				let imageData = UIImagePNGRepresentation(image)
+				imageData?.writeToURL(writePath, atomically: true)
+				self.uploadToS3(writePath)
+			}
+			else {
+				print(error?.description)
+			}
 		}
 		
 		
@@ -82,6 +81,7 @@ class PhotoConfirmationUploadViewController: UIViewController {
 			if task.result != nil {
 				self.s3URL = NSURL(string: "http://s3.amazonaws.com/\(S3BucketName)/\(uploadRequest.key!)")!
 				print("Uploaded to:\n\(self.s3URL)")
+				self.updateFirebase(self.s3URL)
 			}
 			else {
 				print("Unexpected empty result.")
@@ -91,7 +91,8 @@ class PhotoConfirmationUploadViewController: UIViewController {
 	}
 	
 	func updateFirebase(url: NSURL){
-			self.userRef.childByAppendingPath(self.uid).childByAppendingPath("photos").updateChildValues([url: true])
+		self.userRef.childByAppendingPath(self.uid).childByAppendingPath("photos").updateChildValues([url.absoluteString: true])
+		print("updated firebase")
 	}
 	
 }
