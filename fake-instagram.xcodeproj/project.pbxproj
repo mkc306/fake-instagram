@@ -31,6 +31,7 @@
 		45442C331CCA2D6A00EDAC32 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45442C321CCA2D6A00EDAC32 /* PhotoTableViewCell.swift */; };
 		455043E91CCDC6EA00A3F37F /* OtherProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455043E81CCDC6EA00A3F37F /* OtherProfileViewController.swift */; };
 		455043EB1CCDC7B000A3F37F /* CommentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455043EA1CCDC7B000A3F37F /* CommentTableViewController.swift */; };
+		455043ED1CCE194B00A3F37F /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455043EC1CCE194B00A3F37F /* WelcomeViewController.swift */; };
 		D40FF84F8D6DCDBD3F3DA4AE /* Pods_fake_instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1A83AF90C2D30F606292CB /* Pods_fake_instagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		45442C321CCA2D6A00EDAC32 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		455043E81CCDC6EA00A3F37F /* OtherProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherProfileViewController.swift; sourceTree = "<group>"; };
 		455043EA1CCDC7B000A3F37F /* CommentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewController.swift; sourceTree = "<group>"; };
+		455043EC1CCE194B00A3F37F /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		8D1A83AF90C2D30F606292CB /* Pods_fake_instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fake_instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABD1FDE3ED6194A8494911E3 /* Pods-fake-instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fake-instagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fake-instagram/Pods-fake-instagram.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				3F4C32A01CC9DD0100E015CF /* AllPhotosViewController.swift */,
+				455043EC1CCE194B00A3F37F /* WelcomeViewController.swift */,
 				3F4C32A91CCA00F300E015CF /* LoginViewController.swift */,
 				45442C301CCA2BFE00EDAC32 /* PhotoViewController.swift */,
 				45442C221CC9F4F500EDAC32 /* SignupViewController.swift */,
@@ -309,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				455043EB1CCDC7B000A3F37F /* CommentTableViewController.swift in Sources */,
+				455043ED1CCE194B00A3F37F /* WelcomeViewController.swift in Sources */,
 				3F4C32A61CC9E07100E015CF /* Photo.swift in Sources */,
 				45442C231CC9F4F500EDAC32 /* SignupViewController.swift in Sources */,
 				3F4C326C1CC9CEF400E015CF /* fake_instagram.xcdatamodeld in Sources */,
