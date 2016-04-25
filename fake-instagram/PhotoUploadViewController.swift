@@ -58,7 +58,7 @@ class PhotoUploadViewController: UIViewController, FastttCameraDelegate {
 			}) { (success, error) in
 				if (success) {
 					writePath = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent("instagram.png")
-					let imageData = UIImagePNGRepresentation(image)?.awsgzip_gzippedDataWithCompressionLevel(0.6)
+					let imageData = UIImagePNGRepresentation(image)
 					imageData?.writeToURL(writePath, atomically: true)
 					self.uploadToS3(writePath)
 				}
