@@ -28,6 +28,10 @@ class LoginViewController: UIViewController {
                 NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
                 self .performSegueWithIdentifier("LoggedIn", sender: nil)
             }else{
+                let alert = UIAlertController (title: "Error", message: error.description, preferredStyle: .Alert)
+                let returnAction = UIAlertAction(title: "Try again", style: .Default, handler: nil)
+                alert.addAction(returnAction)
+                self.presentViewController(alert, animated: true, completion: nil)
                 print(error.description)
             }
             

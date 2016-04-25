@@ -35,10 +35,11 @@ class SignupViewController: UIViewController {
                     self.performSegueWithIdentifier("Registered", sender: nil)
                     
                 }else{
-                    print(error)
-                    
-                    
-                    
+                    let alert = UIAlertController (title: "Error", message: "Unable to signup. Please ensure all fields are filled and try again.", preferredStyle: .Alert)
+                    let returnAction = UIAlertAction(title: "Return", style: .Default, handler: nil)
+                    alert.addAction(returnAction)
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    print(error.description)
                     
                 }
                 
