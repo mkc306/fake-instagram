@@ -12,9 +12,11 @@ class UserProfileViewController: UIViewController, UITableViewDataSource,UITable
     @IBOutlet weak var followingCountLabel: UILabel!
     @IBOutlet weak var followerCountLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var profilePicImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        profilePicImageView.layer.cornerRadius = profilePicImageView.frame.size.width/2
+        profilePicImageView.clipsToBounds = true
         let currentUserId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String!
         DataService.dataService.USER_REF.childByAppendingPath(currentUserId).observeEventType(.Value , withBlock: { (snapshot) -> Void in
             if let value = snapshot.value as? [String:AnyObject] {
