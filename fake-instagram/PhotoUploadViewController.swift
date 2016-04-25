@@ -47,36 +47,15 @@ class PhotoUploadViewController: UIViewController, FastttCameraDelegate {
 	
 	func cameraController(cameraController: FastttCameraInterface!, didFinishScalingCapturedImage capturedImage: FastttCapturedImage!) {
 		print("a photo was scaled down")
-		saveImageLocallyAndS3(capturedImage.scaledImage)
-	}
-	
-	func saveImageLocallyAndS3(image: UIImage){
-		
-		var writePath = NSURL()
-		PHPhotoLibrary.sharedPhotoLibrary().performChanges({
-			PHAssetChangeRequest.creationRequestForAssetFromImage(image)
-			}) { (success, error) in
-				if (success) {
-					writePath = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent("instagram.png")
-					let imageData = UIImagePNGRepresentation(image)
-					imageData?.writeToURL(writePath, atomically: true)
-					self.uploadToS3(writePath)
-				}
-				else {
-					print(error?.description)
-				}
-		}
-		
-		
+		self.performSegueWithIdentifier("ConfirmImage", sender: capturedImage.scaledImage)
 	}
 	
 	
 	@IBAction func onChooseFromGalleryPressed(sender: UIButton) {
 		let gallery = UIImagePickerController()
 		gallery.sourceType = .PhotoLibrary
-		self.fastCamera.dismissViewControllerAnimated(true) { 
-			gallery.view.frame = self.cameraView.frame
-		}
+		self.fastttRemoveChildViewController(self.fastCamera)
+		
 	}
 	
 	@IBAction func onTakePicButtonPressed(sender: UIButton) {
@@ -84,29 +63,8 @@ class PhotoUploadViewController: UIViewController, FastttCameraDelegate {
 		self.fastCamera.takePicture()
 	}
 	
-	func uploadToS3(writePath: NSURL) {
-		let ext = "png"
-		let uploadRequest = AWSS3TransferManagerUploadRequest()
-		uploadRequest.body = writePath
-		uploadRequest.key = NSProcessInfo.processInfo().globallyUniqueString + "." + ext
-		uploadRequest.bucket = S3BucketName
-		uploadRequest.contentType = "image/" + ext
-		let transferManager = AWSS3TransferManager.defaultS3TransferManager()
-		transferManager.upload(uploadRequest).continueWithBlock { (task) -> AnyObject! in
-			if let error = task.error {
-				print("Upload failed ❌ (\(error))")
-			}
-			if let exception = task.exception {
-				print("Upload failed ❌ (\(exception))")
-			}
-			if task.result != nil {
-				let s3URL = NSURL(string: "http://s3.amazonaws.com/\(S3BucketName)/\(uploadRequest.key!)")!
-				print("Uploaded to:\n\(s3URL)")
-			}
-			else {
-				print("Unexpected empty result.")
-			}
-			return nil
-		}
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		let destination = segue.destinationViewController as? PhotoConfirmationUploadViewController
+		destination?.imageView.image = sender as? UIImage
 	}
 }
