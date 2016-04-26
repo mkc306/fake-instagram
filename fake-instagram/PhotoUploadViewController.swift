@@ -27,6 +27,25 @@ class PhotoUploadViewController: UIViewController, FastttCameraDelegate,UIImageP
 		// Do any additional setup after loading the view.
 	}
 	
+	
+	@IBAction func onRotateCameraButtonPressed(sender: AnyObject) {
+		var device: FastttCameraDevice
+		switch self.fastCamera.cameraDevice {
+		case FastttCameraDevice.Rear:
+			device = FastttCameraDevice.Front
+			break
+		case FastttCameraDevice.Front:
+			device = FastttCameraDevice.Rear
+			break
+		default:
+			print("noob camera")
+		}
+		if FastttCamera.isCameraDeviceAvailable(device) {
+			self.fastCamera.cameraDevice = device
+		}
+	}
+	
+	
 	//	@IBAction func onTakePicButtonPressed(sender: UIBarButtonItem) {
 	//		print("take pic button pressed")
 	//		self.fastCamera.takePicture()

@@ -475,6 +475,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVa-8R-2aT">
                                         <rect key="frame" x="334" y="0.0" width="167" height="32"/>
                                         <state key="normal" image="rotate_camera_filled"/>
+                                        <connections>
+                                            <action selector="onRotateCameraButtonPressed:" destination="bGS-uP-j1p" eventType="touchUpInside" id="mqr-ff-KtB"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -716,6 +719,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qh0-gp-5oP">
                                         <rect key="frame" x="334" y="0.0" width="167" height="32"/>
                                         <state key="normal" image="rotate_camera_filled"/>
+                                        <connections>
+                                            <action selector="onRotateCameraPressed:" destination="KV8-Du-wDY" eventType="touchUpInside" id="gR4-RB-Ulh"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
