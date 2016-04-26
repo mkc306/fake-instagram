@@ -37,4 +37,8 @@ class Photo{
 	var userKey: String {
 		return _userKey
 	}
+	
+	var photoKey: String{
+		return _photoKey
+	}
 }

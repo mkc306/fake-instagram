@@ -61,7 +61,21 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
         
         
         
+<<<<<<< HEAD
         return cell!
+=======
+        
+		return cell!
+	}
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+>>>>>>> 2a9d20592db718826a60e1c93ba2d86aefacb2d2
     }
     
     /*
