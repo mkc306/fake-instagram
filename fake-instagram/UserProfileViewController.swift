@@ -15,9 +15,16 @@ class UserProfileViewController: UIViewController, UITableViewDataSource,UITable
     @IBOutlet weak var followerCountLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var profilePicImageView: UIImageView!
+<<<<<<< HEAD
     var myPhotos = [Photo]()
     var myImages = [Image]()
     var image = Image()
+=======
+	
+	@IBOutlet weak var tableView: UITableView!
+	
+	
+>>>>>>> 6402a88eb3984688b021f55de9ea0980796adeea
     override func viewDidLoad() {
         super.viewDidLoad()
         profilePicImageView.layer.cornerRadius = profilePicImageView.frame.size.width/2
