@@ -16,10 +16,7 @@ class PhotoTableViewCell: UITableViewCell{
         super.awakeFromNib()
         let tap = UITapGestureRecognizer.init(target: self, action: "segueToPhoto" )
         addGestureRecognizer(tap)
-        
     }
-    
-    
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
