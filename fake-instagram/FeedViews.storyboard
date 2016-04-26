@@ -692,12 +692,12 @@
                                     <action selector="onChooseFromGalleryPressed:" destination="KV8-Du-wDY" eventType="touchUpInside" id="Ws1-SH-qM1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w5w-rm-p7u">
-                                <rect key="frame" x="271" y="523" width="58" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w5w-rm-p7u">
+                                <rect key="frame" x="271" y="522" width="58" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="58" id="ebv-m3-maN"/>
                                 </constraints>
-                                <state key="normal" title="Take Pic" image="take_picture"/>
+                                <state key="normal" image="take_picture"/>
                                 <connections>
                                     <action selector="onTakePicButtonPressed:" destination="KV8-Du-wDY" eventType="touchUpInside" id="WdE-iH-p9c"/>
                                 </connections>
@@ -769,7 +769,7 @@
                     <toolbarItems/>
                     <connections>
                         <outlet property="imageView" destination="yPZ-6L-HTc" id="uBu-Mo-eJ5"/>
-                        <segue destination="Saq-Jb-jaT" kind="show" id="Rvk-Tn-FlO"/>
+                        <segue destination="Saq-Jb-jaT" kind="show" identifier="ProfileImageDone" id="Rvk-Tn-FlO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ru-Ob-LQb" userLabel="First Responder" sceneMemberID="firstResponder"/>

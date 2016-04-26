@@ -52,7 +52,6 @@ class ProfilePhotoUploadViewController: UIViewController, FastttCameraDelegate,U
 		if let image = capturedImage.scaledImage as AnyObject? {
 			self.performSegueWithIdentifier("ConfirmImage", sender: image)
 		}
-		
 	}
 	
 	@IBAction func onChooseFromGalleryPressed(sender: UIButton) {
