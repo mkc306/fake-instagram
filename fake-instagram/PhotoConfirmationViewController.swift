@@ -16,6 +16,7 @@ class PhotoConfirmationUploadViewController: UIViewController {
 	let uid = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
 	let userRef = DataService.dataService.USER_REF
 	let photoRef = DataService.dataService.PHOTO_REF
+    
 	@IBOutlet weak var imageView: UIImageView!
 	
 	
@@ -99,7 +100,9 @@ class PhotoConfirmationUploadViewController: UIViewController {
 		let currentPhotoRef = self.photoRef.childByAutoId()
 		currentPhotoRef.updateChildValues(photo)
 		self.userRef.childByAppendingPath(self.uid).childByAppendingPath("photos").updateChildValues([currentPhotoRef.key: true])
+        self.userRef.childByAppendingPath(self.uid).childByAppendingPath("followers").observeEventType(.ChildAdded, withBlock: { (snapshot) -> Void in
+            self.userRef.childByAppendingPath(snapshot.key).childByAppendingPath("followingFeed").updateChildValues([currentPhotoRef.key:true])
 		print("updated firebase")
-	}
-	
+	})
+    }
 }

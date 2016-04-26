@@ -22,8 +22,8 @@ class UserProfileViewController: UIViewController, UITableViewDataSource,UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        profilePicImageView.layer.cornerRadius = profilePicImageView.frame.size.width/2
-        profilePicImageView.clipsToBounds = true
+        profilePicImageView.bounds = CGRectMake(0, 0, profilePicImageView.frame.width, profilePicImageView.frame.height)
+        profilePicImageView.layer.cornerRadius = 0.5 * profilePicImageView.bounds.size.width
         let currentUserId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String!
         DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppendingPath("photos").observeEventType(.ChildAdded, withBlock: {
             (snapshot) in
