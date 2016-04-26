@@ -59,6 +59,7 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
         
         
         
+        
 		return cell!
 	}
 
