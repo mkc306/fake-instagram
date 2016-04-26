@@ -1,4 +1,25 @@
 PODS:
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
   - AWSCore (2.4.0)
   - AWSS3 (2.4.0):
     - AWSCore (= 2.4.0)
@@ -8,11 +29,13 @@ PODS:
   - Firebase (2.5.1)
 
 DEPENDENCIES:
+  - AFNetworking (~> 2.5)
   - AWSS3
   - FastttCamera
   - Firebase (>= 2.5.1)
 
 SPEC CHECKSUMS:
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   AWSCore: 7e0da755786280a76ed4ab4ed8c1d38ced09b460
   AWSS3: dc00e788fb6733853ecd615a45f9d7dd6ce25823
   FastttCamera: 51f16712cbd5bdb08bc6231b957325c6be5e478d
