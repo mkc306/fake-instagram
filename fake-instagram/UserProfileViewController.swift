@@ -19,13 +19,18 @@ class UserProfileViewController: UIViewController, UITableViewDataSource,UITable
         profilePicImageView.layer.cornerRadius = profilePicImageView.frame.size.width/2
         profilePicImageView.clipsToBounds = true
         let currentUserId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String!
+        
+            
+            
+        
         DataService.dataService.USER_REF.childByAppendingPath(currentUserId).observeEventType(.Value , withBlock: { (snapshot) -> Void in
             if let value = snapshot.value as? [String:AnyObject] {
                 let user = User(key: snapshot.key , dict: value)
                 self.usernameLabel.text = user.username
                 let followingCount = user.following.count
                 let followersCount = user.followers.count
-//                let aPhoto = user.
+                
+                
             
               self.followingCountLabel.text = "Following: \(followingCount)"
               self.followerCountLabel.text = "Followers: \(followersCount)"
@@ -40,7 +45,7 @@ class UserProfileViewController: UIViewController, UITableViewDataSource,UITable
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as? PhotoTableViewCell
-        
+//        cell?.photoView.image = 
         return cell!
     }
     
