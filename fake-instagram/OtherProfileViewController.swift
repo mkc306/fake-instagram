@@ -40,7 +40,7 @@ class OtherProfileViewController: UIViewController, UITableViewDelegate, UITable
                     let photo = Photo(key: snapshot.key, dict: valueDict)
                     self.photos.append(photo)
                     
-                    let URLRequest = NSURLRequest(URL: NSURL(string: photo.picURL)!)
+                    let URLRequest = NSURLRequest(URL: NSURL(string: photo.picURL!)!)
                     imageDownloader.downloadImage(URLRequest: URLRequest) { response in
                         print(response.request)
                         print(response.response)

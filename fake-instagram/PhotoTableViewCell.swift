@@ -25,7 +25,7 @@ class PhotoTableViewCell: UITableViewCell{
             doubleTapGesture.numberOfTapsRequired = 2
             
             
-            let likesRef = DataService.dataService.PHOTO_REF.childByAppendingPath(self.photo.key).childByAppendingPath("likes")
+            let likesRef = DataService.dataService.PHOTO_REF.childByAppendingPath(self.photoKey).childByAppendingPath("likes")
             
             //
             //            if let userId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String {
@@ -40,7 +40,8 @@ class PhotoTableViewCell: UITableViewCell{
             //        }
             
         }
-        
+    }
+    
         override func setSelected(selected: Bool, animated: Bool) {
             super.setSelected(selected, animated: animated)
             
@@ -61,4 +62,5 @@ class PhotoTableViewCell: UITableViewCell{
         
     }
 
-}
+
+

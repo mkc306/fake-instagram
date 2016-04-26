@@ -21,7 +21,7 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
         self.tableView.delegate = self
         self.tableView.dataSource = self
         let currentUserId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String!
-        DataService.dataService.PHOTO_REF.observeEventType(.Value , withBlock: {(snapshot3) -> Void in
+        DataService.dataService.PHOTO_REF.observeEventType(.ChildAdded , withBlock: {(snapshot3) -> Void in
                     if let valueDict = snapshot3.value as? [String:AnyObject] {
                         let photo = Photo(key: snapshot3.key, dict: valueDict)
                         let downloader = imageDownloader
@@ -59,24 +59,11 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
         let image = images[indexPath.row]
         cell?.photoView.image = image
         
-        
-        
-<<<<<<< HEAD
-        return cell!
-=======
-        
 		return cell!
 	}
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
->>>>>>> 2a9d20592db718826a60e1c93ba2d86aefacb2d2
-    }
+
     
     /*
      // MARK: - Navigation
