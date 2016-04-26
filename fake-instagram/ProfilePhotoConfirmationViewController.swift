@@ -72,6 +72,8 @@ class ProfilePhotoConfirmationUploadViewController: UIViewController {
 		uploadRequest.key = NSProcessInfo.processInfo().globallyUniqueString + "." + ext
 		uploadRequest.bucket = S3BucketName
 		self.s3URL = NSURL(string: "http://s3.amazonaws.com/\(S3BucketName)/\(uploadRequest.key!)")!
+		userDefaults.setValue(self.s3URL.absoluteString, forKey: "profileImageURL")
+		self.userRef.childByAppendingPath(self.uid).setValue(["profileImageURL": self.s3URL.absoluteString])
 		uploadRequest.contentType = "image/" + ext
 		let transferManager = AWSS3TransferManager.defaultS3TransferManager()
 		transferManager.upload(uploadRequest).continueWithBlock { (task) -> AnyObject! in
@@ -93,18 +95,7 @@ class ProfilePhotoConfirmationUploadViewController: UIViewController {
 	}
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		NSUserDefaults.standardUserDefaults().setValue(self.s3URL.absoluteString, forKey: "profileImageURL")
-		self.userRef.childByAppendingPath(self.uid).setValue(["profileImageURL": self.s3URL.absoluteString])
 		print("lulsUserRefUpdated")
-		self.updateFirebase(self.s3URL)
-	}
-	
-	func updateFirebase(url: NSURL){
-		let photo = ["picURL": url.absoluteString, "userKey": self.uid, "caption": ""]
-		let currentPhotoRef = self.photoRef.childByAutoId()
-		currentPhotoRef.updateChildValues(photo)
-		self.userRef.childByAppendingPath(self.uid).childByAppendingPath("photos").setValue([currentPhotoRef.key: true])
-		print("updated firebase")
 	}
 	
 }

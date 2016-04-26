@@ -16,6 +16,7 @@ class PhotoTableViewCell: UITableViewCell{
         super.awakeFromNib()
         let tap = UITapGestureRecognizer.init(target: self, action: "segueToPhoto" )
         addGestureRecognizer(tap)
+<<<<<<< HEAD
         
         if let image = imageView?.image{
             
@@ -50,8 +51,18 @@ class PhotoTableViewCell: UITableViewCell{
             let nextViewController = storyboard.instantiateViewControllerWithIdentifier("PhotoViewController")
             view?.presentViewController(nextViewController, animated: true, completion: nil)
         }
+=======
+    }
+    
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+>>>>>>> cbb3ade28899c0e2ace1c2930225b568b8541700
         
     }
+	
+	@IBAction func onLikeButtonPressed(sender: AnyObject) {
+	}
+		
     
     
 }

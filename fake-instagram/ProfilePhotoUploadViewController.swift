@@ -11,7 +11,7 @@ import FastttCamera
 
 class ProfilePhotoUploadViewController: UIViewController, FastttCameraDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 	
-
+	
 	@IBOutlet weak var cameraView: UIView!
 	let fastCamera = FastttCamera()
 	
@@ -62,6 +62,23 @@ class ProfilePhotoUploadViewController: UIViewController, FastttCameraDelegate,U
 		self.fastttAddChildViewController(gallery)
 	}
 	
+	@IBAction func onRotateCameraPressed(sender: AnyObject) {
+		var device: FastttCameraDevice
+		switch self.fastCamera.cameraDevice {
+			case FastttCameraDevice.Rear:
+				device = FastttCameraDevice.Front
+				break
+			case FastttCameraDevice.Front:
+				device = FastttCameraDevice.Rear
+				break
+			default:
+				print("noob camera")
+		}
+		if FastttCamera.isCameraDeviceAvailable(device) {
+			self.fastCamera.cameraDevice = device
+		}
+	}
+	
 	@IBAction func onTakePicButtonPressed(sender: UIButton) {
 		print("take pic button pressed")
 		self.fastCamera.takePicture()
@@ -75,4 +92,5 @@ class ProfilePhotoUploadViewController: UIViewController, FastttCameraDelegate,U
 			
 		}
 	}
+
 }
