@@ -83,8 +83,6 @@ class ProfilePhotoConfirmationUploadViewController: UIViewController {
 			}
 			if task.result != nil {
 				print("Uploaded to:\n\(self.s3URL)")
-				self.userDefaults.setValue(self.s3URL, forKey: "profileImageURL")
-				self.userRef.childByAppendingPath(self.uid).setValue([self.s3URL: true])
 				self.performSegueWithIdentifier("ProfileImageDone", sender: nil)
 			}
 			else {
@@ -95,6 +93,9 @@ class ProfilePhotoConfirmationUploadViewController: UIViewController {
 	}
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		NSUserDefaults.standardUserDefaults().setValue(self.s3URL.absoluteString, forKey: "profileImageURL")
+		self.userRef.childByAppendingPath(self.uid).setValue(["profileImageURL": self.s3URL.absoluteString])
+		print("lulsUserRefUpdated")
 		self.updateFirebase(self.s3URL)
 	}
 	
