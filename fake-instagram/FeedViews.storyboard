@@ -731,7 +731,7 @@
                                             <action selector="onTakePicButtonPressed:" destination="KV8-Du-wDY" eventType="touchUpInside" id="WdE-iH-p9c"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qh0-gp-5oP">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qh0-gp-5oP">
                                         <rect key="frame" x="334" y="0.0" width="167" height="32"/>
                                         <state key="normal" image="rotate_camera_filled"/>
                                         <connections>
