@@ -15,11 +15,10 @@ class UserProfileViewController: UIViewController, UITableViewDataSource,UITable
     @IBOutlet weak var followerCountLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var profilePicImageView: UIImageView!
-
     var myPhotos = [Photo]()
     var myImages = [Image]()
     var image = Image()
-	@IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +26,7 @@ class UserProfileViewController: UIViewController, UITableViewDataSource,UITable
         profilePicImageView.clipsToBounds = true
         let currentUserId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String!
         DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppendingPath("photos").observeEventType(.ChildAdded, withBlock: {
-            (snapshot) -> Void in
+            (snapshot) in
             DataService.dataService.PHOTO_REF.childByAppendingPath(snapshot.key).observeEventType(.Value , withBlock: { (snapshot) -> Void in
                 
                 if let valueDict = snapshot.value as? [String:AnyObject] {
@@ -43,15 +42,14 @@ class UserProfileViewController: UIViewController, UITableViewDataSource,UITable
                             let tempImage = thisImage
                             self.image = tempImage.af_imageScaledToSize(thisImage.size)
                             self.myImages.append(self.image)
-                            self.myPhotos.append(photo)
-//                            self.tableView.reloadData()
+                            self.tableView.reloadData()
                         }
                     }
                 }
             })
         })
         
-    
+        
         DataService.dataService.USER_REF.childByAppendingPath(currentUserId).observeEventType(.Value , withBlock: { (snapshot) -> Void in
             if let value = snapshot.value as? [String:AnyObject] {
                 let user = User(key: snapshot.key , dict: value)
@@ -60,15 +58,15 @@ class UserProfileViewController: UIViewController, UITableViewDataSource,UITable
                 let followersCount = user.followers.count
                 
                 
-            
-              self.followingCountLabel.text = "Following: \(followingCount)"
-              self.followerCountLabel.text = "Followers: \(followersCount)"
+                
+                self.followingCountLabel.text = "Following: \(followingCount)"
+                self.followerCountLabel.text = "Followers: \(followersCount)"
             }
-    
+            
         })
         
     }
-
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.myImages.count
     }
@@ -78,6 +76,6 @@ class UserProfileViewController: UIViewController, UITableViewDataSource,UITable
         return cell!
     }
     
- 
+    
 }
  
