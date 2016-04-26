@@ -21,7 +21,9 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
         self.tableView.delegate = self
         self.tableView.dataSource = self
         let currentUserId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String!
-        DataService.dataService.PHOTO_REF.observeEventType(.ChildAdded , withBlock: {(snapshot3) -> Void in
+        DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppendingPath("followingFeed").observeEventType(.ChildAdded, withBlock: {(snapshot) in
+
+        DataService.dataService.PHOTO_REF.childByAppendingPath(snapshot.key).observeEventType(.Value , withBlock: {(snapshot3) -> Void in
                     if let valueDict = snapshot3.value as? [String:AnyObject] {
                         let photo = Photo(key: snapshot3.key, dict: valueDict)
                         let downloader = imageDownloader
@@ -43,6 +45,7 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
                         }
          
             }
+            })
         })
     }
     
