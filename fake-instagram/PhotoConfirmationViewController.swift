@@ -15,6 +15,7 @@ class PhotoConfirmationUploadViewController: UIViewController {
 	var s3URL = NSURL()
 	let uid = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
 	let userRef = DataService.dataService.USER_REF
+	let photoRef = DataService.dataService.PHOTO_REF
 	@IBOutlet weak var imageView: UIImageView!
 	
 	
@@ -59,8 +60,6 @@ class PhotoConfirmationUploadViewController: UIViewController {
 				print(error?.description)
 			}
 		}
-		
-		
 	}
 	
 	func uploadToS3(writePath: NSURL) {
@@ -69,6 +68,7 @@ class PhotoConfirmationUploadViewController: UIViewController {
 		uploadRequest.body = writePath
 		uploadRequest.key = NSProcessInfo.processInfo().globallyUniqueString + "." + ext
 		uploadRequest.bucket = S3BucketName
+		self.s3URL = NSURL(string: "http://s3.amazonaws.com/\(S3BucketName)/\(uploadRequest.key!)")!
 		uploadRequest.contentType = "image/" + ext
 		let transferManager = AWSS3TransferManager.defaultS3TransferManager()
 		transferManager.upload(uploadRequest).continueWithBlock { (task) -> AnyObject! in
@@ -79,9 +79,9 @@ class PhotoConfirmationUploadViewController: UIViewController {
 				print("Upload failed ❌ (\(exception))")
 			}
 			if task.result != nil {
-				self.s3URL = NSURL(string: "http://s3.amazonaws.com/\(S3BucketName)/\(uploadRequest.key!)")!
+				
 				print("Uploaded to:\n\(self.s3URL)")
-				self.updateFirebase(self.s3URL)
+				self.performSegueWithIdentifier("UploadComplete", sender: nil)
 			}
 			else {
 				print("Unexpected empty result.")
@@ -90,8 +90,15 @@ class PhotoConfirmationUploadViewController: UIViewController {
 		}
 	}
 	
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		self.updateFirebase(self.s3URL)
+	}
+	
 	func updateFirebase(url: NSURL){
-		self.userRef.childByAppendingPath(self.uid).childByAppendingPath("photos").updateChildValues([url.absoluteString: true])
+		let photo = ["picURL": url.absoluteString, "userKey": self.uid, "caption": ""]
+		let currentPhotoRef = self.photoRef.childByAutoId()
+		currentPhotoRef.updateChildValues(photo)
+		self.userRef.childByAppendingPath(self.uid).childByAppendingPath("photos").setValue([currentPhotoRef.key: true])
 		print("updated firebase")
 	}
 	
