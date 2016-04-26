@@ -47,6 +47,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="1ZZ-35-Uja"/>
                                 </constraints>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
@@ -309,6 +310,6 @@
         <image name="Background" width="750" height="1334"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="14K-ZT-WnL"/>
+        <segue reference="jI0-Tm-srv"/>
     </inferredMetricsTieBreakers>
 </document>

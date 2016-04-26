@@ -68,7 +68,7 @@ class PhotoConfirmationUploadViewController: UIViewController {
 		uploadRequest.body = writePath
 		uploadRequest.key = NSProcessInfo.processInfo().globallyUniqueString + "." + ext
 		uploadRequest.bucket = S3BucketName
-		self.s3URL = NSURL(string: "http://s3.amazonaws.com/\(S3BucketName)/\(uploadRequest.key!)")!
+		
 		uploadRequest.contentType = "image/" + ext
 		let transferManager = AWSS3TransferManager.defaultS3TransferManager()
 		transferManager.upload(uploadRequest).continueWithBlock { (task) -> AnyObject! in
@@ -79,7 +79,7 @@ class PhotoConfirmationUploadViewController: UIViewController {
 				print("Upload failed ❌ (\(exception))")
 			}
 			if task.result != nil {
-				
+				self.s3URL = NSURL(string: "http://s3.amazonaws.com/\(S3BucketName)/\(uploadRequest.key!)")!
 				print("Uploaded to:\n\(self.s3URL)")
 				self.performSegueWithIdentifier("UploadComplete", sender: nil)
 			}
