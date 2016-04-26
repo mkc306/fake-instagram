@@ -16,7 +16,6 @@ class PhotoTableViewCell: UITableViewCell{
         super.awakeFromNib()
         let tap = UITapGestureRecognizer.init(target: self, action: "segueToPhoto" )
         addGestureRecognizer(tap)
-<<<<<<< HEAD
         
         if let image = imageView?.image{
             
@@ -28,17 +27,17 @@ class PhotoTableViewCell: UITableViewCell{
             
             
             if let userId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String {let dict = ["liked":liked, "userId":userId]
-            
-            DataService.dataService.PHOTO_REF.childByAutoId().setValue(dict, andPriority: nil, withCompletionBlock: { (error, ref) -> Void in
                 
-                DataService.dataService.USER_REF.childByAppendingPath(userId).childByAppendingPath("liked").updateChildValues(ref.key: true)
-                
-            })
+                DataService.dataService.PHOTO_REF.childByAutoId().setValue(dict, andPriority: nil, withCompletionBlock: { (error, ref) -> Void in
+                    
+                    DataService.dataService.USER_REF.childByAppendingPath(userId).childByAppendingPath("liked").updateChildValues(ref.key: true)
+                    
+                })
+            }
         }
-    }
-    
-    
-    
+        
+        
+        
         override func setSelected(selected: Bool, animated: Bool) {
             super.setSelected(selected, animated: animated)
             
@@ -51,23 +50,17 @@ class PhotoTableViewCell: UITableViewCell{
             let nextViewController = storyboard.instantiateViewControllerWithIdentifier("PhotoViewController")
             view?.presentViewController(nextViewController, animated: true, completion: nil)
         }
-=======
-    }
-    
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
->>>>>>> cbb3ade28899c0e2ace1c2930225b568b8541700
         
     }
-	
-	@IBAction func onLikeButtonPressed(sender: AnyObject) {
-	}
-		
     
+    @IBAction func onLikeButtonPressed(sender: AnyObject) {
+    }
+    
+    func likeSignTurnRed(<#parameters#>) -> <#return type#> {
+        <#function body#>
+    }
     
 }
 
 
- func likeSignTurnRed(<#parameters#>) -> <#return type#> {
-    <#function body#>
-}
+
