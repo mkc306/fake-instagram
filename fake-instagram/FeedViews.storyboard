@@ -370,8 +370,12 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="user_male_circle_filled" translatesAutoresizingMaskIntoConstraints="NO" id="DbV-zL-fnd">
+                                <rect key="frame" x="235" y="258" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.059547044936971008" green="0.01432913578394214" blue="0.22735415399074554" alpha="0.0" colorSpace="calibratedRGB"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASn-Iw-2qF">
-                                <rect key="frame" x="193" y="405" width="214" height="30"/>
+                                <rect key="frame" x="178" y="398" width="214" height="30"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Take your first awesome photo!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -381,9 +385,6 @@
                                     <segue destination="KV8-Du-wDY" kind="show" id="EVF-3S-czW"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="user_male_circle" translatesAutoresizingMaskIntoConstraints="NO" id="DbV-zL-fnd">
-                                <rect key="frame" x="235" y="258" width="100" height="100"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.063184671103954315" green="0.25466606020927429" blue="0.29264271259307861" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -822,7 +823,7 @@
         <image name="rotate_camera_filled" width="25" height="25"/>
         <image name="take_picture" width="24" height="24"/>
         <image name="upload_wink" width="32" height="32"/>
-        <image name="user_male_circle" width="25" height="25"/>
+        <image name="user_male_circle_filled" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="rf1-sI-BRw"/>
