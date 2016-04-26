@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0720"
+   LastUpgradeVersion = "0730"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "050F1B63798B8B8B9657250FEA72A464"
+               BlueprintIdentifier = "1E83AA9EDE4A62673CF218EBA885C7E9"
                BuildableName = "Pods_fake_instagram.framework"
                BlueprintName = "Pods-fake-instagram"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "050F1B63798B8B8B9657250FEA72A464"
+            BlueprintIdentifier = "1E83AA9EDE4A62673CF218EBA885C7E9"
             BuildableName = "Pods_fake_instagram.framework"
             BlueprintName = "Pods-fake-instagram"
             ReferencedContainer = "container:Pods.xcodeproj">
@@ -63,7 +63,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "050F1B63798B8B8B9657250FEA72A464"
+            BlueprintIdentifier = "1E83AA9EDE4A62673CF218EBA885C7E9"
             BuildableName = "Pods_fake_instagram.framework"
             BlueprintName = "Pods-fake-instagram"
             ReferencedContainer = "container:Pods.xcodeproj">
