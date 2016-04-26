@@ -18,12 +18,6 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
 			
         super.viewDidLoad()
-        let imageDownloader = ImageDownloader(
-            configuration: ImageDownloader.defaultURLSessionConfiguration(),
-            downloadPrioritization: .FIFO,
-            maximumActiveDownloads: 4,
-            imageCache: AutoPurgingImageCache()
-        )
 			self.tableView.delegate = self
 			self.tableView.dataSource = self
         DataService.dataService.PHOTO_REF.observeEventType(.ChildAdded , withBlock: {(snapshot) -> Void in
@@ -64,7 +58,6 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as? PhotoTableViewCell!
        let image = images[indexPath.row]
-        print(image.size)
         cell?.photoView.image = image
         
         
