@@ -16,7 +16,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" id="GhX-Fm-5mE">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GhX-Fm-5mE" id="QTm-E3-xuy">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -64,7 +64,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bew-zN-BAY">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bew-zN-BAY">
                                 <rect key="frame" x="0.0" y="20" width="600" height="531"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -134,7 +134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XzU-SZ-rkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1703" y="679"/>
+            <point key="canvasLocation" x="2111" y="423"/>
         </scene>
         <!--Photo View Controller-->
         <scene sceneID="xfF-tw-i0C">
@@ -385,7 +385,7 @@
                                 </constraints>
                                 <state key="normal" title="Take your first awesome photo!"/>
                                 <connections>
-                                    <segue destination="bGS-uP-j1p" kind="show" identifier="FirstProfilePicture" id="FJ8-Ut-sqQ"/>
+                                    <segue destination="KV8-Du-wDY" kind="show" id="EVF-3S-czW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -407,7 +407,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gvy-IJ-ug6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="207" y="679"/>
+            <point key="canvasLocation" x="-489" y="175"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="V2m-oB-GqM">
@@ -427,7 +427,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s8V-Nl-G00" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="891" y="679"/>
+            <point key="canvasLocation" x="771" y="127"/>
         </scene>
         <!--Picture-->
         <scene sceneID="SoD-vy-Omv">
@@ -669,6 +669,113 @@
             </objects>
             <point key="canvasLocation" x="811" y="2366"/>
         </scene>
+        <!--Profile Photo Upload View Controller-->
+        <scene sceneID="ljS-fZ-EQr">
+            <objects>
+                <viewController id="KV8-Du-wDY" customClass="ProfilePhotoUploadViewController" customModule="fake_instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fku-eM-HmX"/>
+                        <viewControllerLayoutGuide type="bottom" id="jhC-c2-yzJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eOZ-WN-XLO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eiL-EH-ioj">
+                                <rect key="frame" x="0.0" y="60" width="600" height="421"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxg-LQ-sAk">
+                                <rect key="frame" x="106" y="522" width="53" height="32"/>
+                                <state key="normal" image="add_image"/>
+                                <connections>
+                                    <action selector="onChooseFromGalleryPressed:" destination="KV8-Du-wDY" eventType="touchUpInside" id="Ws1-SH-qM1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w5w-rm-p7u">
+                                <rect key="frame" x="271" y="523" width="58" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="58" id="ebv-m3-maN"/>
+                                </constraints>
+                                <state key="normal" title="Take Pic" image="take_picture"/>
+                                <connections>
+                                    <action selector="onTakePicButtonPressed:" destination="KV8-Du-wDY" eventType="touchUpInside" id="WdE-iH-p9c"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fxg-LQ-sAk" firstAttribute="top" secondItem="eiL-EH-ioj" secondAttribute="bottom" constant="41" id="6YD-u8-b7Y"/>
+                            <constraint firstItem="jhC-c2-yzJ" firstAttribute="top" secondItem="w5w-rm-p7u" secondAttribute="bottom" constant="47" id="Fl5-P5-A0C"/>
+                            <constraint firstItem="w5w-rm-p7u" firstAttribute="centerX" secondItem="eOZ-WN-XLO" secondAttribute="centerX" id="KZ9-Er-4Fe"/>
+                            <constraint firstItem="jhC-c2-yzJ" firstAttribute="top" secondItem="eiL-EH-ioj" secondAttribute="bottom" constant="119" id="QdS-vh-uZe"/>
+                            <constraint firstItem="eiL-EH-ioj" firstAttribute="leading" secondItem="eOZ-WN-XLO" secondAttribute="leadingMargin" constant="-20" id="R6U-9F-Pe1"/>
+                            <constraint firstItem="w5w-rm-p7u" firstAttribute="top" secondItem="eiL-EH-ioj" secondAttribute="bottom" constant="42" id="S3V-r3-54d"/>
+                            <constraint firstItem="jhC-c2-yzJ" firstAttribute="top" secondItem="fxg-LQ-sAk" secondAttribute="bottom" constant="46" id="Ukn-58-NaP"/>
+                            <constraint firstItem="w5w-rm-p7u" firstAttribute="leading" secondItem="fxg-LQ-sAk" secondAttribute="trailing" constant="112" id="eSu-kh-diK"/>
+                            <constraint firstItem="eiL-EH-ioj" firstAttribute="top" secondItem="fku-eM-HmX" secondAttribute="bottom" constant="40" id="fyT-QY-yQs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eiL-EH-ioj" secondAttribute="trailing" constant="-20" id="ihn-FJ-4z2"/>
+                            <constraint firstItem="fxg-LQ-sAk" firstAttribute="leading" secondItem="eOZ-WN-XLO" secondAttribute="leadingMargin" constant="86" id="vDP-TR-9Ei"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <connections>
+                        <outlet property="cameraView" destination="eiL-EH-ioj" id="GUZ-0S-3Pz"/>
+                        <segue destination="qoI-fR-DZf" kind="showDetail" identifier="ConfirmImage" id="1vx-mW-NVG">
+                            <nil key="action"/>
+                        </segue>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l38-P9-pqR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-147" y="1437"/>
+        </scene>
+        <!--Profile Photo Confirmation Upload View Controller-->
+        <scene sceneID="wg8-YO-zXc">
+            <objects>
+                <viewController id="qoI-fR-DZf" customClass="ProfilePhotoConfirmationUploadViewController" customModule="fake_instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="esz-Tt-EMj"/>
+                        <viewControllerLayoutGuide type="bottom" id="bNF-xK-lBz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gn6-Yj-OpH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yPZ-6L-HTc">
+                                <rect key="frame" x="0.0" y="60" width="600" height="421"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pvH-7u-EXn">
+                                <rect key="frame" x="252" y="522" width="97" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="58" id="oYp-oC-vBs"/>
+                                </constraints>
+                                <state key="normal" title="Confirm" image="upload_wink"/>
+                                <connections>
+                                    <action selector="onConfirmButtonPressed:" destination="qoI-fR-DZf" eventType="touchUpInside" id="QVH-pu-rMj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yPZ-6L-HTc" firstAttribute="top" secondItem="esz-Tt-EMj" secondAttribute="bottom" constant="40" id="2hp-y8-2ML"/>
+                            <constraint firstItem="pvH-7u-EXn" firstAttribute="centerX" secondItem="gn6-Yj-OpH" secondAttribute="centerX" id="7Pz-Iu-F8v"/>
+                            <constraint firstItem="yPZ-6L-HTc" firstAttribute="leading" secondItem="gn6-Yj-OpH" secondAttribute="leadingMargin" constant="-20" id="DTH-mS-jOU"/>
+                            <constraint firstItem="bNF-xK-lBz" firstAttribute="top" secondItem="pvH-7u-EXn" secondAttribute="bottom" constant="47" id="UEz-Yr-aBv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yPZ-6L-HTc" secondAttribute="trailing" constant="-20" id="X11-E3-XAY"/>
+                            <constraint firstItem="pvH-7u-EXn" firstAttribute="top" secondItem="yPZ-6L-HTc" secondAttribute="bottom" constant="42" id="k7l-yY-i2H"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <connections>
+                        <outlet property="imageView" destination="yPZ-6L-HTc" id="uBu-Mo-eJ5"/>
+                        <segue destination="Saq-Jb-jaT" kind="show" id="Rvk-Tn-FlO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Ru-Ob-LQb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-133" y="2366"/>
+        </scene>
     </scenes>
     <resources>
         <image name="600px-Ski_trail_rating_symbol-blue_square.svg" width="600" height="600"/>
@@ -678,8 +785,7 @@
         <image name="upload_wink" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Hkp-7A-NJj"/>
-        <segue reference="Ybe-3x-vTk"/>
+        <segue reference="Rvk-Tn-FlO"/>
         <segue reference="lj5-oQ-NHK"/>
     </inferredMetricsTieBreakers>
 </document>
