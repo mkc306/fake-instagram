@@ -14,10 +14,20 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>AlamofireImage.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 		<key>FastttCamera.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>5</integer>
 		</dict>
 		<key>Firebase.xcscheme</key>
 		<dict>
@@ -27,17 +37,32 @@
 		<key>LLSimpleCamera.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<key>Pods-fake-instagram.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>4</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>05094CC4A047119F7ADC14EE74C4881C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>050F1B63798B8B8B9657250FEA72A464</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>12D2860C8BD4CA487A85B2534BA29BE4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1E83AA9EDE4A62673CF218EBA885C7E9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -48,6 +73,11 @@
 			<true/>
 		</dict>
 		<key>4A01936428B56F942295391219E3D718</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

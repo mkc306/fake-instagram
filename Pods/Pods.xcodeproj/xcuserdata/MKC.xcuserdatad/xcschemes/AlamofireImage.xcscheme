@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DD4C60D0C1ADF7586B8862EEA147DE00"
-               BuildableName = "AWSCore.framework"
-               BlueprintName = "AWSCore"
+               BlueprintIdentifier = "05094CC4A047119F7ADC14EE74C4881C"
+               BuildableName = "AlamofireImage.framework"
+               BlueprintName = "AlamofireImage"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DD4C60D0C1ADF7586B8862EEA147DE00"
-            BuildableName = "AWSCore.framework"
-            BlueprintName = "AWSCore"
+            BlueprintIdentifier = "05094CC4A047119F7ADC14EE74C4881C"
+            BuildableName = "AlamofireImage.framework"
+            BlueprintName = "AlamofireImage"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DD4C60D0C1ADF7586B8862EEA147DE00"
-            BuildableName = "AWSCore.framework"
-            BlueprintName = "AWSCore"
+            BlueprintIdentifier = "05094CC4A047119F7ADC14EE74C4881C"
+            BuildableName = "AlamofireImage.framework"
+            BlueprintName = "AlamofireImage"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
