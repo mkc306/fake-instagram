@@ -93,7 +93,7 @@ class ProfilePhotoConfirmationUploadViewController: UIViewController {
 	}
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		NSUserDefaults.standardUserDefaults().setValue(self.s3URL.absoluteString, forKey: "profileImageURL")
+		userDefaults.setValue(self.s3URL.absoluteString, forKey: "profileImageURL")
 		self.userRef.childByAppendingPath(self.uid).setValue(["profileImageURL": self.s3URL.absoluteString])
 		print("lulsUserRefUpdated")
 		self.updateFirebase(self.s3URL)
