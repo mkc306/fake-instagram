@@ -84,16 +84,16 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-fake-instagram/AFNetworking.framework"
   install_framework "Pods-fake-instagram/AWSCore.framework"
   install_framework "Pods-fake-instagram/AWSS3.framework"
+  install_framework "Pods-fake-instagram/Alamofire.framework"
   install_framework "Pods-fake-instagram/FastttCamera.framework"
   install_framework "Pods-fake-instagram/Firebase.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-fake-instagram/AFNetworking.framework"
   install_framework "Pods-fake-instagram/AWSCore.framework"
   install_framework "Pods-fake-instagram/AWSS3.framework"
+  install_framework "Pods-fake-instagram/Alamofire.framework"
   install_framework "Pods-fake-instagram/FastttCamera.framework"
   install_framework "Pods-fake-instagram/Firebase.framework"
 fi
