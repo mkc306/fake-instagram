@@ -11,13 +11,18 @@ import AWSS3
 import Photos
 
 class PhotoConfirmationUploadViewController: UIViewController {
-	
+	var image = UIImage()
+	var s3URL = NSURL()
+	let uid = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
+	let userRef = DataService.dataService.USER_REF
+	let photoRef = DataService.dataService.PHOTO_REF
 	@IBOutlet weak var imageView: UIImageView!
 	
+	
 	override func viewDidLoad() {
-		
+		self.imageView.image = self.image
 		super.viewDidLoad()
-
+		
 		
 		// Do any additional setup after loading the view.
 	}
@@ -33,29 +38,28 @@ class PhotoConfirmationUploadViewController: UIViewController {
 	
 	
 	@IBAction func onConfirmButtonPressed(sender: UIButton) {
+		saveImageLocallyS3Firebase(image)
 	}
 	
 	
 	
 	
-	func saveImageLocallyAndS3(image: UIImage){
+	func saveImageLocallyS3Firebase(image: UIImage){
 		
 		var writePath = NSURL()
 		PHPhotoLibrary.sharedPhotoLibrary().performChanges({
 			PHAssetChangeRequest.creationRequestForAssetFromImage(image)
-			}) { (success, error) in
-				if (success) {
-					writePath = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent("instagram.png")
-					let imageData = UIImagePNGRepresentation(image)
-					imageData?.writeToURL(writePath, atomically: true)
-					self.uploadToS3(writePath)
-				}
-				else {
-					print(error?.description)
-				}
+		}) { (success, error) in
+			if (success) {
+				writePath = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent("instagram.png")
+				let imageData = UIImagePNGRepresentation(image)
+				imageData?.writeToURL(writePath, atomically: true)
+				self.uploadToS3(writePath)
+			}
+			else {
+				print(error?.description)
+			}
 		}
-		
-		
 	}
 	
 	func uploadToS3(writePath: NSURL) {
@@ -64,6 +68,7 @@ class PhotoConfirmationUploadViewController: UIViewController {
 		uploadRequest.body = writePath
 		uploadRequest.key = NSProcessInfo.processInfo().globallyUniqueString + "." + ext
 		uploadRequest.bucket = S3BucketName
+		self.s3URL = NSURL(string: "http://s3.amazonaws.com/\(S3BucketName)/\(uploadRequest.key!)")!
 		uploadRequest.contentType = "image/" + ext
 		let transferManager = AWSS3TransferManager.defaultS3TransferManager()
 		transferManager.upload(uploadRequest).continueWithBlock { (task) -> AnyObject! in
@@ -74,8 +79,9 @@ class PhotoConfirmationUploadViewController: UIViewController {
 				print("Upload failed ❌ (\(exception))")
 			}
 			if task.result != nil {
-				let s3URL = NSURL(string: "http://s3.amazonaws.com/\(S3BucketName)/\(uploadRequest.key!)")!
-				print("Uploaded to:\n\(s3URL)")
+				
+				print("Uploaded to:\n\(self.s3URL)")
+				self.performSegueWithIdentifier("UploadComplete", sender: nil)
 			}
 			else {
 				print("Unexpected empty result.")
@@ -83,4 +89,17 @@ class PhotoConfirmationUploadViewController: UIViewController {
 			return nil
 		}
 	}
+	
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		self.updateFirebase(self.s3URL)
+	}
+	
+	func updateFirebase(url: NSURL){
+		let photo = ["picURL": url.absoluteString, "userKey": self.uid, "caption": ""]
+		let currentPhotoRef = self.photoRef.childByAutoId()
+		currentPhotoRef.updateChildValues(photo)
+		self.userRef.childByAppendingPath(self.uid).childByAppendingPath("photos").setValue([currentPhotoRef.key: true])
+		print("updated firebase")
+	}
+	
 }

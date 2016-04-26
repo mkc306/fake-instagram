@@ -23,6 +23,8 @@
 		3F4C32AA1CCA00F300E015CF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C32A91CCA00F300E015CF /* LoginViewController.swift */; };
 		3F4C32AC1CCA05CC00E015CF /* PhotoUploadViews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F4C32AB1CCA05CC00E015CF /* PhotoUploadViews.storyboard */; };
 		3F4C32B91CCA1AFA00E015CF /* PhotoUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C32B81CCA1AFA00E015CF /* PhotoUploadViewController.swift */; };
+		3FC514261CCF1D4800A30D8C /* ProfilePhotoUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC514251CCF1D4800A30D8C /* ProfilePhotoUploadViewController.swift */; };
+		3FC514281CCF1D6F00A30D8C /* ProfilePhotoConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC514271CCF1D6F00A30D8C /* ProfilePhotoConfirmationViewController.swift */; };
 		45442C231CC9F4F500EDAC32 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45442C221CC9F4F500EDAC32 /* SignupViewController.swift */; };
 		45442C251CCA0AC100EDAC32 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45442C241CCA0AC100EDAC32 /* UserProfileViewController.swift */; };
 		45442C271CCA0C2800EDAC32 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45442C261CCA0C2800EDAC32 /* UserListViewController.swift */; };
@@ -31,6 +33,7 @@
 		45442C331CCA2D6A00EDAC32 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45442C321CCA2D6A00EDAC32 /* PhotoTableViewCell.swift */; };
 		455043E91CCDC6EA00A3F37F /* OtherProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455043E81CCDC6EA00A3F37F /* OtherProfileViewController.swift */; };
 		455043EB1CCDC7B000A3F37F /* CommentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455043EA1CCDC7B000A3F37F /* CommentTableViewController.swift */; };
+		455043ED1CCE194B00A3F37F /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455043EC1CCE194B00A3F37F /* WelcomeViewController.swift */; };
 		D40FF84F8D6DCDBD3F3DA4AE /* Pods_fake_instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1A83AF90C2D30F606292CB /* Pods_fake_instagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +57,8 @@
 		3F4C32A91CCA00F300E015CF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3F4C32AB1CCA05CC00E015CF /* PhotoUploadViews.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoUploadViews.storyboard; sourceTree = "<group>"; };
 		3F4C32B81CCA1AFA00E015CF /* PhotoUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoUploadViewController.swift; sourceTree = "<group>"; };
+		3FC514251CCF1D4800A30D8C /* ProfilePhotoUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePhotoUploadViewController.swift; sourceTree = "<group>"; };
+		3FC514271CCF1D6F00A30D8C /* ProfilePhotoConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePhotoConfirmationViewController.swift; sourceTree = "<group>"; };
 		45442C221CC9F4F500EDAC32 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		45442C241CCA0AC100EDAC32 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		45442C261CCA0C2800EDAC32 /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +66,7 @@
 		45442C321CCA2D6A00EDAC32 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		455043E81CCDC6EA00A3F37F /* OtherProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherProfileViewController.swift; sourceTree = "<group>"; };
 		455043EA1CCDC7B000A3F37F /* CommentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewController.swift; sourceTree = "<group>"; };
+		455043EC1CCE194B00A3F37F /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		8D1A83AF90C2D30F606292CB /* Pods_fake_instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fake_instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABD1FDE3ED6194A8494911E3 /* Pods-fake-instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fake-instagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fake-instagram/Pods-fake-instagram.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,10 +151,13 @@
 			isa = PBXGroup;
 			children = (
 				3F4C32A01CC9DD0100E015CF /* AllPhotosViewController.swift */,
+				455043EC1CCE194B00A3F37F /* WelcomeViewController.swift */,
 				3F4C32A91CCA00F300E015CF /* LoginViewController.swift */,
 				45442C301CCA2BFE00EDAC32 /* PhotoViewController.swift */,
 				45442C221CC9F4F500EDAC32 /* SignupViewController.swift */,
 				45442C261CCA0C2800EDAC32 /* UserListViewController.swift */,
+				3FC514271CCF1D6F00A30D8C /* ProfilePhotoConfirmationViewController.swift */,
+				3FC514251CCF1D4800A30D8C /* ProfilePhotoUploadViewController.swift */,
 				3F49928E1CCDFCC700745FCA /* PhotoConfirmationViewController.swift */,
 				3F4C32B81CCA1AFA00E015CF /* PhotoUploadViewController.swift */,
 				455043EA1CCDC7B000A3F37F /* CommentTableViewController.swift */,
@@ -309,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				455043EB1CCDC7B000A3F37F /* CommentTableViewController.swift in Sources */,
+				455043ED1CCE194B00A3F37F /* WelcomeViewController.swift in Sources */,
 				3F4C32A61CC9E07100E015CF /* Photo.swift in Sources */,
 				45442C231CC9F4F500EDAC32 /* SignupViewController.swift in Sources */,
 				3F4C326C1CC9CEF400E015CF /* fake_instagram.xcdatamodeld in Sources */,
@@ -325,7 +335,9 @@
 				3F4C32AA1CCA00F300E015CF /* LoginViewController.swift in Sources */,
 				45442C2D1CCA24B000EDAC32 /* (null) in Sources */,
 				3F4C32B91CCA1AFA00E015CF /* PhotoUploadViewController.swift in Sources */,
+				3FC514281CCF1D6F00A30D8C /* ProfilePhotoConfirmationViewController.swift in Sources */,
 				45442C251CCA0AC100EDAC32 /* UserProfileViewController.swift in Sources */,
+				3FC514261CCF1D4800A30D8C /* ProfilePhotoUploadViewController.swift in Sources */,
 				3F4C329C1CC9D96200E015CF /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,6 +436,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -434,6 +447,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Utilities/AWS-S3Bridge.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};

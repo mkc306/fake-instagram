@@ -17,6 +17,8 @@ class User {
 	var liked: [String: AnyObject]!
 	var comments: [String: AnyObject]!
 	var email: String!
+	var profileImageURL: String!
+	var photos: [String: AnyObject]!
 	
 	
 	init(key: String, dict:[String: AnyObject]){
@@ -26,10 +28,14 @@ class User {
 		}
 		if let following = dict["following"] as? [String: AnyObject]{
 			self.following = following
-		}
+        }else{
+            self.following = [:]
+        }
 		if let followers = dict["followers"] as? [String: AnyObject]{
 			self.followers = followers
-		}
+        }else{
+            self.followers = [:]
+        }
 		if let liked = dict["liked"] as? [String: AnyObject]{
 			self.liked = liked
 		}
@@ -38,6 +44,14 @@ class User {
 		}
 		if let email = dict["email"] as? String{
 			self.email = email
+		}
+		
+		if let profileImageURL = dict["profileImageURL"] as? String{
+			self.profileImageURL = profileImageURL
+		}
+		
+		if let photos = dict["photos"] as? [String: AnyObject]{
+			self.photos = photos
 		}
 	}
 	
