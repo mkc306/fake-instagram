@@ -18,18 +18,20 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
 			self.tableView.delegate = self
 			self.tableView.dataSource = self
+        DataService.dataService.PHOTO_REF.observeEventType(.ChildAdded , withBlock: {(snapshot) -> Void in
+            if let value = snapshot.value as? [String:AnyObject] {
+                let photo = Photo(key: snapshot.key, dict: value)
+                self.photos.append(photo)
+                self.tableView.reloadData()
+            }
 
         // Do any additional setup after loading the view.
+        })
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 	
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//		return self.photos.
-		return 0
+	return self.photos.count
 	}
 	
     @IBAction func onLikeButtonPress(sender: UIButton) {
@@ -37,6 +39,10 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
     
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCellWithIdentifier("") as? PhotoTableViewCell
+        let photo = photos[indexPath.row]
+        
+        
+        
 		return cell!
 	}
 

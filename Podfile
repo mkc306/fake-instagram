@@ -13,6 +13,8 @@ pod 'FastttCamera'
 # S3 AWS pod
 pod 'AWSS3'
 
+# AFNetworking Pod
+pod 'AFNetworking', '~> 2.5'
 
 end
 

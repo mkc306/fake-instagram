@@ -1132,8 +1132,14 @@
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				TargetAttributes = {
+					B7AC9326D819482593FE118E915409D7 = {
+						DevelopmentTeam = AR593R57FD;
+					};
+					BDE08E699F8584FC766349E66C74182F = {
+						DevelopmentTeam = AR593R57FD;
+					};
 					DD4C60D0C1ADF7586B8862EEA147DE00 = {
-						DevelopmentTeam = 76HNYRHRM5;
+						DevelopmentTeam = AR593R57FD;
 					};
 				};
 			};
@@ -1312,6 +1318,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 202F8D0CE52076CBED5F7A613D14F8ED /* Firebase.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1327,6 +1334,7 @@
 				MODULEMAP_FILE = "Target Support Files/Firebase/Firebase.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = Firebase;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1339,6 +1347,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 26D7065249939651B8679D8452810439 /* FastttCamera.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1354,6 +1363,7 @@
 				MODULEMAP_FILE = "Target Support Files/FastttCamera/FastttCamera.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = FastttCamera;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1395,6 +1405,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 26D7065249939651B8679D8452810439 /* FastttCamera.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1410,6 +1421,7 @@
 				MODULEMAP_FILE = "Target Support Files/FastttCamera/FastttCamera.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = FastttCamera;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1611,6 +1623,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 202F8D0CE52076CBED5F7A613D14F8ED /* Firebase.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1627,6 +1640,7 @@
 				MODULEMAP_FILE = "Target Support Files/Firebase/Firebase.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = Firebase;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
