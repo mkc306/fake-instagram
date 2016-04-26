@@ -50,7 +50,7 @@ class User {
 			self.profileImageURL = profileImageURL
 		}
 		
-		if let photos = dict["photos"] as? String{
+		if let photos = dict["photos"] as? [String: AnyObject]{
 			self.photos = photos
 		}
 	}
