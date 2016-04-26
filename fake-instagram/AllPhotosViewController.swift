@@ -27,8 +27,8 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
 			self.tableView.delegate = self
 			self.tableView.dataSource = self
         DataService.dataService.PHOTO_REF.observeEventType(.ChildAdded , withBlock: {(snapshot) -> Void in
-            if let value = snapshot.value as? [String:AnyObject] {
-                let photo = Photo(key: snapshot.key, dict: value)
+            if let valueDict = snapshot.value as? [String:AnyObject] {
+                let photo = Photo(key: snapshot.key, dict: valueDict)
                 let downloader = imageDownloader
                 var image = Image()
                 let URLRequest = NSURLRequest(URL: NSURL(string: photo.picURL)!)
@@ -36,13 +36,17 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
                     print(response.request)
                     print(response.response)
                     debugPrint(response.result)
+                    if let thisImage = response.result.value{
+                        let tempImage = thisImage
+                        image = tempImage.af_imageScaledToSize(thisImage.size)
+                        self.images.append(image)
+                        self.photos.append(photo)
+                        self.tableView.reloadData()
+                    }
                     
-                     image = response.result.value!
                     
                 }
-                self.photos.append(photo)
-                self.images.append(image)
-                self.tableView.reloadData()
+                
             }
 
         // Do any additional setup after loading the view.
@@ -51,7 +55,7 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
     
 	
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-	return self.images.count
+        return self.images.count
 	}
 	
     @IBAction func onLikeButtonPress(sender: UIButton) {
@@ -60,6 +64,7 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as? PhotoTableViewCell!
        let image = images[indexPath.row]
+        print(image.size)
         cell?.photoView.image = image
         
         

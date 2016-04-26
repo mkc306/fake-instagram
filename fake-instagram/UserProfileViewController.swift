@@ -13,6 +13,7 @@ class UserProfileViewController: UIViewController, UITableViewDataSource,UITable
     @IBOutlet weak var followerCountLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var profilePicImageView: UIImageView!
+    var myPhotos = [Photo]()
     override func viewDidLoad() {
         super.viewDidLoad()
         profilePicImageView.layer.cornerRadius = profilePicImageView.frame.size.width/2
@@ -24,6 +25,7 @@ class UserProfileViewController: UIViewController, UITableViewDataSource,UITable
                 self.usernameLabel.text = user.username
                 let followingCount = user.following.count
                 let followersCount = user.followers.count
+//                let aPhoto = user.
             
               self.followingCountLabel.text = "Following: \(followingCount)"
               self.followerCountLabel.text = "Followers: \(followersCount)"
@@ -34,10 +36,11 @@ class UserProfileViewController: UIViewController, UITableViewDataSource,UITable
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0;
+        return self.myPhotos.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as? PhotoTableViewCell
+        
         return cell!
     }
     
