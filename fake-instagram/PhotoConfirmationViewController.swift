@@ -98,7 +98,7 @@ class PhotoConfirmationUploadViewController: UIViewController {
 		let photo = ["picURL": url.absoluteString, "userKey": self.uid, "caption": ""]
 		let currentPhotoRef = self.photoRef.childByAutoId()
 		currentPhotoRef.updateChildValues(photo)
-		self.userRef.childByAppendingPath(self.uid).childByAppendingPath("photos").setValue([currentPhotoRef.key: true])
+		self.userRef.childByAppendingPath(self.uid).childByAppendingPath("photos").updateChildValues([currentPhotoRef.key: true])
 		print("updated firebase")
 	}
 	
