@@ -7,20 +7,39 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 	
 	var photos = [Photo]()
+    var images = [Image]()
 	@IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
 			
         super.viewDidLoad()
+        let imageDownloader = ImageDownloader(
+            configuration: ImageDownloader.defaultURLSessionConfiguration(),
+            downloadPrioritization: .FIFO,
+            maximumActiveDownloads: 4,
+            imageCache: AutoPurgingImageCache()
+        )
 			self.tableView.delegate = self
 			self.tableView.dataSource = self
         DataService.dataService.PHOTO_REF.observeEventType(.ChildAdded , withBlock: {(snapshot) -> Void in
             if let value = snapshot.value as? [String:AnyObject] {
                 let photo = Photo(key: snapshot.key, dict: value)
+                let downloader = imageDownloader
+                let URLRequest = NSURLRequest(URL: NSURL(string: photo.picURL)!)
+                downloader.downloadImage(URLRequest: URLRequest) { response in
+                    print(response.request)
+                    print(response.response)
+                    debugPrint(response.result)
+                    
+                    if let image = response.result.value {
+                        self.images.append(image)
+                    }
+                }
                 self.photos.append(photo)
                 self.tableView.reloadData()
             }
@@ -28,7 +47,7 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
         // Do any additional setup after loading the view.
         })
     }
-
+    
 	
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 	return self.photos.count
@@ -38,8 +57,9 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier("") as? PhotoTableViewCell
-        let photo = photos[indexPath.row]
+		let cell = tableView.dequeueReusableCellWithIdentifier("") as? PhotoTableViewCell!
+       let image = images[indexPath.row]
+        cell?.photoView.image = image
         
         
         
