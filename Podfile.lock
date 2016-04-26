@@ -1,5 +1,7 @@
 PODS:
   - Alamofire (3.3.1)
+  - AlamofireImage (2.4.0):
+    - Alamofire (~> 3.3)
   - AWSCore (2.4.0)
   - AWSS3 (2.4.0):
     - AWSCore (= 2.4.0)
@@ -9,13 +11,14 @@ PODS:
   - Firebase (2.5.1)
 
 DEPENDENCIES:
-  - Alamofire (~> 3.3)
+  - AlamofireImage (~> 2.0)
   - AWSS3
   - FastttCamera
   - Firebase (>= 2.5.1)
 
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  AlamofireImage: 87408b652e0f5ae5fe364035f15aea8b9b24c77e
   AWSCore: 7e0da755786280a76ed4ab4ed8c1d38ced09b460
   AWSS3: dc00e788fb6733853ecd615a45f9d7dd6ce25823
   FastttCamera: 51f16712cbd5bdb08bc6231b957325c6be5e478d
