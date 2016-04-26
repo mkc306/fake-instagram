@@ -23,6 +23,10 @@ class PhotoTableViewCell: UITableViewCell{
         
         // Configure the view for the selected state
     }
+	
+	@IBAction func onLikeButtonPressed(sender: AnyObject) {
+	}
+		
     
     func segueToPhoto(){
         let view = self.window?.rootViewController?.presentedViewController

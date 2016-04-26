@@ -91,10 +91,10 @@
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fz8-ff-5Jv">
-                                                    <rect key="frame" x="471" y="345" width="63" height="25"/>
-                                                    <state key="normal" title="Like " image="doughnut"/>
+                                                    <rect key="frame" x="490" y="345" width="25" height="25"/>
+                                                    <state key="normal" image="doughnut"/>
                                                     <connections>
-                                                        <action selector="onLikeButtonPress:" destination="ibg-ye-nZB" eventType="touchUpInside" id="jqD-x6-T6M"/>
+                                                        <action selector="onLikeButtonPressed:" destination="R7Y-ek-mWd" eventType="touchUpInside" id="WO3-fs-ol8"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -188,10 +188,10 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aop-vE-L6k">
-                                <rect key="frame" x="441" y="440" width="58" height="25"/>
-                                <state key="normal" title="Like" image="doughnut"/>
+                                <rect key="frame" x="545" y="438" width="25" height="25"/>
+                                <state key="normal" image="doughnut"/>
                                 <connections>
-                                    <action selector="OnLikeButtonPress:" destination="tTS-PM-vpc" eventType="touchUpInside" id="SV1-Np-KvK"/>
+                                    <action selector="OnLikeButtonPress:" destination="tTS-PM-vpc" eventType="touchUpInside" id="T7W-kx-NYY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -475,6 +475,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVa-8R-2aT">
                                         <rect key="frame" x="334" y="0.0" width="167" height="32"/>
                                         <state key="normal" image="rotate_camera_filled"/>
+                                        <connections>
+                                            <action selector="onRotateCameraButtonPressed:" destination="bGS-uP-j1p" eventType="touchUpInside" id="mqr-ff-KtB"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -544,6 +547,13 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWe-nB-r7L">
+                                                    <rect key="frame" x="533" y="229" width="25" height="25"/>
+                                                    <state key="normal" image="doughnut"/>
+                                                    <connections>
+                                                        <action selector="onLikeButtonPressed:" destination="r99-IY-rwT" eventType="touchUpInside" id="y2c-XP-46z"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -588,8 +598,10 @@
                             <constraint firstAttribute="trailing" secondItem="zHw-nk-QQR" secondAttribute="trailing" id="Gxy-Cv-MVL"/>
                             <constraint firstItem="yiT-o3-AGO" firstAttribute="top" secondItem="zHw-nk-QQR" secondAttribute="bottom" constant="30" id="Tia-BJ-ai7"/>
                             <constraint firstItem="xf3-Xr-zRV" firstAttribute="top" secondItem="IZ9-wE-ATI" secondAttribute="bottom" constant="35" id="bCB-aD-2wP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zHw-nk-QQR" secondAttribute="trailing" constant="-20" id="bhk-lL-tJw"/>
                             <constraint firstItem="zHw-nk-QQR" firstAttribute="top" secondItem="xf3-Xr-zRV" secondAttribute="bottom" constant="25" id="iZt-gO-v9q"/>
                             <constraint firstItem="xf3-Xr-zRV" firstAttribute="centerX" secondItem="rbZ-N2-cvO" secondAttribute="centerX" constant="137.25" id="mgv-Bo-ON2"/>
+                            <constraint firstItem="zHw-nk-QQR" firstAttribute="leading" secondItem="rbZ-N2-cvO" secondAttribute="leadingMargin" constant="-20" id="seN-QR-GsO"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -716,6 +728,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qh0-gp-5oP">
                                         <rect key="frame" x="334" y="0.0" width="167" height="32"/>
                                         <state key="normal" image="rotate_camera_filled"/>
+                                        <connections>
+                                            <action selector="onRotateCameraPressed:" destination="KV8-Du-wDY" eventType="touchUpInside" id="gR4-RB-Ulh"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
