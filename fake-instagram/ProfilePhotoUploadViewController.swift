@@ -52,7 +52,6 @@ class ProfilePhotoUploadViewController: UIViewController, FastttCameraDelegate,U
 		if let image = capturedImage.scaledImage as AnyObject? {
 			self.performSegueWithIdentifier("ConfirmImage", sender: image)
 		}
-		
 	}
 	
 	@IBAction func onChooseFromGalleryPressed(sender: UIButton) {
@@ -69,7 +68,7 @@ class ProfilePhotoUploadViewController: UIViewController, FastttCameraDelegate,U
 	}
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		if let destination = segue.destinationViewController as? PhotoConfirmationUploadViewController {
+		if let destination = segue.destinationViewController as? ProfilePhotoConfirmationUploadViewController {
 			if let image = sender as? UIImage {
 				destination.image = image
 			}

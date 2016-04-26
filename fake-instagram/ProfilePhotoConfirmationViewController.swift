@@ -83,7 +83,7 @@ class ProfilePhotoConfirmationUploadViewController: UIViewController {
 			if task.result != nil {
 				
 				print("Uploaded to:\n\(self.s3URL)")
-				self.performSegueWithIdentifier("UploadComplete", sender: nil)
+				self.performSegueWithIdentifier("ProfileImageDone", sender: nil)
 			}
 			else {
 				print("Unexpected empty result.")
