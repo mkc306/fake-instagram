@@ -46,6 +46,7 @@ class PhotoTableViewCell: UITableViewCell{
             
             // Configure the view for the selected state
         }
+
         func segueToPhoto(){
             let view = self.window?.rootViewController?.presentedViewController
             let storyboard = UIStoryboard(name: "FeedViews", bundle: nil)
@@ -59,5 +60,5 @@ class PhotoTableViewCell: UITableViewCell{
         
         
     }
-        
+
 }
