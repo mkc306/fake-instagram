@@ -42,11 +42,7 @@ class SignupViewController: UIViewController {
                     print(error.description)
                     
                 }
-                
-                
             })
-           
-            
         }
     }
     
