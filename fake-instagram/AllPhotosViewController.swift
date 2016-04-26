@@ -30,17 +30,18 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
             if let value = snapshot.value as? [String:AnyObject] {
                 let photo = Photo(key: snapshot.key, dict: value)
                 let downloader = imageDownloader
+                var image = Image()
                 let URLRequest = NSURLRequest(URL: NSURL(string: photo.picURL)!)
                 downloader.downloadImage(URLRequest: URLRequest) { response in
                     print(response.request)
                     print(response.response)
                     debugPrint(response.result)
                     
-                    if let image = response.result.value {
-                        self.images.append(image)
-                    }
+                     image = response.result.value!
+                    
                 }
                 self.photos.append(photo)
+                self.images.append(image)
                 self.tableView.reloadData()
             }
 
@@ -50,14 +51,14 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
     
 	
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-	return self.photos.count
+	return self.images.count
 	}
 	
     @IBAction func onLikeButtonPress(sender: UIButton) {
     }
     
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier("") as? PhotoTableViewCell!
+		let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as? PhotoTableViewCell!
        let image = images[indexPath.row]
         cell?.photoView.image = image
         
