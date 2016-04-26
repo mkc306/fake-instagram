@@ -17,6 +17,8 @@ class User {
 	var liked: [String: AnyObject]!
 	var comments: [String: AnyObject]!
 	var email: String!
+	var profileImageURL: String!
+	var photos: [String: AnyObject]!
 	
 	
 	init(key: String, dict:[String: AnyObject]){
@@ -42,6 +44,14 @@ class User {
 		}
 		if let email = dict["email"] as? String{
 			self.email = email
+		}
+		
+		if let profileImageURL = dict["profileImageURL"] as? String{
+			self.profileImageURL = profileImageURL
+		}
+		
+		if let photos = dict["photos"] as? String{
+			self.photos = photos
 		}
 	}
 	
