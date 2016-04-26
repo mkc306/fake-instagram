@@ -27,12 +27,12 @@ class OtherProfileViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-                 self.usernameLabel.text = self.user.username
-            let followingCount = self.user.following.count
-            let followersCount = self.user.followers.count
-            
-            self.followingCountLabel.text = "Following: \(followingCount)"
-            self.followerCountLabel.text = "Followers: \(followersCount)"
+        self.usernameLabel.text = self.user.username
+        let followingCount = self.user.following.count
+        let followersCount = self.user.followers.count
+        
+        self.followingCountLabel.text = "Following: \(followingCount)"
+        self.followerCountLabel.text = "Followers: \(followersCount)"
         DataService.dataService.USER_REF.childByAppendingPath(self.user.key).childByAppendingPath("photos").observeEventType(.ChildAdded, withBlock: {
             (snapshot) in
             DataService.dataService.PHOTO_REF.childByAppendingPath(snapshot.key).observeEventType(.Value , withBlock: { (snapshot) -> Void in
@@ -55,7 +55,7 @@ class OtherProfileViewController: UIViewController, UITableViewDelegate, UITable
                 }
             })
         })
-
+        
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.images.count
@@ -82,11 +82,17 @@ class OtherProfileViewController: UIViewController, UITableViewDelegate, UITable
         let currentUserId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String
         if (!isFollowing) {
             isFollowing = true
-DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppendingPath("following").updateChildValues([self.user.key:true])
-            
+            DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppendingPath("following").updateChildValues([self.user.key:true])
             DataService.dataService.USER_REF.childByAppendingPath(self.user.key).childByAppendingPath("followers").updateChildValues([currentUserId!:true])
             followButton.setTitle("Unfollow", forState: UIControlState.Normal)
             
+            DataService.dataService.USER_REF.childByAppendingPath(self.user.key).childByAppendingPath("photos").observeEventType(.Value, withBlock: { (snapshot) -> Void in
+                if let valueDict = snapshot.value as? [String:AnyObject] {
+                    DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppendingPath("followingFeed").updateChildValues(valueDict)
+                }
+                
+                
+            })
         } else if (self.isFollowing == true){
             self.isFollowing = false
             DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppendingPath("following").childByAppendingPath(self.user.key).removeValue()
