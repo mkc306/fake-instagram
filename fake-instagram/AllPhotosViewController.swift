@@ -51,9 +51,6 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.images.count
 	}
-	
-    @IBAction func onLikeButtonPress(sender: UIButton) {
-    }
     
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as? PhotoTableViewCell!
