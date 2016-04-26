@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import AlamofireImage
 class OtherProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var user : User!
     
@@ -16,6 +16,10 @@ class OtherProfileViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var followerCountLabel: UILabel!
     @IBOutlet weak var followingCountLabel: UILabel!
+    var photos = [Photo]()
+    var images = [Image]()
+    var anImage = Image()
+    
     
     
     var isFollowing = false
@@ -29,17 +33,37 @@ class OtherProfileViewController: UIViewController, UITableViewDelegate, UITable
             
             self.followingCountLabel.text = "Following: \(followingCount)"
             self.followerCountLabel.text = "Followers: \(followersCount)"
-        
+        DataService.dataService.USER_REF.childByAppendingPath(self.user.key).childByAppendingPath("photos").observeEventType(.ChildAdded, withBlock: {
+            (snapshot) in
+            DataService.dataService.PHOTO_REF.childByAppendingPath(snapshot.key).observeEventType(.Value , withBlock: { (snapshot) -> Void in
+                if let valueDict = snapshot.value as? [String:AnyObject] {
+                    let photo = Photo(key: snapshot.key, dict: valueDict)
+                    self.photos.append(photo)
+                    
+                    let URLRequest = NSURLRequest(URL: NSURL(string: photo.picURL)!)
+                    imageDownloader.downloadImage(URLRequest: URLRequest) { response in
+                        print(response.request)
+                        print(response.response)
+                        debugPrint(response.result)
+                        if let thisImage = response.result.value{
+                            let tempImage = thisImage
+                            self.anImage = tempImage.af_imageScaledToSize(thisImage.size)
+                            self.images.append(self.anImage)
+                            self.tableView.reloadData()
+                        }
+                    }
+                }
+            })
+        })
+
     }
-    
-  
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return self.images.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as? PhotoTableViewCell
+        cell?.photoView.image = images[indexPath.row]
         return cell!
     }
     
