@@ -16,9 +16,10 @@ class ProfilePhotoConfirmationUploadViewController: UIViewController {
 	let uid = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
 	let userRef = DataService.dataService.USER_REF
 	let photoRef = DataService.dataService.PHOTO_REF
-
+	let userDefaults = NSUserDefaults.standardUserDefaults()
+	
 	@IBOutlet weak var imageView: UIImageView!
-
+	
 	
 	
 	override func viewDidLoad() {
@@ -81,8 +82,9 @@ class ProfilePhotoConfirmationUploadViewController: UIViewController {
 				print("Upload failed ❌ (\(exception))")
 			}
 			if task.result != nil {
-				
 				print("Uploaded to:\n\(self.s3URL)")
+				self.userDefaults.setValue(self.s3URL, forKey: "profileImageURL")
+				self.userRef.childByAppendingPath(self.uid).setValue([self.s3URL: true])
 				self.performSegueWithIdentifier("ProfileImageDone", sender: nil)
 			}
 			else {
