@@ -26,24 +26,24 @@ class PhotoTableViewCell: UITableViewCell{
             
             
             
-            if let userId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String {let dict = ["liked":liked, "userId":userId]
-                
-                DataService.dataService.PHOTO_REF.childByAutoId().setValue(dict, andPriority: nil, withCompletionBlock: { (error, ref) -> Void in
-                    
-                    DataService.dataService.USER_REF.childByAppendingPath(userId).childByAppendingPath("liked").updateChildValues(ref.key: true)
-                    
-                })
-            }
+//            if let userId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String {let dict = ["liked":liked, "userId":userId]
+//                
+//                DataService.dataService.PHOTO_REF.childByAutoId().setValue(dict, andPriority: nil, withCompletionBlock: { (error, ref) -> Void in
+//                    
+//                    DataService.dataService.USER_REF.childByAppendingPath(userId).childByAppendingPath("liked").updateChildValues(ref.key: true)
+//                    
+//                })
+//            }
         }
         
         
         
-        override func setSelected(selected: Bool, animated: Bool) {
-            super.setSelected(selected, animated: animated)
-            
-            // Configure the view for the selected state
-        }
-        
+//        override func setSelected(selected: Bool, animated: Bool) {
+//            super.setSelected(selected, animated: animated)
+//            
+//            // Configure the view for the selected state
+//        }
+			
         func segueToPhoto(){
             let view = self.window?.rootViewController?.presentedViewController
             let storyboard = UIStoryboard(name: "FeedViews", bundle: nil)
@@ -55,11 +55,11 @@ class PhotoTableViewCell: UITableViewCell{
     
     @IBAction func onLikeButtonPressed(sender: AnyObject) {
     }
-    
-    func likeSignTurnRed(<#parameters#>) -> <#return type#> {
-        <#function body#>
-    }
-    
+//    
+//    func likeSignTurnRed(<#parameters#>) -> <#return type#> {
+//        <#function body#>
+//    }
+	
 }
 
 

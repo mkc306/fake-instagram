@@ -73,7 +73,7 @@ class ProfilePhotoConfirmationUploadViewController: UIViewController {
 		uploadRequest.bucket = S3BucketName
 		self.s3URL = NSURL(string: "http://s3.amazonaws.com/\(S3BucketName)/\(uploadRequest.key!)")!
 		userDefaults.setValue(self.s3URL.absoluteString, forKey: "profileImageURL")
-		self.userRef.childByAppendingPath(self.uid).setValue(["profileImageURL": self.s3URL.absoluteString])
+		self.userRef.childByAppendingPath(self.uid).updateChildValues(["profileImageURL": self.s3URL.absoluteString])
 		uploadRequest.contentType = "image/" + ext
 		let transferManager = AWSS3TransferManager.defaultS3TransferManager()
 		transferManager.upload(uploadRequest).continueWithBlock { (task) -> AnyObject! in
