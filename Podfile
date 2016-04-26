@@ -14,7 +14,7 @@ pod 'FastttCamera'
 pod 'AWSS3'
 
 # AFNetworking Pod
-pod 'AFNetworking', '~> 2.5'
+pod 'Alamofire', '~> 3.3'
 
 end
 
