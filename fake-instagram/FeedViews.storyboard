@@ -847,7 +847,6 @@
         <!--Profile Photo Confirmation Upload View Controller-->
         <scene sceneID="wg8-YO-zXc">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3Ru-Ob-LQb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="qoI-fR-DZf" customClass="ProfilePhotoConfirmationUploadViewController" customModule="fake_instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="esz-Tt-EMj"/>
@@ -906,6 +905,7 @@
                         <segue destination="Saq-Jb-jaT" kind="show" identifier="ProfileImageDone" id="Rvk-Tn-FlO"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Ru-Ob-LQb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-133" y="2366"/>
         </scene>
