@@ -16,6 +16,7 @@ class PhotoConfirmationUploadViewController: UIViewController {
 	let uid = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
 	let userRef = DataService.dataService.USER_REF
 	let photoRef = DataService.dataService.PHOTO_REF
+	
 	@IBOutlet weak var imageView: UIImageView!
 	
 	
@@ -67,7 +68,7 @@ class PhotoConfirmationUploadViewController: UIViewController {
 		uploadRequest.body = writePath
 		uploadRequest.key = NSProcessInfo.processInfo().globallyUniqueString + "." + ext
 		uploadRequest.bucket = S3BucketName
-		self.s3URL = NSURL(string: "http://s3.amazonaws.com/\(S3BucketName)/\(uploadRequest.key!)")!
+		
 		uploadRequest.contentType = "image/" + ext
 		let transferManager = AWSS3TransferManager.defaultS3TransferManager()
 		transferManager.upload(uploadRequest).continueWithBlock { (task) -> AnyObject! in
@@ -78,7 +79,7 @@ class PhotoConfirmationUploadViewController: UIViewController {
 				print("Upload failed ❌ (\(exception))")
 			}
 			if task.result != nil {
-				
+				self.s3URL = NSURL(string: "http://s3.amazonaws.com/\(S3BucketName)/\(uploadRequest.key!)")!
 				print("Uploaded to:\n\(self.s3URL)")
 				self.performSegueWithIdentifier("UploadComplete", sender: nil)
 			}
@@ -98,7 +99,9 @@ class PhotoConfirmationUploadViewController: UIViewController {
 		let currentPhotoRef = self.photoRef.childByAutoId()
 		currentPhotoRef.updateChildValues(photo)
 		self.userRef.childByAppendingPath(self.uid).childByAppendingPath("photos").updateChildValues([currentPhotoRef.key: true])
-		print("updated firebase")
+		self.userRef.childByAppendingPath(self.uid).childByAppendingPath("followers").observeEventType(.ChildAdded, withBlock: { (snapshot) -> Void in
+			self.userRef.childByAppendingPath(snapshot.key).childByAppendingPath("followingFeed").updateChildValues([currentPhotoRef.key:true])
+			print("updated firebase")
+		})
 	}
-	
 }

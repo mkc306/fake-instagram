@@ -22,9 +22,16 @@ class UserProfileViewController: UIViewController, UITableViewDataSource,UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        profilePicImageView.layer.cornerRadius = profilePicImageView.frame.size.width/2
-        profilePicImageView.clipsToBounds = true
         let currentUserId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String!
+        profilePicImageView.bounds = CGRectMake(0, 0, profilePicImageView.frame.width, profilePicImageView.frame.height)
+        profilePicImageView.layer.cornerRadius = 0.5 * profilePicImageView.bounds.size.width
+        DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppendingPath("profileImageURL").observeEventType(.Value , withBlock: { (snapshot) -> Void in
+            if let photoPicURL = snapshot.value as? String {
+                let url = NSURL(string:photoPicURL)!
+                self.profilePicImageView.af_setImageWithURL(url)
+            }
+        })
+        
         DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppendingPath("photos").observeEventType(.ChildAdded, withBlock: {
             (snapshot) in
             DataService.dataService.PHOTO_REF.childByAppendingPath(snapshot.key).observeEventType(.Value , withBlock: { (snapshot) -> Void in
@@ -35,9 +42,10 @@ class UserProfileViewController: UIViewController, UITableViewDataSource,UITable
                     
                     let URLRequest = NSURLRequest(URL: NSURL(string: photo.picURL)!)
                     imageDownloader.downloadImage(URLRequest: URLRequest) { response in
-                        print(response.request)
-                        print(response.response)
-                        debugPrint(response.result)
+                        //                        print(response.request)
+                        //                        print(response.response)
+                        //                        debugPrint(response.result)
+                        print("SUCCESSFULLY LOADED IMAGE")
                         if let thisImage = response.result.value{
                             let tempImage = thisImage
                             self.image = tempImage.af_imageScaledToSize(thisImage.size)
@@ -56,8 +64,6 @@ class UserProfileViewController: UIViewController, UITableViewDataSource,UITable
                 self.usernameLabel.text = user.username
                 let followingCount = user.following.count
                 let followersCount = user.followers.count
-                
-                
                 
                 self.followingCountLabel.text = "Following: \(followingCount)"
                 self.followerCountLabel.text = "Followers: \(followersCount)"

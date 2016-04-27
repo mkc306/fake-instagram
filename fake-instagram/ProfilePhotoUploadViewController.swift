@@ -38,7 +38,7 @@ class ProfilePhotoUploadViewController: UIViewController, FastttCameraDelegate,U
 	}
 	
 	func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-		
+		print("picked item in gallery")
 		self.performSegueWithIdentifier("ConfirmImage", sender: image)
 	}
 	//MARK: IFTTTFastttCameraDelegate

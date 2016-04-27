@@ -32,6 +32,11 @@ class Photo{
 		if let userKey = dict["userKey"] as? String{
 			self._userKey = userKey
 		}
+		
+		if let caption = dict["caption"] as? String{
+			self.caption = caption
+		}
+		
 	}
 	
 	var userKey: String {

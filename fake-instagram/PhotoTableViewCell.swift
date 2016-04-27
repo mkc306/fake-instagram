@@ -9,6 +9,7 @@
 import UIKit
 
 class PhotoTableViewCell: UITableViewCell{
+
     @IBOutlet weak var photoView: UIImageView!
     @IBOutlet weak var CaptionLabel: UILabel!
     var photoKey = String()
@@ -56,4 +57,6 @@ class PhotoTableViewCell: UITableViewCell{
         }
         
     }
+
 }
+

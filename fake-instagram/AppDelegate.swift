@@ -21,6 +21,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let configuration = AWSServiceConfiguration(region: DefaultServiceRegionType, credentialsProvider: credentialsProvider)
 		AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
 		
+		if NSUserDefaults.standardUserDefaults().objectForKey("uid") == nil {
+			// not logged in
+			return true
+		} else if NSUserDefaults.standardUserDefaults().objectForKey("profileImageURL") == nil {
+			// logged in but haz no profile Image
+			let storyboard = UIStoryboard(name: "FeedViews", bundle: nil)
+			let vc = storyboard.instantiateViewControllerWithIdentifier("Welcome") as! WelcomeViewController
+			self.window?.rootViewController = vc
+			self.window?.makeKeyAndVisible()
+		} else {
+			// logged in and haz profile image
+			let storyboard = UIStoryboard(name: "FeedViews", bundle: nil)
+			let vc = storyboard.instantiateViewControllerWithIdentifier("Feed") as! UITabBarController
+			self.window?.rootViewController = vc
+			self.window?.makeKeyAndVisible()
+		}
+		
 		return true
 	}
 
