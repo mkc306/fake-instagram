@@ -46,9 +46,10 @@ class OtherProfileViewController: UIViewController, UITableViewDelegate, UITable
                     
                     let URLRequest = NSURLRequest(URL: NSURL(string: photo.picURL!)!)
                     imageDownloader.downloadImage(URLRequest: URLRequest) { response in
-                        print(response.request)
-                        print(response.response)
-                        debugPrint(response.result)
+//                        print(response.request)
+//                        print(response.response)
+//                        debugPrint(response.result)
+                        print("SUCCESSFULLY LOADED IMAGE")
                         if let thisImage = response.result.value{
                             let tempImage = thisImage
                             self.anImage = tempImage.af_imageScaledToSize(thisImage.size)
