@@ -32,16 +32,23 @@
                                 <color key="shadowColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="mxs-cD-M7e">
+                                <rect key="frame" x="282" y="384" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="mxs-cD-M7e" secondAttribute="bottom" constant="179" id="5Io-kG-Gfi"/>
                             <constraint firstItem="DVt-Ed-Zq9" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="5da-DE-4D5"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Wei-VG-guW" secondAttribute="bottom" id="9sE-CY-asc"/>
                             <constraint firstItem="DVt-Ed-Zq9" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="117" id="Dbc-sh-pT8"/>
                             <constraint firstAttribute="trailing" secondItem="Wei-VG-guW" secondAttribute="trailing" id="EPp-Z6-6yB"/>
                             <constraint firstItem="Wei-VG-guW" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="Fhg-NW-hP5"/>
                             <constraint firstItem="DVt-Ed-Zq9" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="29.5" id="Q1o-NF-WEL"/>
+                            <constraint firstItem="mxs-cD-M7e" firstAttribute="top" secondItem="DVt-Ed-Zq9" secondAttribute="bottom" constant="147" id="QiP-Gz-SbA"/>
                             <constraint firstItem="Wei-VG-guW" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="UQY-8c-pUw"/>
+                            <constraint firstItem="mxs-cD-M7e" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="262" id="X6T-zv-cth"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mxs-cD-M7e" secondAttribute="trailing" constant="261" id="gtg-1F-Qaq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DVt-Ed-Zq9" secondAttribute="trailing" constant="29.5" id="sFL-Eg-oOM"/>
                         </constraints>
                     </view>
