@@ -25,20 +25,20 @@ class UserProfileViewController: UIViewController, UITableViewDataSource,UITable
         let currentUserId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String!
         profilePicImageView.bounds = CGRectMake(0, 0, profilePicImageView.frame.width, profilePicImageView.frame.height)
         profilePicImageView.layer.cornerRadius = 0.5 * profilePicImageView.bounds.size.width
-DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppendingPath("profileImageURL").observeEventType(.Value , withBlock: { (snapshot) -> Void in
+        DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppendingPath("profileImageURL").observeEventType(.Value , withBlock: { (snapshot) -> Void in
             if let photoPicURL = snapshot.value as? String {
-                let URLRequest = NSURLRequest(URL: NSURL(string: photoPicURL)!)
-                imageDownloader.downloadImage(URLRequest: URLRequest) { response in
-                    print(response.request)
-                    print(response.response)
-                    debugPrint(response.result)
-                    if let thisImage = response.result.value{
-                        self.profilePicImageView.image = thisImage
-                    }
-                }
+                dispatch_async(dispatch_get_main_queue(), {
+                    print("-------------------------------------------------->")
+                    print(photoPicURL)
+                    let url = NSURL(string:photoPicURL)!
+                    
+                    self.profilePicImageView.af_setImageWithURL(url)
+                })
             }
         })
-    DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppendingPath("photos").observeEventType(.ChildAdded, withBlock: {
+        
+        
+        DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppendingPath("photos").observeEventType(.ChildAdded, withBlock: {
             (snapshot) in
             DataService.dataService.PHOTO_REF.childByAppendingPath(snapshot.key).observeEventType(.Value , withBlock: { (snapshot) -> Void in
                 
@@ -69,8 +69,6 @@ DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppe
                 self.usernameLabel.text = user.username
                 let followingCount = user.following.count
                 let followersCount = user.followers.count
-                
-                
                 
                 self.followingCountLabel.text = "Following: \(followingCount)"
                 self.followerCountLabel.text = "Followers: \(followersCount)"

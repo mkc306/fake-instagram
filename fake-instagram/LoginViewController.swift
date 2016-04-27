@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
                 NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
                 self .performSegueWithIdentifier("LoggedIn", sender: nil)
             }else{
-                let alert = UIAlertController (title: "Error", message: "Invalid e-mail or login, please try again.", preferredStyle: .Alert)
+                let alert = UIAlertController (title: "Error", message: "Invalid e-mail or password, please try again.", preferredStyle: .Alert)
                 let returnAction = UIAlertAction(title: "Return", style: .Default, handler: nil)
                 alert.addAction(returnAction)
                 self.presentViewController(alert, animated: true, completion: nil)
@@ -40,4 +40,3 @@ class LoginViewController: UIViewController {
         }
     }
 }
-//alert view controller if error

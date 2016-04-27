@@ -9,10 +9,10 @@
 import UIKit
 
 class UserListViewController: UITableViewController, UITextFieldDelegate {
-@IBOutlet weak var searchTextField: UITextField!
-var users = [User] ()
-var filteredUsers = [User]()
-
+    @IBOutlet weak var searchTextField: UITextField!
+    var users = [User] ()
+    var filteredUsers = [User]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,7 +23,7 @@ var filteredUsers = [User]()
                 self.filteredUsers = self.users
                 self.tableView.reloadData()
             }
-    })
+        })
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
@@ -31,21 +31,21 @@ var filteredUsers = [User]()
         return true
     }
     override func tableView(tableView: UITableView, shouldIndentWhileEditingRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    return false
-    
+        return false
+        
     }
     override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
         return UITableViewCellEditingStyle.None
     }
     
-
+    
     // MARK: - Table view data source
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return filteredUsers.count
     }
-
+    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath)
@@ -55,10 +55,10 @@ var filteredUsers = [User]()
         cell.layer.borderColor = UIColor.redColor().CGColor
         return cell
     }
-
-  
- 
-
+    
+    
+    
+    
     
     
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath,toIndexPath: NSIndexPath) {
@@ -66,36 +66,36 @@ var filteredUsers = [User]()
         let itemToMove:User = filteredUsers[fromIndexPath.row]
         filteredUsers.removeAtIndex(fromIndexPath.row)
         filteredUsers.insert(itemToMove, atIndex: toIndexPath.row)
-
+        
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-            if let text = searchTextField.text{
-                if text == "" {
-                    filteredUsers = users
-                }else {
-                    
-                    filteredUsers = self.users.filter({ $0.username.hasPrefix(text)})
-                }
+        if let text = searchTextField.text{
+            if text == "" {
+                filteredUsers = users
+            }else {
+                
+                filteredUsers = self.users.filter({ $0.username.hasPrefix(text)})
             }
-            searchTextField.resignFirstResponder()
-            tableView.reloadData()
+        }
+        searchTextField.resignFirstResponder()
+        tableView.reloadData()
         return true
     }
-
-
-
-
     
-     // MARK: - Navigation
+    
+    
+    
+    
+    // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let destination = segue.destinationViewController as? OtherProfileViewController {
             let selected = tableView.indexPathForSelectedRow
             let user = users[selected!.row]
             destination.user = user
         }
-       
+        
     }
     
-
+    
 }

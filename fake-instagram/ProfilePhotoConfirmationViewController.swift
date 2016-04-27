@@ -70,6 +70,7 @@ class ProfilePhotoConfirmationUploadViewController: UIViewController {
 		uploadRequest.body = writePath
 		uploadRequest.key = NSProcessInfo.processInfo().globallyUniqueString + "." + ext
 		uploadRequest.bucket = S3BucketName
+        uploadRequest.contentType = "image/" + ext
 		let transferManager = AWSS3TransferManager.defaultS3TransferManager()
 		transferManager.upload(uploadRequest).continueWithBlock { (task) -> AnyObject! in
 			if let error = task.error {
