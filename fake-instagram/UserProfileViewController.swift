@@ -79,6 +79,10 @@ class UserProfileViewController: UIViewController, UITableViewDataSource,UITable
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as? PhotoTableViewCell
         cell?.photoView.image = myImages[indexPath.row]
+        let photo = myPhotos[indexPath.row]
+        if let caption = photo.caption as? String {
+         cell?.CaptionLabel.text = caption
+        }
         return cell!
     }
     

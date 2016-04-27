@@ -10,7 +10,8 @@ import UIKit
 import AWSS3
 import Photos
 
-class PhotoConfirmationUploadViewController: UIViewController {
+class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelegate {
+    @IBOutlet weak var captionTextField: UITextField!
 	var image = UIImage()
 	var s3URL = NSURL()
 	let uid = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
@@ -40,7 +41,7 @@ class PhotoConfirmationUploadViewController: UIViewController {
 	
 	@IBAction func onConfirmButtonPressed(sender: UIButton) {
 		saveImageLocallyS3Firebase(image)
-	}
+        	}
 	
 	
 	
@@ -96,13 +97,18 @@ class PhotoConfirmationUploadViewController: UIViewController {
 	}
 	
 	func updateFirebase(url: NSURL){
-		let photo = ["picURL": url.absoluteString, "userKey": self.uid, "caption": ""]
+		let photo = ["picURL": url.absoluteString, "userKey": self.uid, "caption": self.captionTextField.text!]
 		let currentPhotoRef = self.photoRef.childByAutoId()
 		currentPhotoRef.updateChildValues(photo)
 		self.userRef.childByAppendingPath(self.uid).childByAppendingPath("photos").updateChildValues([currentPhotoRef.key: true])
 		self.userRef.childByAppendingPath(self.uid).childByAppendingPath("followers").observeEventType(.ChildAdded, withBlock: { (snapshot) -> Void in
 			self.userRef.childByAppendingPath(snapshot.key).childByAppendingPath("followingFeed").updateChildValues([currentPhotoRef.key:true])
+            self.photoRef.childByAppendingPath(currentPhotoRef.key).childByAppendingPath("caption").setValue(self.captionTextField.text)
 			print("updated firebase")
 		})
 	}
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.captionTextField.resignFirstResponder()
+        return true
+    }
 }

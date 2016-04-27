@@ -679,6 +679,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="6N3-mf-JZ6" id="VLM-WU-nD8"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -695,6 +698,7 @@
                     </view>
                     <toolbarItems/>
                     <connections>
+                        <outlet property="captionTextField" destination="npg-O0-aRq" id="bMJ-mz-S4D"/>
                         <outlet property="imageView" destination="Y1I-jY-ZY0" id="Gjs-F4-Kgq"/>
                         <segue destination="Uma-PE-n4N" kind="presentation" identifier="UploadComplete" id="Te2-PW-UVk"/>
                     </connections>
@@ -854,7 +858,7 @@
         <image name="user_male_circle_filled" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lj5-oQ-NHK"/>
         <segue reference="rf1-sI-BRw"/>
+        <segue reference="Te2-PW-UVk"/>
     </inferredMetricsTieBreakers>
 </document>
