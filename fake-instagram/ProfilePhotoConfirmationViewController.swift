@@ -16,7 +16,6 @@ class ProfilePhotoConfirmationUploadViewController: UIViewController {
 	let uid = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
 	let userRef = DataService.dataService.USER_REF
 	let photoRef = DataService.dataService.PHOTO_REF
-	let userDefaults = NSUserDefaults.standardUserDefaults()
 	
 	@IBOutlet weak var imageView: UIImageView!
 	
@@ -82,7 +81,7 @@ class ProfilePhotoConfirmationUploadViewController: UIViewController {
 			if task.result != nil {
 				self.s3URL = NSURL(string: "http://s3.amazonaws.com/\(S3BucketName)/\(uploadRequest.key!)")!
 				print("Uploaded to:\n\(self.s3URL)")
-				self.userDefaults.setValue(self.s3URL.absoluteString, forKey: "profileImageURL")
+				NSUserDefaults.standardUserDefaults().setValue(self.s3URL.absoluteString, forKey: "profileImageURL")
 				self.userRef.childByAppendingPath(self.uid).updateChildValues(["profileImageURL": self.s3URL.absoluteString])
 				uploadRequest.contentType = "image/" + ext
 				self.performSegueWithIdentifier("ProfileImageDone", sender: nil)
