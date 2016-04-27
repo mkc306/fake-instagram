@@ -68,7 +68,9 @@ class OtherProfileViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as? PhotoTableViewCell
+        let photo = photos[indexPath.row]
         cell?.photoView.image = images[indexPath.row]
+        cell?.CaptionLabel.text = photo.caption
         return cell!
     }
     

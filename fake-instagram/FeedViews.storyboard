@@ -727,6 +727,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="6N3-mf-JZ6" id="VLM-WU-nD8"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -743,6 +746,7 @@
                     </view>
                     <toolbarItems/>
                     <connections>
+                        <outlet property="captionTextField" destination="npg-O0-aRq" id="bMJ-mz-S4D"/>
                         <outlet property="imageView" destination="Y1I-jY-ZY0" id="Gjs-F4-Kgq"/>
                         <segue destination="Saq-Jb-jaT" kind="presentation" identifier="UploadComplete" id="3md-ub-rse"/>
                     </connections>

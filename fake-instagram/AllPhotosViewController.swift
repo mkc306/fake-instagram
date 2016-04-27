@@ -28,9 +28,9 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
                     var image = Image()
                     let URLRequest = NSURLRequest(URL: NSURL(string: photo.picURL)!)
                     downloader.downloadImage(URLRequest: URLRequest) { response in
-//                        print(response.request)
-//                        print(response.response)
-//                        debugPrint(response.result)
+                        //                        print(response.request)
+                        //                        print(response.response)
+                        //                        debugPrint(response.result)
                         print("SUCCESSFULLY LOADED IMAGE")
                         if let thisImage = response.result.value{
                             let tempImage = thisImage
@@ -52,22 +52,25 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as? PhotoTableViewCell!
         let image = images[indexPath.row]
+        let photo = photos[indexPath.row]
         cell?.photoView.image = image
+        cell?.photoKey = photo.photoKey
+        cell?.CaptionLabel.text = photo.caption
         
         return cell!
     }
-    
-    
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+
+
+
+
+/*
+ // MARK: - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+ // Get the new view controller using segue.destinationViewController.
+ // Pass the selected object to the new view controller.
+ }
+ */
+
 }
