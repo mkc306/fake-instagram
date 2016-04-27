@@ -52,8 +52,9 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as? PhotoTableViewCell!
         let image = images[indexPath.row]
+        let photo = photos[indexPath.row]
         cell?.photoView.image = image
-        
+        cell?.CaptionLabel.text = photo.caption
         return cell!
     }
     
