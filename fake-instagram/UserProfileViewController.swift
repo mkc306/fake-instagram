@@ -27,17 +27,11 @@ class UserProfileViewController: UIViewController, UITableViewDataSource,UITable
         profilePicImageView.layer.cornerRadius = 0.5 * profilePicImageView.bounds.size.width
         DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppendingPath("profileImageURL").observeEventType(.Value , withBlock: { (snapshot) -> Void in
             if let photoPicURL = snapshot.value as? String {
-                dispatch_async(dispatch_get_main_queue(), {
-                    print("-------------------------------------------------->")
-                    print(photoPicURL)
                     let url = NSURL(string:photoPicURL)!
-                    
                     self.profilePicImageView.af_setImageWithURL(url)
-                })
-            }
-        })
-        
-        
+                }
+            })
+
         DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppendingPath("photos").observeEventType(.ChildAdded, withBlock: {
             (snapshot) in
             DataService.dataService.PHOTO_REF.childByAppendingPath(snapshot.key).observeEventType(.Value , withBlock: { (snapshot) -> Void in

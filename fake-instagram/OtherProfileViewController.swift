@@ -30,17 +30,11 @@ class OtherProfileViewController: UIViewController, UITableViewDelegate, UITable
         let followersCount = self.user.followers.count
         self.followingCountLabel.text = "Following: \(followingCount)"
         self.followerCountLabel.text = "Followers: \(followersCount)"
+     
         DataService.dataService.USER_REF.childByAppendingPath(self.user.key).childByAppendingPath("profileImageURL").observeEventType(.Value , withBlock: { (snapshot) -> Void in
             if let photoPicURL = snapshot.value as? String {
-                let URLRequest = NSURLRequest(URL: NSURL(string: photoPicURL)!)
-                imageDownloader.downloadImage(URLRequest: URLRequest) { response in
-                    print(response.request)
-                    print(response.response)
-                    debugPrint(response.result)
-                    if let thisImage = response.result.value{
-                        self.profilePicView.image = thisImage
-                    }
-                }
+                let url = NSURL(string:photoPicURL)!
+                self.profilePicView.af_setImageWithURL(url)
             }
         })
         DataService.dataService.USER_REF.childByAppendingPath(self.user.key).childByAppendingPath("photos").observeEventType(.ChildAdded, withBlock: {
