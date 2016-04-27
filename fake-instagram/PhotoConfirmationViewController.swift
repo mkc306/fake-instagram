@@ -26,20 +26,13 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
 	override func viewDidLoad() {
 		self.imageView.image = self.image
 		super.viewDidLoad()
+        dispatch_async(dispatch_get_main_queue()) {
+            self.gif = FLAnimatedImage.init(animatedGIFData: NSData.init(contentsOfURL: NSURL(string:
+                "https://s3.amazonaws.com/instagram-fake/ezgif.com-crop.gif")!))
+        }
 		
-		
-		// Do any additional setup after loading the view.
 	}
-	
-	//	@IBAction func onTakePicButtonPressed(sender: UIBarButtonItem) {
-	//		print("take pic button pressed")
-	//		self.fastCamera.takePicture()
-	//	}
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-	}
-	
+
 	
 	@IBAction func onConfirmButtonPressed(sender: UIButton) {
 		let imageView = FLAnimatedImageView()

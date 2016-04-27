@@ -601,7 +601,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rXG-pg-iqt">
                                                     <rect key="frame" x="153" y="12" width="301" height="211"/>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWe-nB-r7L">
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWe-nB-r7L">
                                                     <rect key="frame" x="533" y="229" width="25" height="25"/>
                                                     <state key="normal" image="doughnut"/>
                                                     <connections>
@@ -925,6 +925,6 @@
         <image name="user_male_circle_filled" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Rvk-Tn-FlO"/>
+        <segue reference="3md-ub-rse"/>
     </inferredMetricsTieBreakers>
 </document>
