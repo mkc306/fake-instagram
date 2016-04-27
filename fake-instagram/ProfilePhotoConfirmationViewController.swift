@@ -47,8 +47,8 @@ class ProfilePhotoConfirmationUploadViewController: UIViewController {
 	
 	
 	@IBAction func onConfirmButtonPressed(sender: UIButton) {
-//		let gif = FLAnimatedImage.init(animatedGIFData: NSData.init(contentsOfURL: NSURL(string:
-//			"https://s3.amazonaws.com/instagram-fake/ezgif.com-crop.gif")!))
+		//		let gif = FLAnimatedImage.init(animatedGIFData: NSData.init(contentsOfURL: NSURL(string:
+		//			"https://s3.amazonaws.com/instagram-fake/ezgif.com-crop.gif")!))
 		let imageView = FLAnimatedImageView()
 		imageView.animatedImage = self.gif
 		imageView.frame = self.view.frame
@@ -80,7 +80,7 @@ class ProfilePhotoConfirmationUploadViewController: UIViewController {
 		uploadRequest.body = writePath
 		uploadRequest.key = NSProcessInfo.processInfo().globallyUniqueString + "." + ext
 		uploadRequest.bucket = S3BucketName
-        uploadRequest.contentType = "image/" + ext
+		uploadRequest.contentType = "image/" + ext
 		let transferManager = AWSS3TransferManager.defaultS3TransferManager()
 		transferManager.upload(uploadRequest).continueWithBlock { (task) -> AnyObject! in
 			if let error = task.error {
