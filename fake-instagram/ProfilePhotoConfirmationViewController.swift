@@ -71,10 +71,6 @@ class ProfilePhotoConfirmationUploadViewController: UIViewController {
 		uploadRequest.body = writePath
 		uploadRequest.key = NSProcessInfo.processInfo().globallyUniqueString + "." + ext
 		uploadRequest.bucket = S3BucketName
-		self.s3URL = NSURL(string: "http://s3.amazonaws.com/\(S3BucketName)/\(uploadRequest.key!)")!
-		userDefaults.setValue(self.s3URL.absoluteString, forKey: "profileImageURL")
-		self.userRef.childByAppendingPath(self.uid).updateChildValues(["profileImageURL": self.s3URL.absoluteString])
-		uploadRequest.contentType = "image/" + ext
 		let transferManager = AWSS3TransferManager.defaultS3TransferManager()
 		transferManager.upload(uploadRequest).continueWithBlock { (task) -> AnyObject! in
 			if let error = task.error {
@@ -84,7 +80,11 @@ class ProfilePhotoConfirmationUploadViewController: UIViewController {
 				print("Upload failed ❌ (\(exception))")
 			}
 			if task.result != nil {
+				self.s3URL = NSURL(string: "http://s3.amazonaws.com/\(S3BucketName)/\(uploadRequest.key!)")!
 				print("Uploaded to:\n\(self.s3URL)")
+				self.userDefaults.setValue(self.s3URL.absoluteString, forKey: "profileImageURL")
+				self.userRef.childByAppendingPath(self.uid).updateChildValues(["profileImageURL": self.s3URL.absoluteString])
+				uploadRequest.contentType = "image/" + ext
 				self.performSegueWithIdentifier("ProfileImageDone", sender: nil)
 			}
 			else {

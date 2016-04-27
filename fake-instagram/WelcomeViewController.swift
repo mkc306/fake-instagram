@@ -11,8 +11,11 @@ import UIKit
 class WelcomeViewController: UIViewController {
 
     override func viewDidLoad() {
+		
 			if let picURL = NSUserDefaults.standardUserDefaults().valueForKey("profileImageURL") as? String{
-				self.performSegueWithIdentifier("GoToFeed", sender: nil)
+				if picURL != "" {
+					self.performSegueWithIdentifier("GoToFeed", sender: nil)
+				}
 			}
         super.viewDidLoad()
 
