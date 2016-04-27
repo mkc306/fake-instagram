@@ -24,6 +24,21 @@ class UserProfileViewController: UIViewController, UITableViewDataSource,UITable
         super.viewDidLoad()
         profilePicImageView.bounds = CGRectMake(0, 0, profilePicImageView.frame.width, profilePicImageView.frame.height)
         profilePicImageView.layer.cornerRadius = 0.5 * profilePicImageView.bounds.size.width
+        DataService.dataService.USER_REF.childByAppendingPath("profileImageURL").observeEventType(.ChildAdded , withBlock: { (snapshot) -> Void in
+            if let profPicDict = snapshot.value as? [String:AnyObject] {
+                let profilePhoto = Photo(key: snapshot.key, dict: profPicDict)
+                let URLRequest = NSURLRequest(URL: NSURL(string: profilePhoto.picURL)!)
+                imageDownloader.downloadImage(URLRequest: URLRequest) { response in
+                    print(response.request)
+                    print(response.response)
+                    debugPrint(response.result)
+                    if let thisImage = response.result.value{
+                        self.profilePicImageView.image = thisImage
+                    }
+                }
+            }
+        })
+        
         let currentUserId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String!
         DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppendingPath("photos").observeEventType(.ChildAdded, withBlock: {
             (snapshot) in
