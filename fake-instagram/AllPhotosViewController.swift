@@ -49,12 +49,15 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
         return self.images.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as? PhotoTableViewCell!
-        let image = images[indexPath.row]
+	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as? PhotoTableViewCell!
+       let image = images[indexPath.row]
+        let photo = photos[indexPath.row]
         cell?.photoView.image = image
+        cell?.photoKey = photo.photoKey
         
-        return cell!
+		return cell!
+	}
     }
     
     
