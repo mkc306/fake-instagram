@@ -64,7 +64,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="400" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bew-zN-BAY">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="400" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bew-zN-BAY">
                                 <rect key="frame" x="0.0" y="20" width="600" height="531"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -214,7 +214,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mAD-IZ-FrB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2741" y="871"/>
+            <point key="canvasLocation" x="2485" y="847"/>
         </scene>
         <!--Comment Table View Controller-->
         <scene sceneID="pgL-Kx-GT8">
@@ -347,12 +347,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pno-cS-ZF9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1665" y="1514"/>
+            <point key="canvasLocation" x="1533" y="1418"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="vzr-bm-AgN">
             <objects>
-                <viewController id="VdG-RS-ymS" customClass="WelcomeViewController" customModule="fake_instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Welcome" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VdG-RS-ymS" customClass="WelcomeViewController" customModule="fake_instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Tl-Ge-2lp"/>
                         <viewControllerLayoutGuide type="bottom" id="USn-OT-rOg"/>
@@ -412,8 +412,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="Saq-Jb-jaT" kind="show" id="rf1-sI-BRw"/>
-                        <segue destination="ibg-ye-nZB" kind="showDetail" identifier="GoToFeed" id="Mpj-5y-RIP"/>
+                        <segue destination="Saq-Jb-jaT" kind="show" identifier="GoToFeed" id="rf1-sI-BRw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gvy-IJ-ug6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -423,7 +422,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="V2m-oB-GqM">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Saq-Jb-jaT" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Feed" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Saq-Jb-jaT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W8y-yt-hiH">
                         <autoresizingMask key="autoresizingMask"/>
@@ -855,8 +854,7 @@
         <image name="user_male_circle_filled" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Te2-PW-UVk"/>
+        <segue reference="lj5-oQ-NHK"/>
         <segue reference="rf1-sI-BRw"/>
-        <segue reference="Mpj-5y-RIP"/>
     </inferredMetricsTieBreakers>
 </document>

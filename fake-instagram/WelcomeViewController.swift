@@ -11,16 +11,12 @@ import UIKit
 class WelcomeViewController: UIViewController {
 	
 	override func viewDidLoad() {
-		
-		
 		super.viewDidLoad()
-		let picURL = NSUserDefaults.standardUserDefaults().valueForKey("profileImageURL") as? String
-		if picURL != nil {
-				self.performSegueWithIdentifier("GoToFeed", sender: nil)
-		}
+		
 		
 		// Do any additional setup after loading the view.
 	}
+
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
@@ -37,11 +33,5 @@ class WelcomeViewController: UIViewController {
 	// Pass the selected object to the new view controller.
 	}
 	*/
-	
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		
-		
-		print("lulz")
-	}
 	
 }
