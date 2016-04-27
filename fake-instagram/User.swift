@@ -19,6 +19,7 @@ class User {
 	var email: String!
 	var profileImageURL: String!
 	var photos: [String: AnyObject]!
+    var followingFeed: [String: AnyObject]!
 	
 	
 	init(key: String, dict:[String: AnyObject]){
@@ -53,6 +54,9 @@ class User {
 		if let photos = dict["photos"] as? [String: AnyObject]{
 			self.photos = photos
 		}
+        if let followingFeed = dict["followingFeed"] as? [String: AnyObject] {
+            self.followingFeed = followingFeed
+        }
 	}
 	
 	var key: String {

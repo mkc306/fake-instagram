@@ -9,6 +9,7 @@
 import UIKit
 
 class PhotoTableViewCell: UITableViewCell{
+	
 	@IBOutlet weak var photoView: UIImageView!
 	@IBOutlet weak var CaptionLabel: UILabel!
 	var photoKey = String()
@@ -40,11 +41,6 @@ class PhotoTableViewCell: UITableViewCell{
 			//        }
 			
 		}
-		
-		
-		
-		
-		
 	}
 	
 	override func setSelected(selected: Bool, animated: Bool) {
@@ -59,9 +55,11 @@ class PhotoTableViewCell: UITableViewCell{
 		let nextViewController = storyboard.instantiateViewControllerWithIdentifier("PhotoViewController")
 		view?.presentViewController(nextViewController, animated: true, completion: nil)
 	}
-	
 	@IBAction func onLikeButtonPressed(sender: AnyObject) {
 		
 	}
 	
+	
+	
 }
+
