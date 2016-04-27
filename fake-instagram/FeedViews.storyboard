@@ -413,7 +413,7 @@
                     </view>
                     <connections>
                         <segue destination="Saq-Jb-jaT" kind="show" id="rf1-sI-BRw"/>
-                        <segue destination="ibg-ye-nZB" kind="showDetail" identifier="GoToFeed" id="T64-D9-LXD"/>
+                        <segue destination="ibg-ye-nZB" kind="showDetail" identifier="GoToFeed" id="Mpj-5y-RIP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gvy-IJ-ug6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -620,6 +620,7 @@
                         <outlet property="followButton" destination="hMh-Am-7Z2" id="Nye-X3-OXz"/>
                         <outlet property="followerCountLabel" destination="xf3-Xr-zRV" id="35r-th-IKR"/>
                         <outlet property="followingCountLabel" destination="qZ3-mR-JdQ" id="xsf-gA-crd"/>
+                        <outlet property="profilePicView" destination="TUC-wi-pgJ" id="BbR-qt-Iwd"/>
                         <outlet property="tableView" destination="zHw-nk-QQR" id="oH5-8b-Ge2"/>
                         <outlet property="usernameLabel" destination="NdE-rd-hg9" id="9VY-qE-PNC"/>
                     </connections>
@@ -854,8 +855,8 @@
         <image name="user_male_circle_filled" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Rvk-Tn-FlO"/>
-        <segue reference="T64-D9-LXD"/>
         <segue reference="Te2-PW-UVk"/>
+        <segue reference="rf1-sI-BRw"/>
+        <segue reference="Mpj-5y-RIP"/>
     </inferredMetricsTieBreakers>
 </document>
