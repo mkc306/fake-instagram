@@ -9,12 +9,14 @@ PODS:
     - FastttCamera/Default (= 0.3.4)
   - FastttCamera/Default (0.3.4)
   - Firebase (2.5.1)
+  - FLAnimatedImage (1.0.12)
 
 DEPENDENCIES:
   - AlamofireImage (~> 2.0)
   - AWSS3
   - FastttCamera
   - Firebase (>= 2.5.1)
+  - FLAnimatedImage (~> 1.0)
 
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
@@ -23,5 +25,6 @@ SPEC CHECKSUMS:
   AWSS3: dc00e788fb6733853ecd615a45f9d7dd6ce25823
   FastttCamera: 51f16712cbd5bdb08bc6231b957325c6be5e478d
   Firebase: 3565ea88b830f28f2c77ecc524622bc71a20d085
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
 
 COCOAPODS: 0.39.0

@@ -7,10 +7,23 @@
 //
 
 import UIKit
+import Photos
 
 class WelcomeViewController: UIViewController {
 	
 	override func viewDidLoad() {
+		
+		PHPhotoLibrary.requestAuthorization { (status) in
+			if status != PHAuthorizationStatus.Authorized{
+				print("Access denied")
+			}
+		}
+		AVCaptureDevice.requestAccessForMediaType(AVMediaTypeVideo) { (granted) in
+			if !granted{
+				print("Access denied")
+			}
+		}
+		
 		super.viewDidLoad()
 		
 		

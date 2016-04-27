@@ -88,6 +88,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-fake-instagram/AWSS3.framework"
   install_framework "Pods-fake-instagram/Alamofire.framework"
   install_framework "Pods-fake-instagram/AlamofireImage.framework"
+  install_framework "Pods-fake-instagram/FLAnimatedImage.framework"
   install_framework "Pods-fake-instagram/FastttCamera.framework"
   install_framework "Pods-fake-instagram/Firebase.framework"
 fi
@@ -96,6 +97,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-fake-instagram/AWSS3.framework"
   install_framework "Pods-fake-instagram/Alamofire.framework"
   install_framework "Pods-fake-instagram/AlamofireImage.framework"
+  install_framework "Pods-fake-instagram/FLAnimatedImage.framework"
   install_framework "Pods-fake-instagram/FastttCamera.framework"
   install_framework "Pods-fake-instagram/Firebase.framework"
 fi
