@@ -16,5 +16,7 @@ pod 'AWSS3'
 # AFNetworking Pod
 pod 'AlamofireImage', '~> 2.0'
 
+pod 'FLAnimatedImage', '~> 1.0'
+
 end
 

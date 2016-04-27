@@ -9,6 +9,7 @@
 import UIKit
 import AWSS3
 import Photos
+import FLAnimatedImage
 
 class ProfilePhotoConfirmationUploadViewController: UIViewController {
 	var image = UIImage()
@@ -16,15 +17,21 @@ class ProfilePhotoConfirmationUploadViewController: UIViewController {
 	let uid = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
 	let userRef = DataService.dataService.USER_REF
 	let photoRef = DataService.dataService.PHOTO_REF
+	var gif = FLAnimatedImage()
 	
 	@IBOutlet weak var imageView: UIImageView!
 	
 	
 	
 	override func viewDidLoad() {
+		
+		
 		self.imageView.image = self.image
 		super.viewDidLoad()
-		
+		dispatch_async(dispatch_get_main_queue()) {
+			self.gif = FLAnimatedImage.init(animatedGIFData: NSData.init(contentsOfURL: NSURL(string:
+				"https://s3.amazonaws.com/instagram-fake/ezgif.com-crop.gif")!))
+		}
 		
 		// Do any additional setup after loading the view.
 	}
@@ -40,11 +47,14 @@ class ProfilePhotoConfirmationUploadViewController: UIViewController {
 	
 	
 	@IBAction func onConfirmButtonPressed(sender: UIButton) {
+//		let gif = FLAnimatedImage.init(animatedGIFData: NSData.init(contentsOfURL: NSURL(string:
+//			"https://s3.amazonaws.com/instagram-fake/ezgif.com-crop.gif")!))
+		let imageView = FLAnimatedImageView()
+		imageView.animatedImage = self.gif
+		imageView.frame = self.view.frame
+		self.view.addSubview(imageView)
 		saveImageLocallyS3Firebase(image)
 	}
-	
-	
-	
 	
 	func saveImageLocallyS3Firebase(image: UIImage){
 		
