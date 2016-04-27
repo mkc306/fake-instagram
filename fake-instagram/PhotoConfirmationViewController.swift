@@ -45,7 +45,6 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
 	
 	
 	
-	
 	func saveImageLocallyS3Firebase(image: UIImage){
 		
 		var writePath = NSURL()
