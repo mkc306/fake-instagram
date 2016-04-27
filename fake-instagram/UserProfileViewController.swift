@@ -22,12 +22,12 @@ class UserProfileViewController: UIViewController, UITableViewDataSource,UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let currentUserId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String!
         profilePicImageView.bounds = CGRectMake(0, 0, profilePicImageView.frame.width, profilePicImageView.frame.height)
         profilePicImageView.layer.cornerRadius = 0.5 * profilePicImageView.bounds.size.width
-        DataService.dataService.USER_REF.childByAppendingPath("profileImageURL").observeEventType(.ChildAdded , withBlock: { (snapshot) -> Void in
-            if let profPicDict = snapshot.value as? [String:AnyObject] {
-                let profilePhoto = Photo(key: snapshot.key, dict: profPicDict)
-                let URLRequest = NSURLRequest(URL: NSURL(string: profilePhoto.picURL)!)
+DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppendingPath("profileImageURL").observeEventType(.Value , withBlock: { (snapshot) -> Void in
+            if let photoPicURL = snapshot.value as? String {
+                let URLRequest = NSURLRequest(URL: NSURL(string: photoPicURL)!)
                 imageDownloader.downloadImage(URLRequest: URLRequest) { response in
                     print(response.request)
                     print(response.response)
@@ -38,9 +38,7 @@ class UserProfileViewController: UIViewController, UITableViewDataSource,UITable
                 }
             }
         })
-        
-        let currentUserId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String!
-        DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppendingPath("photos").observeEventType(.ChildAdded, withBlock: {
+    DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppendingPath("photos").observeEventType(.ChildAdded, withBlock: {
             (snapshot) in
             DataService.dataService.PHOTO_REF.childByAppendingPath(snapshot.key).observeEventType(.Value , withBlock: { (snapshot) -> Void in
                 
