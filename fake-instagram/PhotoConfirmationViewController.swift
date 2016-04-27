@@ -9,14 +9,16 @@
 import UIKit
 import AWSS3
 import Photos
+import FLAnimatedImage
 
 class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelegate {
-    @IBOutlet weak var captionTextField: UITextField!
+	@IBOutlet weak var captionTextField: UITextField!
 	var image = UIImage()
 	var s3URL = NSURL()
 	let uid = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
 	let userRef = DataService.dataService.USER_REF
 	let photoRef = DataService.dataService.PHOTO_REF
+	var gif = FLAnimatedImage()
 	
 	@IBOutlet weak var imageView: UIImageView!
 	
@@ -40,8 +42,12 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
 	
 	
 	@IBAction func onConfirmButtonPressed(sender: UIButton) {
+		let imageView = FLAnimatedImageView()
+		imageView.animatedImage = self.gif
+		imageView.frame = self.view.frame
+		self.view.addSubview(imageView)
 		saveImageLocallyS3Firebase(image)
-        	}
+	}
 	
 	
 	
@@ -102,12 +108,12 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
 		self.userRef.childByAppendingPath(self.uid).childByAppendingPath("photos").updateChildValues([currentPhotoRef.key: true])
 		self.userRef.childByAppendingPath(self.uid).childByAppendingPath("followers").observeEventType(.ChildAdded, withBlock: { (snapshot) -> Void in
 			self.userRef.childByAppendingPath(snapshot.key).childByAppendingPath("followingFeed").updateChildValues([currentPhotoRef.key:true])
-            self.photoRef.childByAppendingPath(currentPhotoRef.key).childByAppendingPath("caption").setValue(self.captionTextField.text)
+			self.photoRef.childByAppendingPath(currentPhotoRef.key).childByAppendingPath("caption").setValue(self.captionTextField.text)
 			print("updated firebase")
 		})
 	}
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.captionTextField.resignFirstResponder()
-        return true
-    }
+	func textFieldShouldReturn(textField: UITextField) -> Bool {
+		self.captionTextField.resignFirstResponder()
+		return true
+	}
 }
