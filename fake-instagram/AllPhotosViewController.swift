@@ -16,13 +16,11 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
         let currentUserId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String!
         DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppendingPath("followingFeed").observeEventType(.ChildAdded, withBlock: {(snapshot) in
-            
             DataService.dataService.PHOTO_REF.childByAppendingPath(snapshot.key).observeEventType(.Value , withBlock: {(snapshot3) -> Void in
                 if let valueDict = snapshot3.value as? [String:AnyObject] {
                     let photo = Photo(key: snapshot3.key, dict: valueDict)
@@ -30,9 +28,10 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
                     var image = Image()
                     let URLRequest = NSURLRequest(URL: NSURL(string: photo.picURL)!)
                     downloader.downloadImage(URLRequest: URLRequest) { response in
-                        print(response.request)
-                        print(response.response)
-                        debugPrint(response.result)
+//                        print(response.request)
+//                        print(response.response)
+//                        debugPrint(response.result)
+                        print("SUCCESSFULLY LOADED IMAGE")
                         if let thisImage = response.result.value{
                             let tempImage = thisImage
                             image = tempImage.af_imageScaledToSize(thisImage.size)
@@ -41,12 +40,10 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
                             self.tableView.reloadData()
                         }
                     }
-                    
                 }
             })
         })
     }
-    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.images.count
