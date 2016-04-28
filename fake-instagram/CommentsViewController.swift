@@ -16,37 +16,37 @@ class CommentsViewController: UIViewController,UITableViewDelegate,UITableViewDa
     var comments = [Comment] ()
     override func viewDidLoad() {
         super.viewDidLoad()
-        //    func commentListener(){
-        //        DataService.dataService.PHOTO_REF.childByAppendingPath(photoKey).childByAppendingPath("comments").observeEventType(.ChildAdded, withBlock: { (snapshot) in
-        //            DataService.dataService.COMMENT_REF.childByAppendingPath(snapshot.key).observeEventType(.Value, withBlock: { (snapshot) in
-        //                if let snapshot.value
-        //            })
-        //        }
-        //    }
-        //}
         
         DataService.dataService.PHOTO_REF.childByAppendingPath(self.photoKey).childByAppendingPath("comments").observeEventType(.ChildAdded, withBlock: { (snapshot) in
             DataService.dataService.COMMENT_REF.childByAppendingPath(snapshot.key).observeEventType(.Value, withBlock: { (snapshot) in
                 if let value  = snapshot.value as? [String:AnyObject] {
                     let comment = Comment(key: snapshot.key, dict: value)
                     self.comments.append(comment)
-                    self.tableView.reloadData()
+                    
+                    
+            self.tableView.reloadData()
                 }
             })
-        })
-        
+            })
+    
+    
         
         tableView.reloadData()
     }
-    
+
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CommentCell")!
         let comment = comments[indexPath.row]
         cell.textLabel?.text = comment.body
-        //        cell.detailTextLabel?.text =
-        return cell
-    }
-    
+        DataService.dataService.USER_REF.childByAppendingPath(comment.userID).observeEventType(.Value, withBlock: { (snapshot) in
+            if let value = snapshot.value as? [String:AnyObject] {
+                let user = User(key: snapshot.key, dict: value)
+                cell.detailTextLabel?.text = user.username
+            }
+        })
+    return cell
+}
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.comments.count
     }
