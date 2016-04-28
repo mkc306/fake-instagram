@@ -20,6 +20,8 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
 	let photoRef = DataService.dataService.PHOTO_REF
 	var gif = FLAnimatedImage()
 
+
+
 	
 	@IBOutlet weak var imageView: UIImageView!
 	
@@ -27,10 +29,12 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
 	override func viewDidLoad() {
 		self.imageView.image = self.image
 		super.viewDidLoad()
-        dispatch_async(dispatch_get_main_queue()) {
-            self.gif = FLAnimatedImage.init(animatedGIFData: NSData.init(contentsOfURL: NSURL(string:
-                "https://s3.amazonaws.com/instagram-fake/ezgif.com-crop.gif")!))
-        }
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil)
+//        dispatch_async(dispatch_get_main_queue()) {
+//            self.gif = FLAnimatedImage.init(animatedGIFData: NSData.init(contentsOfURL: NSURL(string:
+//                "https://s3.amazonaws.com/instagram-fake/ezgif.com-crop.gif")!))
+//        }
 		
 	}
 
@@ -111,27 +115,12 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
 		return true
 	}
 
-    func animateTextField(textField: UITextField, up: Bool, withOffset offset:CGFloat)
-    {
-        let movementDistance : Int = -Int(offset)
-        let movementDuration : Double = 0.4
-        let movement : Int = (up ? movementDistance : -movementDistance)
-        UIView.beginAnimations("animateTextField", context: nil)
-        UIView.setAnimationBeginsFromCurrentState(true)
-        UIView.setAnimationDuration(movementDuration)
-        self.view.frame = CGRectOffset(self.view.frame, 0, CGFloat(movement))
-        UIView.commitAnimations()
+    func keyboardWillShow(sender: NSNotification) {
+        self.view.frame.origin.y -= 250
     }
     
-    func textFieldDidBeginEditing(textField: UITextField)
-    {
-        self.captionTextField.becomeFirstResponder()
-        self.animateTextField(captionTextField, up: true, withOffset: textField.frame.origin.y / 2)
+    func keyboardWillHide(sender: NSNotification) {
+        self.view.frame.origin.y += 250
     }
-    
-    func textFieldDidEndEditing(textField: UITextField)
-    {
-        self.animateTextField(captionTextField, up: false, withOffset: textField.frame.origin.y / 2)
-    }
-    
+
 }
