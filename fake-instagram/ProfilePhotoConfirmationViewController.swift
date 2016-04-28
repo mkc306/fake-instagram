@@ -28,16 +28,10 @@ class ProfilePhotoConfirmationUploadViewController: UIViewController {
 		
 		self.imageView.image = self.image
 		super.viewDidLoad()
-		dispatch_async(dispatch_get_main_queue()) {
-			self.gif = FLAnimatedImage.init(animatedGIFData: NSData.init(contentsOfURL: NSURL(string:
-				"https://s3.amazonaws.com/instagram-fake/ezgif.com-crop.gif")!))
-		}
+		
 	}
 	@IBAction func onConfirmButtonPressed(sender: UIButton) {
-		let imageView = FLAnimatedImageView()
-		imageView.animatedImage = self.gif
-		imageView.frame = self.view.frame
-		self.view.addSubview(imageView)
+		loadGIF()
 		saveImageLocallyS3Firebase(image)
 	}
 	
@@ -91,6 +85,27 @@ class ProfilePhotoConfirmationUploadViewController: UIViewController {
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		print("lulsUserRefUpdated")
+	}
+	
+	func loadGIF(){
+		let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+		let managedContext = appDelegate.managedObjectContext
+		let fetchRequest = NSFetchRequest(entityName: "Image")
+		
+		do {
+			let fetchedResults = try managedContext.executeFetchRequest(fetchRequest)
+			if let results = fetchedResults as? [NSDictionary]{
+				if let data = results[0]["data"] as? NSData {
+					self.gif = FLAnimatedImage.init(animatedGIFData: data)
+				}
+			}
+		} catch let error as NSError {
+			print("Could not save \(error), \(error.userInfo) no such thing bro")
+		}
+		let imageView = FLAnimatedImageView()
+		imageView.animatedImage = self.gif
+		imageView.frame = self.view.frame
+		self.view.addSubview(imageView)
 	}
 	
 }
