@@ -78,7 +78,7 @@ class PhotoUploadViewController: UIViewController, FastttCameraDelegate,UIImageP
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let destination = segue.destinationViewController as? PhotoConfirmationUploadViewController {
             if let image = sender as? UIImage {
-                destination.image = image
+                destination.image = UIImage(data: UIImageJPEGRepresentation(image, 0.6)!)!
             }
             
         }

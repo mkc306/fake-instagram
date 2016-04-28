@@ -21,6 +21,6 @@ let imageDownloader = ImageDownloader(
     downloadPrioritization: .FIFO,
     maximumActiveDownloads: 4,
     imageCache: AutoPurgingImageCache())
-let PATH_OF_GIF = NSBundle.mainBundle().pathForResource("ezgif.com-crop", ofType: "gif")
+let PATH_OF_GIF = NSBundle.mainBundle().pathForResource("loading-gif", ofType: "gif")
 let DATA = NSFileManager.defaultManager().contentsAtPath(PATH_OF_GIF!)
 let GIF = FLAnimatedImage(animatedGIFData: DATA!)
