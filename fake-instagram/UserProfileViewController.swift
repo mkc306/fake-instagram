@@ -94,7 +94,15 @@ class UserProfileViewController: UIViewController, UITableViewDataSource,UITable
 		print("lulzz")
 	}
     
-    
+   
+    @IBAction func onLogoutButtonPressed(sender: UIButton) {
+        var currentUserId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String!
+        DataService.dataService.USER_REF.childByAppendingPath(currentUserId).unauth()
+        NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
+        
+    }
 }
+    
+
 
  

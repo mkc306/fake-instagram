@@ -29,15 +29,6 @@ class ProfilePhotoUploadViewController: UIViewController, FastttCameraDelegate,U
 		// Do any additional setup after loading the view.
 	}
 	
-	//	@IBAction func onTakePicButtonPressed(sender: UIBarButtonItem) {
-	//		print("take pic button pressed")
-	//		self.fastCamera.takePicture()
-	//	}
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-	}
-	
 	func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
 		print("picked item in gallery")
 		self.performSegueWithIdentifier("ConfirmImage", sender: image)

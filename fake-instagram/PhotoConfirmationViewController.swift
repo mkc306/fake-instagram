@@ -22,6 +22,7 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
 //    var frameView: UIView!
 
 
+    @IBOutlet weak var textLabelConstraint: NSLayoutConstraint!
 
 	
 	@IBOutlet weak var imageView: UIImageView!
@@ -39,9 +40,9 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
         
         
         // Keyboard stuff.
-        let center: NSNotificationCenter = NSNotificationCenter.defaultCenter()
-        center.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
-        center.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+//        let center: NSNotificationCenter = NSNotificationCenter.defaultCenter()
+//        center.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+//        center.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
     
 	}
 
@@ -122,23 +123,33 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
 		return true
 	}
 
+    @IBAction func button(sender: UIButton) {
+        UIView.animateWithDuration(0.25, delay: 0.25, options: [], animations: {
+            self.captionTextField.frame.origin = CGPointZero
+            }, completion: nil)
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        UIView.animateWithDuration(0.25, delay: 0.25, options: [], animations: {
+            self.captionTextField.frame.origin = CGPointZero
+            }, completion: nil)
+    }
+    
     func keyboardWillShow(notification: NSNotification) {
         print("Showing")
-        let info:NSDictionary = notification.userInfo!
+        let info = notification.userInfo!
         let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
         
+        
+        let duration = info[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
         let keyboardHeight: CGFloat = keyboardSize.height
         
         let _: CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber as CGFloat
         
     
-        UIView.animateWithDuration(0.25, delay: 0.25, options: .CurveEaseInOut, animations: { 
-            self.captionTextField.center.y += keyboardHeight
-            
-            }) { (done) in
-                let test = self.captionTextField
-                
-        }
+        UIView.animateWithDuration(duration.doubleValue, delay: 3.00, options: [], animations: {
+            self.captionTextField.frame = CGRectMake(0, 0, 2000, 2000)
+            }, completion: nil)
     }
     
     func keyboardWillHide(notification: NSNotification) {
