@@ -12,6 +12,7 @@ import Photos
 import FLAnimatedImage
 
 class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelegate {
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
 	@IBOutlet weak var captionTextField: UITextField!
 	var image = UIImage()
 	var s3URL = NSURL()
