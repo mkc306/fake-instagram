@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let configuration = AWSServiceConfiguration(region: DefaultServiceRegionType, credentialsProvider: credentialsProvider)
 		AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
 		
+		
 		if NSUserDefaults.standardUserDefaults().objectForKey("uid") == nil {
 			// not logged in
 			return true
@@ -39,9 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			self.window?.makeKeyAndVisible()
 		}
 		
-		if !hasGIF(){
-			saveGIFData() //cache loading gif
-		}
+		
 		
 		return true
 	}
@@ -133,49 +132,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 	}
 	
-	func hasGIF() -> Bool{
-		let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-		let managedContext = appDelegate.managedObjectContext
-		let fetchRequest = NSFetchRequest(entityName: "Image")
-		
-		do {
-				let fetchedResults = try managedContext.executeFetchRequest(fetchRequest)
-			if let results = fetchedResults as? [NSDictionary]
-			{
-				if results.count == 1 {
-					return true
-				}
-			}
-			return false
-		} catch let error as NSError {
-			print("Could not save \(error), \(error.userInfo) no such thing bro")
-			return false
-		}
-	}
+//	func hasGIF() -> Bool{
+//		let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//		let managedContext = appDelegate.managedObjectContext
+//		let fetchRequest = NSFetchRequest(entityName: "Image")
+//		
+//		do {
+//				let fetchedResults = try managedContext.executeFetchRequest(fetchRequest)
+//			if let results = fetchedResults as? [NSDictionary]
+//			{
+//				if results.count == 1 {
+//					return true
+//				}
+//			}
+//			return false
+//		} catch let error as NSError {
+//			print("Could not save \(error), \(error.userInfo) no such thing bro")
+//			return false
+//		}
+//	}
 	
-	func saveGIFData(){
-		let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-		let managedContext = appDelegate.managedObjectContext
-		
-		let entity = NSEntityDescription.entityForName("Image",
-		                                               inManagedObjectContext: managedContext)
-		let options = NSManagedObject(entity: entity!,
-		                              insertIntoManagedObjectContext:managedContext)
-		
-		let image = FLAnimatedImage.init(animatedGIFData: NSData.init(contentsOfURL: NSURL(string:
-			"https://s3.amazonaws.com/instagram-fake/ezgif.com-crop.gif")!))
-		
-		let data = image.data
-		
-		options.setValue(data, forKey: "data")
-		
-		do {
-			try managedContext.save()
-		} catch let error as NSError  {
-			print("Could not save \(error), \(error.userInfo)")
-		}
-		
-	}
+//	func saveGIFData(){
+//		let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//		let managedContext = appDelegate.managedObjectContext
+//		
+//		let entity = NSEntityDescription.entityForName("Image",
+//		                                               inManagedObjectContext: managedContext)
+//		let options = NSManagedObject(entity: entity!,
+//		                              insertIntoManagedObjectContext:managedContext)
+//		
+//		let image = FLAnimatedImage.init(animatedGIFData: NSData.init(contentsOfURL: NSURL(string:
+//			"https://s3.amazonaws.com/instagram-fake/ezgif.com-crop.gif")!))
+//		
+//		let data = image.data
+//		
+//		options.setValue(data, forKey: "data")
+//		
+//		do {
+//			try managedContext.save()
+//		} catch let error as NSError  {
+//			print("Could not save \(error), \(error.userInfo)")
+//		}
+//		
+//	}
 	
 }
 
