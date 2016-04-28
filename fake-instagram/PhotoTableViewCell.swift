@@ -40,6 +40,7 @@ class PhotoTableViewCell: UITableViewCell{
         let nextViewController = storyboard.instantiateViewControllerWithIdentifier("PhotoViewController")
         view?.presentViewController(nextViewController, animated: true, completion: nil)
     }
+    
     func onLikeButtonPressed(recognizer: UITapGestureRecognizer) {
         if let userId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String{
             let ref = DataService.dataService.PHOTO_REF.childByAppendingPath(self.photoKey).childByAppendingPath("likes").childByAppendingPath(userId)

@@ -23,6 +23,22 @@ class OtherProfileViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        if isFollowing == true {
+           
+            
+            
+            
+            self.followButton.layer.borderColor = UIColor.clearColor().CGColor
+            self.followButton.backgroundColor = UIColor.greenColor()
+            self.followButton.layer.borderWidth = 0
+            
+        }else if isFollowing != true {
+            self.followButton.layer.borderColor = UIColor.blueColor().CGColor
+            self.followButton.layer.borderWidth = 1
+            self.followButton.backgroundColor = UIColor.clearColor()
+        }
+
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.usernameLabel.text = self.user.username
@@ -71,6 +87,7 @@ class OtherProfileViewController: UIViewController, UITableViewDelegate, UITable
         let photo = photos[indexPath.row]
         cell?.photoView.image = images[indexPath.row]
         cell?.CaptionLabel.text = photo.caption
+        cell?.photoKey = photo.photoKey
         return cell!
     }
     
@@ -87,6 +104,7 @@ class OtherProfileViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBAction func OnFollowButtonPress(sender: UIButton) {
         let currentUserId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String
+        
         if (!isFollowing) {
             isFollowing = true
             DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppendingPath("following").updateChildValues([self.user.key:true])
@@ -96,6 +114,9 @@ class OtherProfileViewController: UIViewController, UITableViewDelegate, UITable
             DataService.dataService.USER_REF.childByAppendingPath(self.user.key).childByAppendingPath("photos").observeEventType(.Value, withBlock: { (snapshot) -> Void in
                 if let valueDict = snapshot.value as? [String:AnyObject] {
                     DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppendingPath("followingFeed").updateChildValues(valueDict)
+                    self.followButton.backgroundColor = UIColor.greenColor()
+                    
+                    
                 }
                 
                 
@@ -105,6 +126,9 @@ class OtherProfileViewController: UIViewController, UITableViewDelegate, UITable
             DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppendingPath("following").childByAppendingPath(self.user.key).removeValue()
             DataService.dataService.USER_REF.childByAppendingPath(self.user.key).childByAppendingPath("followers").childByAppendingPath(currentUserId).removeValue()
             followButton.setTitle("Follow+", forState: UIControlState.Normal)
+           self.followButton.layer.borderColor = UIColor.blueColor().CGColor
+            self.followButton.layer.borderWidth = 1
+            self.followButton.backgroundColor = UIColor.clearColor()
         }
     }
 }
