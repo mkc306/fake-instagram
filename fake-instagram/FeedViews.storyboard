@@ -67,7 +67,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="400" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bew-zN-BAY">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexBackgroundColor" red="0.16647234559059143" green="0.2219749391078949" blue="0.30504509806632996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.3661009669303894" green="0.27354443073272705" blue="0.45570892095565796" alpha="0.89000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="400" id="R7Y-ek-mWd" customClass="PhotoTableViewCell" customModule="fake_instagram" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="400"/>
@@ -145,7 +145,7 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.16647234559059143" green="0.2219749391078949" blue="0.30504509806632996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.3661009669303894" green="0.27354443073272705" blue="0.45570892095565796" alpha="0.89000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="CaptionLabel" destination="3Qf-p4-geu" id="cQe-j0-tdm"/>
                                             <outlet property="addCommentButton" destination="VY6-9F-1vs" id="NUw-L4-HAP"/>
@@ -160,7 +160,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.16647234559059143" green="0.2219749391078949" blue="0.30504509806632996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.3661009669303894" green="0.27354443073272705" blue="0.45570892095565796" alpha="0.89000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="bew-zN-BAY" secondAttribute="trailing" constant="-20" id="Bbc-ks-zYy"/>
                             <constraint firstItem="o7E-RN-veF" firstAttribute="top" secondItem="bew-zN-BAY" secondAttribute="bottom" id="FZw-Xl-tw2"/>
@@ -373,7 +373,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.3661009669303894" green="0.27354443073272705" blue="0.45570892095565796" alpha="0.89000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.3661009669303894" green="0.27354443073272705" blue="0.45570892095565796" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="QFu-Qt-NuP" secondAttribute="trailing" id="07t-0t-Qxi"/>
                             <constraint firstItem="joy-Gf-w4g" firstAttribute="leading" secondItem="uEH-Ex-oFF" secondAttribute="leadingMargin" constant="-20" id="2gV-Fs-cqI"/>
@@ -729,7 +729,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.3661009669303894" green="0.27354443073272705" blue="0.45570892095565796" alpha="0.89000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.3661009669303894" green="0.27354443073272705" blue="0.45570892095565796" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="NdE-rd-hg9" firstAttribute="centerX" secondItem="rbZ-N2-cvO" secondAttribute="centerX" id="4gP-nW-QwJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xf3-Xr-zRV" secondAttribute="trailing" id="73D-Ur-HVT"/>
@@ -1178,6 +1178,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="rf1-sI-BRw"/>
-        <segue reference="GOs-yv-HnE"/>
+        <segue reference="I6W-YL-cgu"/>
     </inferredMetricsTieBreakers>
 </document>

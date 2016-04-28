@@ -68,7 +68,7 @@ class CommentsViewController: UIViewController,UITableViewDelegate,UITableViewDa
 	}
 	
 	@IBAction func onBackButtonPressed(sender: AnyObject) {
-		self.navigationController!.popViewControllerAnimated(true)
+		self.dismissViewControllerAnimated(true, completion: nil)
 	}
 	func textFieldShouldReturn(textField: UITextField) -> Bool {
 		self.commentTextField.resignFirstResponder()
