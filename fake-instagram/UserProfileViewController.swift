@@ -9,6 +9,10 @@
 import UIKit
 import AlamofireImage
 
+protocol UserProfileViewControllerDelegate {
+	func UserProfileCellCommentButtonClicked()
+}
+
 
 class UserProfileViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
     @IBOutlet weak var followingCountLabel: UILabel!
@@ -81,8 +85,14 @@ class UserProfileViewController: UIViewController, UITableViewDataSource,UITable
         cell?.photoView.image = myImages[indexPath.row]
         let photo = myPhotos[indexPath.row]
         cell?.CaptionLabel.text = photo.caption
+				cell?.userPhotosDelegate = self
         return cell!
     }
+	
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		
+		print("lulzz")
+	}
     
    
     @IBAction func onLogoutButtonPressed(sender: UIButton) {
