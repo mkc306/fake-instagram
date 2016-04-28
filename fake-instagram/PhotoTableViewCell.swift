@@ -9,6 +9,7 @@
 import UIKit
 
 class PhotoTableViewCell: UITableViewCell{
+    @IBOutlet weak var addCommentButton: UIButton!
 
     @IBOutlet weak var photoView: UIImageView!
     @IBOutlet weak var CaptionLabel: UILabel!
@@ -58,5 +59,12 @@ class PhotoTableViewCell: UITableViewCell{
         
     }
 
+    @IBAction func onCommentButtonPress(sender: UIButton) {
+        
+    }
+    
+    
+    
+    
 }
 

@@ -9,14 +9,20 @@
 import UIKit
 import AWSS3
 import Photos
+import FLAnimatedImage
 
 class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelegate {
-    @IBOutlet weak var captionTextField: UITextField!
+	@IBOutlet weak var captionTextField: UITextField!
 	var image = UIImage()
 	var s3URL = NSURL()
 	let uid = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
 	let userRef = DataService.dataService.USER_REF
 	let photoRef = DataService.dataService.PHOTO_REF
+	var gif = FLAnimatedImage()
+//    var frameView: UIView!
+
+
+
 	
 	@IBOutlet weak var imageView: UIImageView!
 	
@@ -24,24 +30,29 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
 	override func viewDidLoad() {
 		self.imageView.image = self.image
 		super.viewDidLoad()
-		
-		
-		// Do any additional setup after loading the view.
+        
+//        dispatch_async(dispatch_get_main_queue()) {
+//            self.gif = FLAnimatedImage.init(animatedGIFData: NSData.init(contentsOfURL: NSURL(string:
+//                "https://s3.amazonaws.com/instagram-fake/ezgif.com-crop.gif")!))
+//        }
+//        self.frameView = UIView(frame: CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height))
+        
+        
+        // Keyboard stuff.
+        let center: NSNotificationCenter = NSNotificationCenter.defaultCenter()
+        center.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        center.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+    
 	}
-	
-	//	@IBAction func onTakePicButtonPressed(sender: UIBarButtonItem) {
-	//		print("take pic button pressed")
-	//		self.fastCamera.takePicture()
-	//	}
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-	}
-	
+
 	
 	@IBAction func onConfirmButtonPressed(sender: UIButton) {
+		let imageView = FLAnimatedImageView()
+		imageView.animatedImage = self.gif
+		imageView.frame = self.view.frame
+		self.view.addSubview(imageView)
 		saveImageLocallyS3Firebase(image)
-        	}
+	}
 	
 	
 	
@@ -102,12 +113,51 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
 		self.userRef.childByAppendingPath(self.uid).childByAppendingPath("photos").updateChildValues([currentPhotoRef.key: true])
 		self.userRef.childByAppendingPath(self.uid).childByAppendingPath("followers").observeEventType(.ChildAdded, withBlock: { (snapshot) -> Void in
 			self.userRef.childByAppendingPath(snapshot.key).childByAppendingPath("followingFeed").updateChildValues([currentPhotoRef.key:true])
-            self.photoRef.childByAppendingPath(currentPhotoRef.key).childByAppendingPath("caption").setValue(self.captionTextField.text)
+			self.photoRef.childByAppendingPath(currentPhotoRef.key).childByAppendingPath("caption").setValue(self.captionTextField.text)
 			print("updated firebase")
 		})
 	}
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.captionTextField.resignFirstResponder()
-        return true
+	func textFieldShouldReturn(textField: UITextField) -> Bool {
+		self.captionTextField.resignFirstResponder()
+		return true
+	}
+
+    func keyboardWillShow(notification: NSNotification) {
+        print("Showing")
+        let info:NSDictionary = notification.userInfo!
+        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
+        
+        let keyboardHeight: CGFloat = keyboardSize.height
+        
+        let _: CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber as CGFloat
+        
+    
+        UIView.animateWithDuration(0.25, delay: 0.25, options: .CurveEaseInOut, animations: { 
+            self.captionTextField.center.y += keyboardHeight
+            
+            }) { (done) in
+                let test = self.captionTextField
+                
+        }
     }
+    
+    func keyboardWillHide(notification: NSNotification) {
+//        let info: NSDictionary = notification.userInfo!
+//        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
+//        
+//        let keyboardHeight: CGFloat = keyboardSize.height
+//        
+//        let _: CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber as CGFloat
+//        
+//        UIView.animateWithDuration(0.25, delay: 0.25, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+//            self.captionTextField.frame = CGRectMake(0, (self.view.frame.origin.y + keyboardHeight), self.captionTextField.bounds.width, self.captionTextField.bounds.height)
+//            }, completion: nil)
+//        
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+    }
+
 }

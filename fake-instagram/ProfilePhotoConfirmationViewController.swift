@@ -9,6 +9,7 @@
 import UIKit
 import AWSS3
 import Photos
+import FLAnimatedImage
 
 class ProfilePhotoConfirmationUploadViewController: UIViewController {
 	var image = UIImage()
@@ -16,35 +17,29 @@ class ProfilePhotoConfirmationUploadViewController: UIViewController {
 	let uid = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
 	let userRef = DataService.dataService.USER_REF
 	let photoRef = DataService.dataService.PHOTO_REF
+	var gif = FLAnimatedImage()
 	
 	@IBOutlet weak var imageView: UIImageView!
 	
 	
 	
 	override func viewDidLoad() {
+		
+		
 		self.imageView.image = self.image
 		super.viewDidLoad()
-		
-		
-		// Do any additional setup after loading the view.
+		dispatch_async(dispatch_get_main_queue()) {
+			self.gif = FLAnimatedImage.init(animatedGIFData: NSData.init(contentsOfURL: NSURL(string:
+				"https://s3.amazonaws.com/instagram-fake/ezgif.com-crop.gif")!))
+		}
 	}
-	
-	//	@IBAction func onTakePicButtonPressed(sender: UIBarButtonItem) {
-	//		print("take pic button pressed")
-	//		self.fastCamera.takePicture()
-	//	}
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-	}
-	
-	
 	@IBAction func onConfirmButtonPressed(sender: UIButton) {
+		let imageView = FLAnimatedImageView()
+		imageView.animatedImage = self.gif
+		imageView.frame = self.view.frame
+		self.view.addSubview(imageView)
 		saveImageLocallyS3Firebase(image)
 	}
-	
-	
-	
 	
 	func saveImageLocallyS3Firebase(image: UIImage){
 		
@@ -70,7 +65,7 @@ class ProfilePhotoConfirmationUploadViewController: UIViewController {
 		uploadRequest.body = writePath
 		uploadRequest.key = NSProcessInfo.processInfo().globallyUniqueString + "." + ext
 		uploadRequest.bucket = S3BucketName
-        uploadRequest.contentType = "image/" + ext
+		uploadRequest.contentType = "image/" + ext
 		let transferManager = AWSS3TransferManager.defaultS3TransferManager()
 		transferManager.upload(uploadRequest).continueWithBlock { (task) -> AnyObject! in
 			if let error = task.error {

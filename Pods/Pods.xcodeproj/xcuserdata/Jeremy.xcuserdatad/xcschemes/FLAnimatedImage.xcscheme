@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '2E3FEE4EC20F51C7850DECB6'
-               BlueprintName = 'AWSCore'
+               BlueprintIdentifier = 'E86FD446A522B86517A20387'
+               BlueprintName = 'FLAnimatedImage'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'AWSCore.framework'>
+               BuildableName = 'FLAnimatedImage.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

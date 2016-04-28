@@ -7,16 +7,49 @@
 //
 
 import UIKit
+import Photos
 
 class WelcomeViewController: UIViewController {
 	
 	override func viewDidLoad() {
+		
+		AVCaptureDevice.requestAccessForMediaType(AVMediaTypeVideo) { (granted) in
+			if !granted{
+				print("Access denied")
+			}
+		}
+		
+		self.checkImageAuthorization()
+		
+		
 		super.viewDidLoad()
 		
 		
 		// Do any additional setup after loading the view.
 	}
 
+	
+	func checkImageAuthorization() -> Bool{
+		//check for permission to access file system assets
+		let status = PHPhotoLibrary.authorizationStatus()
+		switch status {
+		case .Authorized:
+			return true
+		case .Denied, .Restricted :
+			PHPhotoLibrary.requestAuthorization() { (status) -> Void in
+				self.checkImageAuthorization()
+				return
+			}
+			return false
+		case .NotDetermined:
+			// ask for permissions
+			PHPhotoLibrary.requestAuthorization() { (status) -> Void in
+				self.checkImageAuthorization()
+				return
+			}
+		}
+		return false
+	}
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
