@@ -25,6 +25,7 @@
 		3F4C32B91CCA1AFA00E015CF /* PhotoUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C32B81CCA1AFA00E015CF /* PhotoUploadViewController.swift */; };
 		3FC514261CCF1D4800A30D8C /* ProfilePhotoUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC514251CCF1D4800A30D8C /* ProfilePhotoUploadViewController.swift */; };
 		3FC514281CCF1D6F00A30D8C /* ProfilePhotoConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC514271CCF1D6F00A30D8C /* ProfilePhotoConfirmationViewController.swift */; };
+		3FC5142A1CD204FE00A30D8C /* ezgif.com-crop.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3FC514291CD204FE00A30D8C /* ezgif.com-crop.gif */; };
 		45442C231CC9F4F500EDAC32 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45442C221CC9F4F500EDAC32 /* SignupViewController.swift */; };
 		45442C251CCA0AC100EDAC32 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45442C241CCA0AC100EDAC32 /* UserProfileViewController.swift */; };
 		45442C271CCA0C2800EDAC32 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45442C261CCA0C2800EDAC32 /* UserListViewController.swift */; };
@@ -59,6 +60,7 @@
 		3F4C32B81CCA1AFA00E015CF /* PhotoUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoUploadViewController.swift; sourceTree = "<group>"; };
 		3FC514251CCF1D4800A30D8C /* ProfilePhotoUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePhotoUploadViewController.swift; sourceTree = "<group>"; };
 		3FC514271CCF1D6F00A30D8C /* ProfilePhotoConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePhotoConfirmationViewController.swift; sourceTree = "<group>"; };
+		3FC514291CD204FE00A30D8C /* ezgif.com-crop.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "ezgif.com-crop.gif"; sourceTree = "<group>"; };
 		45442C221CC9F4F500EDAC32 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		45442C241CCA0AC100EDAC32 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		45442C261CCA0C2800EDAC32 /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			children = (
 				3F4C32621CC9CEF300E015CF /* fake-instagram */,
 				3F4C32611CC9CEF300E015CF /* Products */,
+				3FC514291CD204FE00A30D8C /* ezgif.com-crop.gif */,
 				83528D0AF05FE98938721016 /* Pods */,
 				F649FE22943AC6E857340D96 /* Frameworks */,
 			);
@@ -259,6 +262,7 @@
 				3F4C32AC1CCA05CC00E015CF /* PhotoUploadViews.storyboard in Resources */,
 				3F4C326E1CC9CEF400E015CF /* Assets.xcassets in Resources */,
 				3F4C32691CC9CEF400E015CF /* Main.storyboard in Resources */,
+				3FC5142A1CD204FE00A30D8C /* ezgif.com-crop.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

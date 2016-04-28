@@ -13,10 +13,8 @@ class LoginViewController: UIViewController {
 	
 	@IBOutlet weak var emailTextField: UITextField!
 	@IBOutlet weak var passwordTextField: UITextField!
-	var gif = FLAnimatedImage()
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		loadGIF()
 		let currentUserId = NSUserDefaults.standardUserDefaults().valueForKey("uid")as? String
 		if currentUserId != nil{
 			if DataService.dataService.USER_REF.childByAppendingPath(currentUserId).authData != nil {
@@ -51,22 +49,8 @@ class LoginViewController: UIViewController {
 	}
 	
 	func loadGIF(){
-		let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-		let managedContext = appDelegate.managedObjectContext
-		let fetchRequest = NSFetchRequest(entityName: "Image")
-		
-		do {
-			let fetchedResults = try managedContext.executeFetchRequest(fetchRequest)
-			if let results = fetchedResults as? [NSDictionary]{
-				if let data = results[0]["data"] as? NSData {
-					self.gif = FLAnimatedImage.init(animatedGIFData: data)
-				}
-			}
-		} catch let error as NSError {
-			print("Could not save \(error), \(error.userInfo) no such thing bro")
-		}
 		let imageView = FLAnimatedImageView()
-		imageView.animatedImage = self.gif
+		imageView.animatedImage = GIF
 		imageView.frame = self.view.frame
 		self.view.addSubview(imageView)
 	}
