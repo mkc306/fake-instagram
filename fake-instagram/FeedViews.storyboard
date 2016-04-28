@@ -100,8 +100,8 @@
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fz8-ff-5Jv">
-                                                    <rect key="frame" x="490" y="343" width="25" height="25"/>
-                                                    <state key="normal" image="doughnut"/>
+                                                    <rect key="frame" x="487" y="339" width="32" height="32"/>
+                                                    <state key="normal" image="like_button"/>
                                                     <connections>
                                                         <action selector="onLikeButtonPressed:" destination="R7Y-ek-mWd" eventType="touchUpInside" id="WO3-fs-ol8"/>
                                                     </connections>
@@ -120,6 +120,7 @@
                                         <connections>
                                             <outlet property="CaptionLabel" destination="3Qf-p4-geu" id="cQe-j0-tdm"/>
                                             <outlet property="addCommentButton" destination="VY6-9F-1vs" id="NUw-L4-HAP"/>
+                                            <outlet property="likeButton" destination="Fz8-ff-5Jv" id="xVX-He-UwC"/>
                                             <outlet property="photoView" destination="J7z-ki-lU5" id="YVT-Yi-A46"/>
                                         </connections>
                                     </tableViewCell>
@@ -278,7 +279,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Following" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2F-iy-3R6">
-                                <rect key="frame" x="157.5" y="44" width="72.5" height="20.5"/>
+                                <rect key="frame" x="157" y="44" width="72.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -344,6 +345,13 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1l-3O-bD5">
+                                <rect key="frame" x="512" y="0.0" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="onLogoutButtonPressed:" destination="Uma-PE-n4N" eventType="touchUpInside" id="UV1-MD-HIW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.16647234559059143" green="0.2219749391078949" blue="0.30504509806632996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -357,6 +365,7 @@
                             <constraint firstItem="B8Y-qv-06O" firstAttribute="leading" secondItem="R2F-iy-3R6" secondAttribute="trailing" constant="20" id="I2N-wr-Cza"/>
                             <constraint firstItem="Pq3-aH-OJ0" firstAttribute="top" secondItem="joy-Gf-w4g" secondAttribute="bottom" constant="30" id="NPn-ib-6pc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="joy-Gf-w4g" secondAttribute="trailing" constant="-20" id="NaP-Xe-wvX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="n1l-3O-bD5" secondAttribute="trailing" constant="20" id="VAm-07-5nm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="joy-Gf-w4g" secondAttribute="trailing" constant="-20" id="Zdd-M3-9hu"/>
                             <constraint firstItem="QFu-Qt-NuP" firstAttribute="leading" secondItem="B8Y-qv-06O" secondAttribute="trailing" constant="20" id="cg3-Po-KZy"/>
                             <constraint firstItem="IJo-28-nqr" firstAttribute="top" secondItem="B8Y-qv-06O" secondAttribute="bottom" constant="3" id="kPe-rD-McO"/>
@@ -364,6 +373,7 @@
                             <constraint firstItem="IJo-28-nqr" firstAttribute="centerX" secondItem="uEH-Ex-oFF" secondAttribute="centerX" id="u47-bt-XHM"/>
                             <constraint firstItem="joy-Gf-w4g" firstAttribute="leading" secondItem="uEH-Ex-oFF" secondAttribute="leadingMargin" constant="-20" id="ucz-gp-B7a"/>
                             <constraint firstItem="B8Y-qv-06O" firstAttribute="centerX" secondItem="uEH-Ex-oFF" secondAttribute="centerX" id="uxS-55-1cF"/>
+                            <constraint firstItem="n1l-3O-bD5" firstAttribute="top" secondItem="dm8-E9-R6x" secondAttribute="bottom" constant="-20" id="xzJ-uW-w8p"/>
                             <constraint firstItem="Pq3-aH-OJ0" firstAttribute="top" secondItem="joy-Gf-w4g" secondAttribute="bottom" id="yaD-kh-vAM"/>
                         </constraints>
                         <variation key="default">
@@ -375,6 +385,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <tabBarItem key="tabBarItem" title="Profile" id="qsY-RS-KWh"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -388,7 +399,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pno-cS-ZF9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2485" y="866"/>
+            <point key="canvasLocation" x="2329" y="866"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="DC5-Gm-L7O">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="MNk-q9-nnO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7wO-7K-GX3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2801.5" y="673"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="vzr-bm-AgN">
@@ -612,9 +631,9 @@
                                                         <constraint firstAttribute="width" constant="301" id="AXB-mb-r5q"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWe-nB-r7L">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWe-nB-r7L">
                                                     <rect key="frame" x="533" y="229" width="25" height="25"/>
-                                                    <state key="normal" image="doughnut"/>
+                                                    <state key="normal" image="like_button"/>
                                                     <connections>
                                                         <action selector="onLikeButtonPressed:" destination="r99-IY-rwT" eventType="touchUpInside" id="y2c-XP-46z"/>
                                                     </connections>
@@ -639,6 +658,7 @@
                                         <color key="backgroundColor" red="0.16647234559059143" green="0.2219749391078949" blue="0.30504509806632996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="CaptionLabel" destination="cfR-6T-t8E" id="0ug-xP-lhY"/>
+                                            <outlet property="likeButton" destination="RWe-nB-r7L" id="Qtb-4D-3dV"/>
                                             <outlet property="photoView" destination="rXG-pg-iqt" id="4xv-7i-U0q"/>
                                         </connections>
                                     </tableViewCell>
@@ -740,7 +760,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJt-5G-3CP">
                                 <rect key="frame" x="271" y="521" width="58" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="58" id="MMW-om-jHw"/>
+                                    <constraint firstAttribute="width" constant="58" id="EMc-11-ccU"/>
+                                    <constraint firstAttribute="height" constant="32" id="QYx-nl-113"/>
                                 </constraints>
                                 <state key="normal" image="upload_wink"/>
                                 <connections>
@@ -748,9 +769,10 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Insert A Caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="npg-O0-aRq">
-                                <rect key="frame" x="165" y="459" width="271" height="30"/>
+                                <rect key="frame" x="164" y="459" width="271" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="271" id="PEe-6V-iX2"/>
+                                    <constraint firstAttribute="height" constant="30" id="YCf-P1-cbq"/>
+                                    <constraint firstAttribute="width" constant="271" id="dNL-oW-Vfs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -758,17 +780,30 @@
                                     <outlet property="delegate" destination="6N3-mf-JZ6" id="VLM-WU-nD8"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5O-U2-7sb">
+                                <rect key="frame" x="20" y="550" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="YBI-KV-SZx"/>
+                                    <constraint firstAttribute="height" constant="30" id="r4v-bs-ik1"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="button:" destination="6N3-mf-JZ6" eventType="touchUpInside" id="aL9-34-j1q"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.16647234559059143" green="0.2219749391078949" blue="0.30504509806632996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="Y1I-jY-ZY0" secondAttribute="trailing" constant="-20" id="JDL-E4-UeJ"/>
-                            <constraint firstItem="npg-O0-aRq" firstAttribute="centerX" secondItem="pEH-8E-9kb" secondAttribute="centerX" id="NPD-Ng-s2D"/>
-                            <constraint firstItem="Y1I-jY-ZY0" firstAttribute="top" secondItem="Tfv-Da-O70" secondAttribute="bottom" id="XtS-r6-cgg"/>
-                            <constraint firstItem="eJt-5G-3CP" firstAttribute="centerX" secondItem="pEH-8E-9kb" secondAttribute="centerX" id="bYL-dB-nBA"/>
-                            <constraint firstItem="Y1I-jY-ZY0" firstAttribute="leading" secondItem="pEH-8E-9kb" secondAttribute="leadingMargin" constant="-20" id="lJg-Cb-sjc"/>
-                            <constraint firstItem="eJt-5G-3CP" firstAttribute="top" secondItem="npg-O0-aRq" secondAttribute="bottom" constant="32" id="oEc-i6-Ngt"/>
-                            <constraint firstItem="peI-JR-JRH" firstAttribute="top" secondItem="eJt-5G-3CP" secondAttribute="bottom" constant="47" id="pz9-QG-j63"/>
-                            <constraint firstItem="npg-O0-aRq" firstAttribute="top" secondItem="Y1I-jY-ZY0" secondAttribute="bottom" constant="20" id="rp5-iZ-NMb"/>
+                            <constraint firstItem="npg-O0-aRq" firstAttribute="top" secondItem="Y1I-jY-ZY0" secondAttribute="bottom" constant="20" id="2Vv-es-UTM"/>
+                            <constraint firstItem="g5O-U2-7sb" firstAttribute="leading" secondItem="pEH-8E-9kb" secondAttribute="leadingMargin" id="Eg3-w8-7qN"/>
+                            <constraint firstAttribute="trailing" secondItem="Y1I-jY-ZY0" secondAttribute="trailing" id="Tsc-LU-j8h"/>
+                            <constraint firstItem="npg-O0-aRq" firstAttribute="centerX" secondItem="pEH-8E-9kb" secondAttribute="centerX" id="Udv-4d-XbO"/>
+                            <constraint firstItem="Y1I-jY-ZY0" firstAttribute="top" secondItem="Tfv-Da-O70" secondAttribute="bottom" id="efx-BL-CZc"/>
+                            <constraint firstItem="peI-JR-JRH" firstAttribute="top" secondItem="eJt-5G-3CP" secondAttribute="bottom" constant="47" id="fKF-aH-r7j"/>
+                            <constraint firstItem="eJt-5G-3CP" firstAttribute="top" secondItem="npg-O0-aRq" secondAttribute="bottom" constant="32" id="gXR-R9-Ehl"/>
+                            <constraint firstItem="Y1I-jY-ZY0" firstAttribute="leading" secondItem="pEH-8E-9kb" secondAttribute="leading" id="h9s-Ph-DeP"/>
+                            <constraint firstItem="eJt-5G-3CP" firstAttribute="centerX" secondItem="pEH-8E-9kb" secondAttribute="centerX" id="yAy-gl-gZc"/>
+                            <constraint firstItem="peI-JR-JRH" firstAttribute="top" secondItem="g5O-U2-7sb" secondAttribute="bottom" constant="20" id="zOh-gF-rp1"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -941,12 +976,13 @@
         <image name="Background" width="750" height="1334"/>
         <image name="add_image" width="32" height="32"/>
         <image name="doughnut" width="25" height="25"/>
+        <image name="like_button" width="25" height="25"/>
         <image name="rotate_camera_filled" width="25" height="25"/>
         <image name="take_picture" width="24" height="24"/>
         <image name="upload_wink" width="32" height="32"/>
         <image name="user_male_circle_filled" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3md-ub-rse"/>
+        <segue reference="rf1-sI-BRw"/>
     </inferredMetricsTieBreakers>
 </document>
