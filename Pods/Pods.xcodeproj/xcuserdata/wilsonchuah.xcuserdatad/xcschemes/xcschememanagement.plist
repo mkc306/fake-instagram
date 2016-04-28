@@ -24,6 +24,11 @@
 			<key>orderHint</key>
 			<integer>6</integer>
 		</dict>
+		<key>FLAnimatedImage.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 		<key>Firebase.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -67,6 +72,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>5A54FEAF858C0A0DE38812F51CC974E9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
 		<dict>
 			<key>primary</key>
@@ -93,6 +103,11 @@
 			<true/>
 		</dict>
 		<key>E354F4114C3E48A3454CAE6C339637DE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FE113CEF81C16AA59EC049ACE130BCB2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
