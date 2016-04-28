@@ -85,6 +85,14 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VY6-9F-1vs">
+                                                    <rect key="frame" x="150" y="333" width="127" height="30"/>
+                                                    <state key="normal" title="Comment"/>
+                                                    <connections>
+                                                        <action selector="onCommentButtonPress:" destination="R7Y-ek-mWd" eventType="touchUpInside" id="tkI-mF-Lok"/>
+                                                        <segue destination="aG1-ic-JXi" kind="show" identifier="CommentsSegue" id="cSe-8S-MV5"/>
+                                                    </connections>
+                                                </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J7z-ki-lU5">
                                                     <rect key="frame" x="150" y="8" width="300" height="300"/>
                                                     <constraints>
@@ -111,6 +119,7 @@
                                         <color key="backgroundColor" red="0.16647234559059143" green="0.2219749391078949" blue="0.30504509806632996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="CaptionLabel" destination="3Qf-p4-geu" id="cQe-j0-tdm"/>
+                                            <outlet property="addCommentButton" destination="VY6-9F-1vs" id="NUw-L4-HAP"/>
                                             <outlet property="photoView" destination="J7z-ki-lU5" id="YVT-Yi-A46"/>
                                         </connections>
                                     </tableViewCell>
@@ -183,9 +192,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="580" height="6.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="aG1-ic-JXi" kind="show" id="nEG-3X-6uX"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -248,7 +254,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ls-Xe-cfZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3394" y="956"/>
+            <point key="canvasLocation" x="1725" y="1203"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Jos-RN-6zv">
@@ -606,7 +612,7 @@
                                                         <constraint firstAttribute="width" constant="301" id="AXB-mb-r5q"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWe-nB-r7L">
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWe-nB-r7L">
                                                     <rect key="frame" x="533" y="229" width="25" height="25"/>
                                                     <state key="normal" image="doughnut"/>
                                                     <connections>
@@ -727,7 +733,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y1I-jY-ZY0">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y1I-jY-ZY0">
                                 <rect key="frame" x="0.0" y="20" width="600" height="419"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>

@@ -32,23 +32,8 @@ class ProfilePhotoConfirmationUploadViewController: UIViewController {
 			self.gif = FLAnimatedImage.init(animatedGIFData: NSData.init(contentsOfURL: NSURL(string:
 				"https://s3.amazonaws.com/instagram-fake/ezgif.com-crop.gif")!))
 		}
-		
-		// Do any additional setup after loading the view.
 	}
-	
-	//	@IBAction func onTakePicButtonPressed(sender: UIBarButtonItem) {
-	//		print("take pic button pressed")
-	//		self.fastCamera.takePicture()
-	//	}
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-	}
-	
-	
 	@IBAction func onConfirmButtonPressed(sender: UIButton) {
-		//		let gif = FLAnimatedImage.init(animatedGIFData: NSData.init(contentsOfURL: NSURL(string:
-		//			"https://s3.amazonaws.com/instagram-fake/ezgif.com-crop.gif")!))
 		let imageView = FLAnimatedImageView()
 		imageView.animatedImage = self.gif
 		imageView.frame = self.view.frame
