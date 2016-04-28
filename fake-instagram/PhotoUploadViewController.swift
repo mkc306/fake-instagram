@@ -44,17 +44,6 @@ class PhotoUploadViewController: UIViewController, FastttCameraDelegate,UIImageP
             self.fastCamera.cameraDevice = device
         }
     }
-    
-    
-    //	@IBAction func onTakePicButtonPressed(sender: UIBarButtonItem) {
-    //		print("take pic button pressed")
-    //		self.fastCamera.takePicture()
-    //	}
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         
         self.performSegueWithIdentifier("ConfirmImage", sender: image)
