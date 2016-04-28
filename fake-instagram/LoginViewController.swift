@@ -50,6 +50,7 @@ class LoginViewController: UIViewController {
 	
 	func loadGIF(){
 		let imageView = FLAnimatedImageView()
+		imageView.contentMode = UIViewContentMode.ScaleAspectFill
 		imageView.animatedImage = GIF
 		imageView.frame = self.view.frame
 		self.view.addSubview(imageView)

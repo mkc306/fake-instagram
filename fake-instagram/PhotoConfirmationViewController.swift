@@ -74,7 +74,6 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
 		uploadRequest.body = writePath
 		uploadRequest.key = NSProcessInfo.processInfo().globallyUniqueString + "." + ext
 		uploadRequest.bucket = S3BucketName
-		
 		uploadRequest.contentType = "image/" + ext
 		let transferManager = AWSS3TransferManager.defaultS3TransferManager()
 		transferManager.upload(uploadRequest).continueWithBlock { (task) -> AnyObject! in
@@ -141,6 +140,7 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
 	
 	func loadGIF(){
 		let imageView = FLAnimatedImageView()
+		imageView.contentMode = UIViewContentMode.ScaleAspectFill
 		imageView.animatedImage = GIF
 		imageView.frame = self.view.frame
 		self.view.addSubview(imageView)
