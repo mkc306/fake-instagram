@@ -19,6 +19,7 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
 	let userRef = DataService.dataService.USER_REF
 	let photoRef = DataService.dataService.PHOTO_REF
 	var gif = FLAnimatedImage()
+
 	
 	@IBOutlet weak var imageView: UIImageView!
 	
@@ -109,4 +110,28 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
 		self.captionTextField.resignFirstResponder()
 		return true
 	}
+
+    func animateTextField(textField: UITextField, up: Bool, withOffset offset:CGFloat)
+    {
+        let movementDistance : Int = -Int(offset)
+        let movementDuration : Double = 0.4
+        let movement : Int = (up ? movementDistance : -movementDistance)
+        UIView.beginAnimations("animateTextField", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(movementDuration)
+        self.view.frame = CGRectOffset(self.view.frame, 0, CGFloat(movement))
+        UIView.commitAnimations()
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField)
+    {
+        self.captionTextField.becomeFirstResponder()
+        self.animateTextField(captionTextField, up: true, withOffset: textField.frame.origin.y / 2)
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField)
+    {
+        self.animateTextField(captionTextField, up: false, withOffset: textField.frame.origin.y / 2)
+    }
+    
 }
