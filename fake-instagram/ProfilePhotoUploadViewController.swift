@@ -8,6 +8,7 @@
 
 import UIKit
 import FastttCamera
+import Photos
 
 class ProfilePhotoUploadViewController: UIViewController, FastttCameraDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 	
@@ -55,6 +56,11 @@ class ProfilePhotoUploadViewController: UIViewController, FastttCameraDelegate,U
 	}
 	
 	@IBAction func onChooseFromGalleryPressed(sender: UIButton) {
+		PHPhotoLibrary.requestAuthorization { (status) in
+			if status != PHAuthorizationStatus.Authorized{
+				print("Access denied")
+			}
+		}
 		let gallery = UIImagePickerController()
 		gallery.sourceType = .PhotoLibrary
 		gallery.delegate = self
@@ -78,6 +84,8 @@ class ProfilePhotoUploadViewController: UIViewController, FastttCameraDelegate,U
 			self.fastCamera.cameraDevice = device
 		}
 	}
+	
+	
 	
 	@IBAction func onTakePicButtonPressed(sender: UIButton) {
 		print("take pic button pressed")
