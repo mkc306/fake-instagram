@@ -29,7 +29,7 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
 	
 	
 	override func viewDidLoad() {
-		preloadGIF()
+		
 		
 		self.imageView.image = self.image
 		super.viewDidLoad()
@@ -50,10 +50,8 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
 	
 	
 	@IBAction func onConfirmButtonPressed(sender: UIButton) {
-		let imageView = FLAnimatedImageView()
-		imageView.animatedImage = self.gif
-		imageView.frame = self.view.frame
-		self.view.addSubview(imageView)
+		loadGIF()
+		
 		saveImageLocallyS3Firebase(image)
 	}
 	
