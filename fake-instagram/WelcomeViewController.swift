@@ -13,16 +13,14 @@ class WelcomeViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		
-		PHPhotoLibrary.requestAuthorization { (status) in
-			if status != PHAuthorizationStatus.Authorized{
-				print("Access denied")
-			}
-		}
 		AVCaptureDevice.requestAccessForMediaType(AVMediaTypeVideo) { (granted) in
 			if !granted{
 				print("Access denied")
 			}
 		}
+		
+		self.checkImageAuthorization()
+		
 		
 		super.viewDidLoad()
 		
@@ -30,6 +28,28 @@ class WelcomeViewController: UIViewController {
 		// Do any additional setup after loading the view.
 	}
 
+	
+	func checkImageAuthorization() -> Bool{
+		//check for permission to access file system assets
+		let status = PHPhotoLibrary.authorizationStatus()
+		switch status {
+		case .Authorized:
+			return true
+		case .Denied, .Restricted :
+			PHPhotoLibrary.requestAuthorization() { (status) -> Void in
+				self.checkImageAuthorization()
+				return
+			}
+			return false
+		case .NotDetermined:
+			// ask for permissions
+			PHPhotoLibrary.requestAuthorization() { (status) -> Void in
+				self.checkImageAuthorization()
+				return
+			}
+		}
+		return false
+	}
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
