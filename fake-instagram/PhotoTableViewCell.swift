@@ -87,7 +87,9 @@ class PhotoTableViewCell: UITableViewCell, AllPhotosViewControllerDelegate, Othe
 	}
 	
 	@IBAction func onCommentButtonPress(sender: UIButton) {
-		
+		allPhotosCellCommentButtonClicked()
+		OtherProfileCellCommentButtonClicked()
+		UserProfileCellCommentButtonClicked()
 	}
 	
 	
