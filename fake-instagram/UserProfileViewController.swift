@@ -23,12 +23,21 @@ class UserProfileViewController: UIViewController, UITableViewDataSource,UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         let currentUserId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String!
-        profilePicImageView.bounds = CGRectMake(0, 0, profilePicImageView.frame.width, profilePicImageView.frame.height)
-        profilePicImageView.layer.cornerRadius = 0.5 * profilePicImageView.bounds.size.width
+        
+        
+        
         DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppendingPath("profileImageURL").observeEventType(.Value , withBlock: { (snapshot) -> Void in
             if let photoPicURL = snapshot.value as? String {
                 let url = NSURL(string:photoPicURL)!
                 self.profilePicImageView.af_setImageWithURL(url)
+                
+                self.profilePicImageView.layer.borderWidth = 1.0
+                self.profilePicImageView.layer.masksToBounds = false
+                self.profilePicImageView.layer.borderColor = UIColor.blackColor().CGColor
+              
+                self.profilePicImageView.layer.cornerRadius = 0.5*self.profilePicImageView.frame.height
+                self.profilePicImageView.clipsToBounds = true
+                
             }
         })
         
