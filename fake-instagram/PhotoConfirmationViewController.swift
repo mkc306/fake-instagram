@@ -18,11 +18,8 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
 	let uid = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
 	let userRef = DataService.dataService.USER_REF
 	let photoRef = DataService.dataService.PHOTO_REF
+
 	//    var frameView: UIView!
-	
-	
-	@IBOutlet weak var textLabelConstraint: NSLayoutConstraint!
-	
 	
 	@IBOutlet weak var imageView: UIImageView!
 	
@@ -32,19 +29,15 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
 		
 		self.imageView.image = self.image
 		super.viewDidLoad()
-		
-		//        dispatch_async(dispatch_get_main_queue()) {
-		//            self.gif = FLAnimatedImage.init(animatedGIFData: NSData.init(contentsOfURL: NSURL(string:
-		//                "https://s3.amazonaws.com/instagram-fake/ezgif.com-crop.gif")!))
-		//        }
-		//        self.frameView = UIView(frame: CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height))
-		
-		
-		// Keyboard stuff.
-		//        let center: NSNotificationCenter = NSNotificationCenter.defaultCenter()
-		//        center.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
-		//        center.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
-		
+
+         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIKeyboardWillChangeFrameNotification, object: nil)
+        
+//        dispatch_async(dispatch_get_main_queue()) {
+//            self.gif = FLAnimatedImage.init(animatedGIFData: NSData.init(contentsOfURL: NSURL(string:
+//                "https://s3.amazonaws.com/instagram-fake/ezgif.com-crop.gif")!))
+//        }
+//        self.frameView = UIView(frame: CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height))
+        
 	}
 	
 	
@@ -123,54 +116,27 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
 		self.captionTextField.resignFirstResponder()
 		return true
 	}
-	
-	@IBAction func button(sender: UIButton) {
-		UIView.animateWithDuration(0.25, delay: 0.25, options: [], animations: {
-			self.captionTextField.frame.origin = CGPointZero
-			}, completion: nil)
-	}
-	
-	func textFieldDidBeginEditing(textField: UITextField) {
-		UIView.animateWithDuration(0.25, delay: 0.25, options: [], animations: {
-			self.captionTextField.frame.origin = CGPointZero
-			}, completion: nil)
-	}
-	
-	func keyboardWillShow(notification: NSNotification) {
-		print("Showing")
-		let info = notification.userInfo!
-		let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
-		
-		
-		let duration = info[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
-		let keyboardHeight: CGFloat = keyboardSize.height
-		
-		let _: CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber as CGFloat
-		
-		
-		UIView.animateWithDuration(duration.doubleValue, delay: 3.00, options: [], animations: {
-			self.captionTextField.frame = CGRectMake(0, 0, 2000, 2000)
-			}, completion: nil)
-	}
-	
-	func keyboardWillHide(notification: NSNotification) {
-		//        let info: NSDictionary = notification.userInfo!
-		//        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
-		//
-		//        let keyboardHeight: CGFloat = keyboardSize.height
-		//
-		//        let _: CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber as CGFloat
-		//
-		//        UIView.animateWithDuration(0.25, delay: 0.25, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
-		//            self.captionTextField.frame = CGRectMake(0, (self.view.frame.origin.y + keyboardHeight), self.captionTextField.bounds.width, self.captionTextField.bounds.height)
-		//            }, completion: nil)
-		//
-	}
-	
-	override func viewWillDisappear(animated: Bool) {
-		NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
-		NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
-	}
+    
+    func keyboardWillShow(notification: NSNotification){
+        if let userInfo = notification.userInfo {
+            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue()
+            let duration:NSTimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+            let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
+            let animationCurveRaw = animationCurveRawNSN?.unsignedLongValue ?? UIViewAnimationOptions.CurveEaseInOut.rawValue
+            let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
+            if endFrame?.origin.y >= UIScreen.mainScreen().bounds.size.height {
+                self.bottomConstraint?.constant = 111.0
+            } else {
+                self.bottomConstraint?.constant = endFrame?.size.height ?? 0.0
+            }
+            UIView.animateWithDuration(duration,
+                                       delay: NSTimeInterval(0),
+                                       options: animationCurve,
+                                       animations: { self.view.layoutIfNeeded() },
+                                       completion: nil)
+        }
+    }
+    
 	
 	func loadGIF(){
 		let imageView = FLAnimatedImageView()

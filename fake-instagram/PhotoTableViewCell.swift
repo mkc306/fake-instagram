@@ -46,20 +46,20 @@ class PhotoTableViewCell: UITableViewCell, AllPhotosViewControllerDelegate, Othe
 	}
 	
 	func allPhotosCellCommentButtonClicked() {
-		if let vc = self.window?.rootViewController as? AllPhotosViewController{
+		if let vc = self.allPhotosDelegate {
 			vc.performSegueWithIdentifier("Comments", sender: self.photoKey)
 		}
 	}
 	
 	
 	func UserProfileCellCommentButtonClicked() {
-		if let vc = self.window?.rootViewController as? UserProfileViewController{
+		if let vc = self.userPhotosDelegate {
 			vc.performSegueWithIdentifier("Comments", sender: self.photoKey)
 		}
 	}
 	
 	func OtherProfileCellCommentButtonClicked() {
-		if let vc = self.window?.rootViewController as? OtherProfileViewController{
+		if let vc = self.otherPhotosDelegate {
 			vc.performSegueWithIdentifier("Comments", sender: self.photoKey)
 		}
 	}
@@ -87,9 +87,9 @@ class PhotoTableViewCell: UITableViewCell, AllPhotosViewControllerDelegate, Othe
 	}
 	
 	@IBAction func onCommentButtonPress(sender: UIButton) {
-		allPhotosCellCommentButtonClicked()
-		OtherProfileCellCommentButtonClicked()
 		UserProfileCellCommentButtonClicked()
+        allPhotosCellCommentButtonClicked()
+        OtherProfileCellCommentButtonClicked()
 	}
 	
 	
