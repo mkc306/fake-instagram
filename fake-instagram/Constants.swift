@@ -8,6 +8,7 @@
 
 import Foundation
 import AlamofireImage
+import FLAnimatedImage
 
 let BASE_URL = "https://fake-instagram.firebaseio.com"
 
@@ -20,3 +21,6 @@ let imageDownloader = ImageDownloader(
     downloadPrioritization: .FIFO,
     maximumActiveDownloads: 4,
     imageCache: AutoPurgingImageCache())
+let PATH_OF_GIF = NSBundle.mainBundle().pathForResource("ezgif.com-crop", ofType: "gif")
+let DATA = NSFileManager.defaultManager().contentsAtPath(PATH_OF_GIF!)
+let GIF = FLAnimatedImage(animatedGIFData: DATA!)

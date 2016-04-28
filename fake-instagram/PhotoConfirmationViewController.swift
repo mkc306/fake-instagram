@@ -18,7 +18,6 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
 	let uid = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
 	let userRef = DataService.dataService.USER_REF
 	let photoRef = DataService.dataService.PHOTO_REF
-	var gif = FLAnimatedImage()
 	//    var frameView: UIView!
 	
 	
@@ -94,7 +93,9 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
 			if task.result != nil {
 				self.s3URL = NSURL(string: "http://s3.amazonaws.com/\(S3BucketName)/\(uploadRequest.key!)")!
 				print("Uploaded to:\n\(self.s3URL)")
-				self.performSegueWithIdentifier("UploadComplete", sender: nil)
+				NSOperationQueue.mainQueue().addOperationWithBlock({
+					self.performSegueWithIdentifier("UploadComplete", sender: nil)
+				})
 			}
 			else {
 				print("Unexpected empty result.")
@@ -172,22 +173,8 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
 	}
 	
 	func loadGIF(){
-		let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-		let managedContext = appDelegate.managedObjectContext
-		let fetchRequest = NSFetchRequest(entityName: "Image")
-		
-		do {
-			let fetchedResults = try managedContext.executeFetchRequest(fetchRequest)
-			if let results = fetchedResults as? [NSDictionary]{
-				if let data = results[0]["data"] as? NSData {
-					self.gif = FLAnimatedImage.init(animatedGIFData: data)
-				}
-			}
-		} catch let error as NSError {
-			print("Could not save \(error), \(error.userInfo) no such thing bro")
-		}
 		let imageView = FLAnimatedImageView()
-		imageView.animatedImage = self.gif
+		imageView.animatedImage = GIF
 		imageView.frame = self.view.frame
 		self.view.addSubview(imageView)
 	}

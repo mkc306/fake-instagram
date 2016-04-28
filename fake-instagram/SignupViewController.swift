@@ -15,7 +15,6 @@ class SignupViewController: UIViewController {
 	@IBOutlet weak var passwordTextField: UITextField!
 	@IBOutlet weak var usernameTextField: UITextField!
 	@IBOutlet weak var emailTextField: UITextField!
-	var gif = FLAnimatedImage()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -51,22 +50,8 @@ class SignupViewController: UIViewController {
 	}
 	
 	func loadGIF(){
-		let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-		let managedContext = appDelegate.managedObjectContext
-		let fetchRequest = NSFetchRequest(entityName: "Image")
-		
-		do {
-			let fetchedResults = try managedContext.executeFetchRequest(fetchRequest)
-			if let results = fetchedResults as? [NSDictionary]{
-				if let data = results[0]["data"] as? NSData {
-					self.gif = FLAnimatedImage.init(animatedGIFData: data)
-				}
-			}
-		} catch let error as NSError {
-			print("Could not save \(error), \(error.userInfo) no such thing bro")
-		}
 		let imageView = FLAnimatedImageView()
-		imageView.animatedImage = self.gif
+		imageView.animatedImage = GIF
 		imageView.frame = self.view.frame
 		self.view.addSubview(imageView)
 	}
