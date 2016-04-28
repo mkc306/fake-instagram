@@ -19,17 +19,21 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
 	let userRef = DataService.dataService.USER_REF
 	let photoRef = DataService.dataService.PHOTO_REF
 	var gif = FLAnimatedImage()
+
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
 
     @IBOutlet weak var textLabelConstraint: NSLayoutConstraint!
-
+	//    var frameView: UIView!
 	
 	@IBOutlet weak var imageView: UIImageView!
 	
 	
 	override func viewDidLoad() {
+		
+		
 		self.imageView.image = self.image
 		super.viewDidLoad()
+
          NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIKeyboardWillChangeFrameNotification, object: nil)
         
 //        dispatch_async(dispatch_get_main_queue()) {
@@ -39,13 +43,11 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
 //        self.frameView = UIView(frame: CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height))
         
 	}
-
+	
 	
 	@IBAction func onConfirmButtonPressed(sender: UIButton) {
-		let imageView = FLAnimatedImageView()
-		imageView.animatedImage = self.gif
-		imageView.frame = self.view.frame
-		self.view.addSubview(imageView)
+		loadGIF()
+		
 		saveImageLocallyS3Firebase(image)
 	}
 	
@@ -137,6 +139,26 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
         }
     }
     
-
-
+	
+	func loadGIF(){
+		let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+		let managedContext = appDelegate.managedObjectContext
+		let fetchRequest = NSFetchRequest(entityName: "Image")
+		
+		do {
+			let fetchedResults = try managedContext.executeFetchRequest(fetchRequest)
+			if let results = fetchedResults as? [NSDictionary]{
+				if let data = results[0]["data"] as? NSData {
+					self.gif = FLAnimatedImage.init(animatedGIFData: data)
+				}
+			}
+		} catch let error as NSError {
+			print("Could not save \(error), \(error.userInfo) no such thing bro")
+		}
+		let imageView = FLAnimatedImageView()
+		imageView.animatedImage = self.gif
+		imageView.frame = self.view.frame
+		self.view.addSubview(imageView)
+	}
+	
 }
