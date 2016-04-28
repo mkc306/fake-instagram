@@ -10,7 +10,7 @@ import UIKit
 
 class PhotoTableViewCell: UITableViewCell{
     @IBOutlet weak var addCommentButton: UIButton!
-
+    @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var photoView: UIImageView!
     @IBOutlet weak var CaptionLabel: UILabel!
     var photoKey = String()
@@ -45,13 +45,16 @@ class PhotoTableViewCell: UITableViewCell{
             let ref = DataService.dataService.PHOTO_REF.childByAppendingPath(self.photoKey).childByAppendingPath("likes").childByAppendingPath(userId)
             
             
+            
             ref.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
                 if snapshot.value is NSNull{
                     DataService.dataService.PHOTO_REF.childByAppendingPath(self.photoKey).childByAppendingPath("likes").updateChildValues([userId : true])
                     DataService.dataService.USER_REF.childByAppendingPath(userId).childByAppendingPath("liked").updateChildValues([self.photoKey : true])
+                    self.likeButton.setImage(UIImage(named:"like_button"), forState:UIControlState.Normal)
                 }else{
                     ref.removeValue()
                     DataService.dataService.USER_REF.childByAppendingPath("uid").childByAppendingPath("liked").removeValue()
+                      self.likeButton.setImage(UIImage(named:"liked_button"), forState:UIControlState.Normal)
                 }
             })
             
