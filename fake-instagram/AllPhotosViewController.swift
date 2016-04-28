@@ -10,7 +10,7 @@ import UIKit
 import AlamofireImage
 
 protocol AllPhotosViewControllerDelegate {
-	func allPhotosCellCommentButtonClicked()
+    func allPhotosCellCommentButtonClicked()
 }
 
 class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
@@ -23,8 +23,8 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        let currentUserId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String!
-        DataService.dataService.USER_REF.childByAppendingPath(currentUserId).childByAppendingPath("followingFeed").observeEventType(.ChildAdded, withBlock: {(snapshot) in
+        let currentUserId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String
+        DataService.dataService.USER_REF.childByAppendingPath(currentUserId!).childByAppendingPath("followingFeed").observeEventType(.ChildAdded, withBlock: {(snapshot) in
             DataService.dataService.PHOTO_REF.childByAppendingPath(snapshot.key).observeEventType(.Value , withBlock: {(snapshot3) -> Void in
                 if let valueDict = snapshot3.value as? [String:AnyObject] {
                     let photo = Photo(key: snapshot3.key, dict: valueDict)
@@ -57,28 +57,29 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
         cell?.photoView.image = image
         cell?.photoKey = photo.photoKey
         cell?.CaptionLabel.text = photo.caption
-				cell?.allPhotosDelegate = self
+        cell?.allPhotosDelegate = self
         
         return cell!
     }
-
-	
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		
-		
-		print("luls")
-	}
-
-
-
-/*
- // MARK: - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
- // Get the new view controller using segue.destinationViewController.
- // Pass the selected object to the new view controller.
- }
- */
-
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let destination = segue.destinationViewController as? CommentsViewController {
+            if let photoKey = sender as? String {
+                destination.photoKey = photoKey
+            }
+        }
+        
+    }
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

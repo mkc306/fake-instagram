@@ -10,7 +10,7 @@ import UIKit
 import AlamofireImage
 
 protocol UserProfileViewControllerDelegate {
-	func UserProfileCellCommentButtonClicked()
+    func UserProfileCellCommentButtonClicked()
 }
 
 
@@ -94,24 +94,28 @@ class UserProfileViewController: UIViewController, UITableViewDataSource,UITable
         cell?.photoView.image = myImages[indexPath.row]
         let photo = myPhotos[indexPath.row]
         cell?.CaptionLabel.text = photo.caption
-				cell?.userPhotosDelegate = self
+        cell?.userPhotosDelegate = self
+        cell?.photoKey = photo.photoKey
         return cell!
     }
-	
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		
-		print("lulzz")
-	}
     
-   
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let destination = segue.destinationViewController as? CommentsViewController {
+            if let photoKey = sender as? String {
+                destination.photoKey = photoKey
+            }
+        }
+    }
+    
+    
     @IBAction func onLogoutButtonPressed(sender: UIButton) {
-        var currentUserId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String!
-        DataService.dataService.USER_REF.childByAppendingPath(currentUserId).unauth()
+        let currentUserId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String
+        DataService.dataService.USER_REF.childByAppendingPath(currentUserId!).unauth()
         NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
         
     }
 }
-    
+
 
 
  

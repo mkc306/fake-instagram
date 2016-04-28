@@ -14,6 +14,7 @@ import UIKit
 import AlamofireImage
 
 class OtherProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
     @IBOutlet weak var profilePicView: UIImageView!
     @IBOutlet weak var followButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
