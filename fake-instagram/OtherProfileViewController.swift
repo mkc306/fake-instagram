@@ -6,8 +6,13 @@
 //  Copyright © 2016 Jeremy Ong. All rights reserved.
 //
 
+protocol OtherProfileViewControllerDelegate {
+	func OtherProfileCellCommentButtonClicked()
+}
+
 import UIKit
 import AlamofireImage
+
 class OtherProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var profilePicView: UIImageView!
     @IBOutlet weak var followButton: UIButton!
@@ -109,6 +114,7 @@ class OtherProfileViewController: UIViewController, UITableViewDelegate, UITable
         cell?.photoView.image = images[indexPath.row]
         cell?.CaptionLabel.text = photo.caption
         cell?.photoKey = photo.photoKey
+        cell?.otherPhotosDelegate = self
         return cell!
     }
     
@@ -152,6 +158,7 @@ class OtherProfileViewController: UIViewController, UITableViewDelegate, UITable
             self.followButton.backgroundColor = UIColor.clearColor()
         }
     }
+
 }
 
 
