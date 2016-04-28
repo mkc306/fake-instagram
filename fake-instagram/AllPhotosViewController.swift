@@ -9,6 +9,10 @@
 import UIKit
 import AlamofireImage
 
+protocol AllPhotosViewControllerDelegate {
+	func allPhotosCellCommentButtonClicked()
+}
+
 class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     var photos = [Photo]()
@@ -28,9 +32,6 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
                     var image = Image()
                     let URLRequest = NSURLRequest(URL: NSURL(string: photo.picURL)!)
                     downloader.downloadImage(URLRequest: URLRequest) { response in
-                        //                        print(response.request)
-                        //                        print(response.response)
-                        //                        debugPrint(response.result)
                         print("SUCCESSFULLY LOADED IMAGE")
                         if let thisImage = response.result.value{
                             let tempImage = thisImage
@@ -56,10 +57,17 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
         cell?.photoView.image = image
         cell?.photoKey = photo.photoKey
         cell?.CaptionLabel.text = photo.caption
+				cell?.allPhotosDelegate = self
         
         return cell!
     }
 
+	
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		
+		
+		print("luls")
+	}
 
 
 
