@@ -58,7 +58,7 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
 		}) { (success, error) in
 			if (success) {
 				writePath = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent("instagram.png")
-				let imageData = UIImagePNGRepresentation(image)
+				let imageData = UIImageJPEGRepresentation(image, 0.5)
 				imageData?.writeToURL(writePath, atomically: true)
 				self.uploadToS3(writePath)
 			}
@@ -125,9 +125,9 @@ class PhotoConfirmationUploadViewController: UIViewController, UITextFieldDelega
             let animationCurveRaw = animationCurveRawNSN?.unsignedLongValue ?? UIViewAnimationOptions.CurveEaseInOut.rawValue
             let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
             if endFrame?.origin.y >= UIScreen.mainScreen().bounds.size.height {
-                self.bottomConstraint?.constant = 111.0
+                self.bottomConstraint?.constant = 95.0
             } else {
-                self.bottomConstraint?.constant = endFrame?.size.height ?? 0.0
+                self.bottomConstraint?.constant = (endFrame?.size.height ?? 0.0) + 10.0
             }
             UIView.animateWithDuration(duration,
                                        delay: NSTimeInterval(0),

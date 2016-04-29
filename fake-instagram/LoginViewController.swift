@@ -9,7 +9,7 @@
 import UIKit
 import FLAnimatedImage
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 	
 	@IBOutlet weak var emailTextField: UITextField!
 	@IBOutlet weak var passwordTextField: UITextField!
@@ -21,6 +21,11 @@ class LoginViewController: UIViewController {
 				self.performSegueWithIdentifier("LoggedIn", sender: nil)
 			}
 		}
+	}
+	
+	func textFieldShouldReturn(textField: UITextField) -> Bool {
+		textField.resignFirstResponder()
+		return true
 	}
 	
 	@IBAction func OnLoginButtonPress(sender: UIButton) {
@@ -41,6 +46,10 @@ class LoginViewController: UIViewController {
 				alert.addAction(returnAction)
 				self.presentViewController(alert, animated: true, completion: nil)
 				print(error.description)
+				
+				self.passwordTextField.resignFirstResponder()
+				self.emailTextField.resignFirstResponder()
+				
 			}
 			
 		})
