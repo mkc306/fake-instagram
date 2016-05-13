@@ -233,7 +233,7 @@
 				TargetAttributes = {
 					3F4C325F1CC9CEF300E015CF = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = AR593R57FD;
+						DevelopmentTeam = 76HNYRHRM5;
 					};
 				};
 			};
@@ -471,7 +471,7 @@
 				INFOPLIST_FILE = "fake-instagram/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fake-instagram";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jeremy-ong.fake-instagram";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AWS-S3Bridge.h";
@@ -489,7 +489,7 @@
 				INFOPLIST_FILE = "fake-instagram/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fake-instagram";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jeremy-ong.fake-instagram";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AWS-S3Bridge.h";

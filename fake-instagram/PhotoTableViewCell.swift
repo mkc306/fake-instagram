@@ -21,12 +21,15 @@ class PhotoTableViewCell: UITableViewCell, AllPhotosViewControllerDelegate, Othe
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
+		let backgroundcolor = self.backgroundColor!
 		
 		let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.onLikeButtonPressed(_:)))
 		doubleTapGesture.numberOfTapsRequired = 2
 		self.photoView.addGestureRecognizer(doubleTapGesture)
 		self.photoView.userInteractionEnabled = true
-		
+		if self.highlighted {
+			self.backgroundColor = backgroundcolor
+		}
 		let tap = UITapGestureRecognizer.init(target: self, action: #selector(PhotoTableViewCell.segueToPhoto) )
 		tap.requireGestureRecognizerToFail(doubleTapGesture)
 		addGestureRecognizer(tap)
@@ -88,8 +91,8 @@ class PhotoTableViewCell: UITableViewCell, AllPhotosViewControllerDelegate, Othe
 	
 	@IBAction func onCommentButtonPress(sender: UIButton) {
 		UserProfileCellCommentButtonClicked()
-        allPhotosCellCommentButtonClicked()
-        OtherProfileCellCommentButtonClicked()
+		allPhotosCellCommentButtonClicked()
+		OtherProfileCellCommentButtonClicked()
 	}
 	
 	

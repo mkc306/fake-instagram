@@ -42,7 +42,7 @@ class ProfilePhotoConfirmationUploadViewController: UIViewController {
 		}) { (success, error) in
 			if (success) {
 				writePath = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent("instagram.png")
-				let imageData = UIImagePNGRepresentation(image)
+				let imageData = UIImageJPEGRepresentation(image, 0.5)
 				imageData?.writeToURL(writePath, atomically: true)
 				self.uploadToS3(writePath)
 			}

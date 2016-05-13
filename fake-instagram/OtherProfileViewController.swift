@@ -88,6 +88,10 @@ class OtherProfileViewController: UIViewController, UITableViewDelegate, UITable
 		DataService.dataService.USER_REF.childByAppendingPath(self.user.key).childByAppendingPath("photos").observeEventType(.ChildAdded, withBlock: {
 			(snapshot) in
 			DataService.dataService.PHOTO_REF.childByAppendingPath(snapshot.key).observeEventType(.Value , withBlock: { (snapshot) -> Void in
+				if let index = self.photos.indexOf({ $0.photoKey == snapshot.key }){
+					self.photos.removeAtIndex(index)
+					self.images.removeAtIndex(index)
+				}
 				if let valueDict = snapshot.value as? [String:AnyObject] {
 					let photo = Photo(key: snapshot.key, dict: valueDict)
 					self.photos.append(photo)

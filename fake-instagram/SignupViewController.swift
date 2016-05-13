@@ -44,6 +44,10 @@ class SignupViewController: UIViewController {
 					self.presentViewController(alert, animated: true, completion: nil)
 					print(error.description)
 					
+					self.emailTextField.resignFirstResponder()
+					self.passwordTextField.resignFirstResponder()
+					self.usernameTextField.resignFirstResponder()
+					
 				}
 			})
 		}
