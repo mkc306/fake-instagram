@@ -26,6 +26,11 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
 		let currentUserId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String
 		DataService.dataService.USER_REF.childByAppendingPath(currentUserId!).childByAppendingPath("followingFeed").observeEventType(.ChildAdded, withBlock: {(snapshot) in
 			DataService.dataService.PHOTO_REF.childByAppendingPath(snapshot.key).observeEventType(.Value , withBlock: {(snapshot3) -> Void in
+				if let index = self.photos.indexOf({ $0.photoKey == snapshot.key }){
+					self.photos.removeAtIndex(index)
+					self.images.removeAtIndex(index)
+				}
+				
 				if let valueDict = snapshot3.value as? [String:AnyObject] {
 					let photo = Photo(key: snapshot3.key, dict: valueDict)
 					let downloader = imageDownloader
@@ -36,9 +41,11 @@ class AllPhotosViewController: UIViewController, UITableViewDelegate, UITableVie
 						if let thisImage = response.result.value{
 							let tempImage = thisImage
 							image = tempImage.af_imageScaledToSize(thisImage.size)
-							self.images.append(image)
-							self.photos.append(photo)
-							self.tableView.reloadData()
+							
+								self.images.append(image)
+								self.photos.append(photo)
+								self.tableView.reloadData()
+//							}
 						}
 					}
 				}
